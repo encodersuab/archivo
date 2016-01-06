@@ -13,7 +13,7 @@
             dts.gCHNro = txtCHNro.Text
             dts.gMomentoContable = txtMomentoContable.Text
             dts.gPeriodoAdeudado = txtPeriodoAdeudado.Text
-            dts.gTipo = txtTipo.Text
+            dts.gNroPago = txtNroPago.Text
             dts.gDescripcionDeuda = txtDescripcionDeuda.Text
             dts.gFechaPago = dtpFechaPago.Value
             dts.gCCFechaPago = dtpCCFechaPago.Value
@@ -43,12 +43,12 @@
         txtFormularioNro.Text = ""
         txtBoleto.Text = ""
         txtNroTomo.Text = ""
-        txtGestion.Text = ""
+
         txtCCNro.Text = ""
         txtCHNro.Text = ""
         txtMomentoContable.Text = ""
         txtPeriodoAdeudado.Text = ""
-        txtTipo.Text = ""
+        txtNroPago.Text = ""
         txtDescripcionDeuda.Text = ""
 
         txtImporteAdeudado.Text = ""

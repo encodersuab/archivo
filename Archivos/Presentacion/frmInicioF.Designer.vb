@@ -66,7 +66,7 @@ Partial Class frmInicioF
         'StatusStrip
         '
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 543)
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 586)
         Me.StatusStrip.Name = "StatusStrip"
         Me.StatusStrip.Size = New System.Drawing.Size(1256, 22)
         Me.StatusStrip.TabIndex = 7
@@ -259,7 +259,7 @@ Partial Class frmInicioF
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1256, 565)
+        Me.ClientSize = New System.Drawing.Size(1256, 608)
         Me.ControlBox = False
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.MenuStrip)
@@ -272,6 +272,7 @@ Partial Class frmInicioF
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.Name = "frmInicioF"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = ".:Formulario Principal:."
         Me.StatusStrip.ResumeLayout(False)
         Me.StatusStrip.PerformLayout()

@@ -24,7 +24,7 @@
               <Width>2.07667cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.83313cm</Width>
+              <Width>1.12417cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.39417cm</Width>
@@ -281,7 +281,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Tipo</Value>
+                              <Value>Nro Pago</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -737,14 +737,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Tipo">
+                    <Textbox Name="NroPago">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Tipo.Value</Value>
+                              <Value>=Fields!NroPago.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -753,7 +753,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Tipo</rd:DefaultName>
+                      <rd:DefaultName>NroPago</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -1031,7 +1031,7 @@
         <Top>2.96016cm</Top>
         <Left>0.60854cm</Left>
         <Height>1.67625cm</Height>
-        <Width>27.38cm</Width>
+        <Width>27.67104cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1109,6 +1109,10 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="id">
+          <DataField>id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="FormularioNro">
           <DataField>FormularioNro</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -1141,8 +1145,8 @@
           <DataField>FechaPago</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="Tipo">
-          <DataField>Tipo</DataField>
+        <Field Name="NroPago">
+          <DataField>NroPago</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ImporteAdeudado">
@@ -1180,7 +1184,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>BDArchivosDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\soft\documents\visual studio 2013\Projects\Archivos\Archivos\BDArchivosDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\soft\Desktop\archivo\Archivos\BDArchivosDataSet.xsd</rd:SchemaPath>
         <rd:TableName>mostrar_registro_por_nombre_beneficiario</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

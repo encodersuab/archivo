@@ -14,7 +14,23 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:Archivos.BDArchivosDataSet.validar_usuario_idusuarioDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:Archivos.BDArchivosDataSet.mostrar_registroDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_nombre_beneficiarioDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_numero_chequeDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableDataTable">
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
@@ -26,18 +42,6 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
-</member><member name="T:Archivos.BDArchivosDataSet.validar_usuario_idusuarioDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_numero_chequeDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_nombre_beneficiarioDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
 </member><member name="T:Archivos.BDArchivosDataSet.TRegistroRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -46,7 +50,23 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:Archivos.BDArchivosDataSet.validar_usuario_idusuarioRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:Archivos.BDArchivosDataSet.mostrar_registroRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_nombre_beneficiarioRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_numero_chequeRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableRow">
 	<summary>
 Represents strongly named DataRow class.
 </summary>
@@ -58,18 +78,6 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
-</member><member name="T:Archivos.BDArchivosDataSet.validar_usuario_idusuarioRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_numero_chequeRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_nombre_beneficiarioRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
 </member><member name="T:Archivos.BDArchivosDataSet.TRegistroRowChangeEvent">
 	<summary>
 Row event argument class
@@ -78,7 +86,23 @@ Row event argument class
 	<summary>
 Row event argument class
 </summary>
+</member><member name="T:Archivos.BDArchivosDataSet.validar_usuario_idusuarioRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
 </member><member name="T:Archivos.BDArchivosDataSet.mostrar_registroRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_nombre_beneficiarioRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_numero_chequeRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -87,18 +111,6 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:Archivos.BDArchivosDataSet.validar_usuarioRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet.validar_usuario_idusuarioRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_numero_chequeRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_nombre_beneficiarioRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -114,7 +126,23 @@ Represents the connection and commands used to retrieve and save data.
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
+</member><member name="T:Archivos.BDArchivosDataSetTableAdapters.validar_usuario_idusuarioTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
 </member><member name="T:Archivos.BDArchivosDataSetTableAdapters.mostrar_registroTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Archivos.BDArchivosDataSetTableAdapters.mostrar_registro_por_nombre_beneficiarioTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Archivos.BDArchivosDataSetTableAdapters.mostrar_registro_por_numero_chequeTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Archivos.BDArchivosDataSetTableAdapters.mostrar_registro_por_tomo_momentocontableTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
@@ -123,18 +151,6 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:Archivos.BDArchivosDataSetTableAdapters.validar_usuarioTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSetTableAdapters.validar_usuario_idusuarioTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSetTableAdapters.mostrar_registro_por_numero_chequeTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSetTableAdapters.mostrar_registro_por_nombre_beneficiarioTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

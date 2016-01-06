@@ -187,9 +187,9 @@
       <DependentUpon>BDArchivosDataSet.xsd</DependentUpon>
     </None>
     <None Include="BDArchivosDataSet.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>BDArchivosDataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="BDArchivosDataSet.xss">
       <DependentUpon>BDArchivosDataSet.xsd</DependentUpon>

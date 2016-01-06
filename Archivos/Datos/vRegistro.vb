@@ -1,6 +1,6 @@
 ﻿Public Class vRegistro
     Dim id As Integer
-    Dim NroTomo, Gestion, CCNro, CHNro, NombreBeneficiario, MomentoContable, PeriodoAdeudado, Tipo, DescripcionDeuda, FormularioNro, Boleto As String
+    Dim NroTomo, Gestion, CCNro, CHNro, NombreBeneficiario, MomentoContable, PeriodoAdeudado, NroPago, DescripcionDeuda, FormularioNro, Boleto As String
     Dim FechaPago, CCFechaPago, CHFechaCobro As Date
     Dim ImporteAdeudado, CCImporteAdeudado, CHImporteCheque As Decimal
 
@@ -86,12 +86,12 @@
             PeriodoAdeudado = value
         End Set
     End Property
-    Public Property gTipo
+    Public Property gNroPago
         Get
-            Return Tipo
+            Return NroPago
         End Get
         Set(ByVal value)
-            Tipo = value
+            NroPago = value
         End Set
     End Property
     Public Property gDescripcionDeuda
@@ -157,7 +157,7 @@
 
     End Sub
 
-    Public Sub New(ByVal id As Integer, ByVal FormularioNro As String, ByVal Boleto As String, ByVal NroTomo As Integer, ByVal Gestion As Integer, ByVal CCNro As Integer, ByVal CHNro As Integer, ByVal NombreBeneficiario As String, ByVal MomentoContable As String, ByVal PeriodoAdeudado As String, ByVal Tipo As String, ByVal DescripcionDeuda As String,
+    Public Sub New(ByVal id As Integer, ByVal FormularioNro As String, ByVal Boleto As String, ByVal NroTomo As Integer, ByVal Gestion As Integer, ByVal CCNro As Integer, ByVal CHNro As Integer, ByVal NombreBeneficiario As String, ByVal MomentoContable As String, ByVal PeriodoAdeudado As String, ByVal NroPago As String, ByVal DescripcionDeuda As String,
                     ByVal FechaPago As Date, ByVal CCFechaPago As Date, ByVal CHFechaCobro As Date,
                     ByVal ImporteAdeudado As Decimal, ByVal CCImporteAdeudado As Decimal, ByVal CHImporteCheque As Decimal)
 
@@ -171,7 +171,7 @@
         gNombreBeneficiario = NombreBeneficiario
         gMomentoContable = MomentoContable
         gPeriodoAdeudado = PeriodoAdeudado
-        gTipo = Tipo
+        gNroPago = NroPago
         gDescripcionDeuda = DescripcionDeuda
         gFechaPago = FechaPago
         gCCFechaPago = CCFechaPago

@@ -79,7 +79,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Tipo</Value>
+                              <Value>NroPago</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -101,6 +101,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -376,14 +377,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Tipo">
+                    <Textbox Name="NroPago">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Tipo.Value</Value>
+                              <Value>=Fields!NroPago.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -392,7 +393,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Tipo</rd:DefaultName>
+                      <rd:DefaultName>NroPago</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -1274,8 +1275,8 @@
           <DataField>FechaPago</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="Tipo">
-          <DataField>Tipo</DataField>
+        <Field Name="NroPago">
+          <DataField>NroPago</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ImporteAdeudado">
@@ -1313,7 +1314,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>BDArchivosDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\soft\documents\visual studio 2013\Projects\Archivos\Archivos\BDArchivosDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\soft\Desktop\archivo\Archivos\BDArchivosDataSet.xsd</rd:SchemaPath>
         <rd:TableName>mostrar_registro_por_numero_cheque</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

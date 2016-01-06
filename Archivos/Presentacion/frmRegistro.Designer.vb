@@ -34,10 +34,9 @@ Partial Class frmRegistro
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtMomentoContable = New System.Windows.Forms.ComboBox()
         Me.txtNroTomo = New System.Windows.Forms.TextBox()
-        Me.txtGestion = New System.Windows.Forms.ComboBox()
         Me.txtPeriodoAdeudado = New System.Windows.Forms.ComboBox()
         Me.dtpFechaPago = New System.Windows.Forms.DateTimePicker()
-        Me.txtTipo = New System.Windows.Forms.TextBox()
+        Me.txtNroPago = New System.Windows.Forms.TextBox()
         Me.txtImporteAdeudado = New System.Windows.Forms.TextBox()
         Me.txtDescripcionDeuda = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -62,15 +61,19 @@ Partial Class frmRegistro
         Me.txtFormularioNro = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.txtGestion = New System.Windows.Forms.NumericUpDown()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        CType(Me.txtGestion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 35)
+        Me.Label1.Location = New System.Drawing.Point(3, 28)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(96, 13)
         Me.Label1.TabIndex = 0
@@ -79,7 +82,7 @@ Partial Class frmRegistro
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(140, 35)
+        Me.Label2.Location = New System.Drawing.Point(9, 29)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(54, 13)
         Me.Label2.TabIndex = 1
@@ -88,7 +91,7 @@ Partial Class frmRegistro
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(211, 35)
+        Me.Label3.Location = New System.Drawing.Point(80, 29)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(43, 13)
         Me.Label3.TabIndex = 2
@@ -97,7 +100,7 @@ Partial Class frmRegistro
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(286, 35)
+        Me.Label4.Location = New System.Drawing.Point(9, 96)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(95, 13)
         Me.Label4.TabIndex = 3
@@ -106,7 +109,7 @@ Partial Class frmRegistro
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(387, 35)
+        Me.Label5.Location = New System.Drawing.Point(110, 96)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(80, 13)
         Me.Label5.TabIndex = 4
@@ -115,16 +118,16 @@ Partial Class frmRegistro
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(492, 35)
+        Me.Label6.Location = New System.Drawing.Point(208, 96)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(28, 13)
+        Me.Label6.Size = New System.Drawing.Size(67, 13)
         Me.Label6.TabIndex = 5
-        Me.Label6.Text = "Tipo"
+        Me.Label6.Text = "Nro de Pago"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(544, 35)
+        Me.Label7.Location = New System.Drawing.Point(143, 29)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(94, 13)
         Me.Label7.TabIndex = 6
@@ -133,7 +136,7 @@ Partial Class frmRegistro
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(644, 35)
+        Me.Label8.Location = New System.Drawing.Point(312, 147)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(122, 13)
         Me.Label8.TabIndex = 7
@@ -142,7 +145,7 @@ Partial Class frmRegistro
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(16, 28)
+        Me.Label10.Location = New System.Drawing.Point(130, 28)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(27, 13)
         Me.Label10.TabIndex = 9
@@ -153,34 +156,25 @@ Partial Class frmRegistro
         Me.txtMomentoContable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.txtMomentoContable.FormattingEnabled = True
         Me.txtMomentoContable.Items.AddRange(New Object() {"PREVENTIVO", "DEVENGADO"})
-        Me.txtMomentoContable.Location = New System.Drawing.Point(12, 66)
+        Me.txtMomentoContable.Location = New System.Drawing.Point(6, 57)
         Me.txtMomentoContable.Name = "txtMomentoContable"
         Me.txtMomentoContable.Size = New System.Drawing.Size(121, 21)
         Me.txtMomentoContable.TabIndex = 12
         '
         'txtNroTomo
         '
-        Me.txtNroTomo.Location = New System.Drawing.Point(143, 66)
+        Me.txtNroTomo.Location = New System.Drawing.Point(12, 60)
         Me.txtNroTomo.MaxLength = 5
         Me.txtNroTomo.Name = "txtNroTomo"
         Me.txtNroTomo.Size = New System.Drawing.Size(51, 20)
         Me.txtNroTomo.TabIndex = 13
-        '
-        'txtGestion
-        '
-        Me.txtGestion.FormattingEnabled = True
-        Me.txtGestion.Items.AddRange(New Object() {"2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"})
-        Me.txtGestion.Location = New System.Drawing.Point(200, 66)
-        Me.txtGestion.Name = "txtGestion"
-        Me.txtGestion.Size = New System.Drawing.Size(67, 21)
-        Me.txtGestion.TabIndex = 14
         '
         'txtPeriodoAdeudado
         '
         Me.txtPeriodoAdeudado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.txtPeriodoAdeudado.FormattingEnabled = True
         Me.txtPeriodoAdeudado.Items.AddRange(New Object() {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"})
-        Me.txtPeriodoAdeudado.Location = New System.Drawing.Point(289, 66)
+        Me.txtPeriodoAdeudado.Location = New System.Drawing.Point(12, 127)
         Me.txtPeriodoAdeudado.Name = "txtPeriodoAdeudado"
         Me.txtPeriodoAdeudado.Size = New System.Drawing.Size(92, 21)
         Me.txtPeriodoAdeudado.TabIndex = 15
@@ -188,22 +182,22 @@ Partial Class frmRegistro
         'dtpFechaPago
         '
         Me.dtpFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaPago.Location = New System.Drawing.Point(390, 65)
+        Me.dtpFechaPago.Location = New System.Drawing.Point(113, 126)
         Me.dtpFechaPago.Name = "dtpFechaPago"
         Me.dtpFechaPago.Size = New System.Drawing.Size(83, 20)
         Me.dtpFechaPago.TabIndex = 16
         '
-        'txtTipo
+        'txtNroPago
         '
-        Me.txtTipo.Location = New System.Drawing.Point(479, 65)
-        Me.txtTipo.MaxLength = 5
-        Me.txtTipo.Name = "txtTipo"
-        Me.txtTipo.Size = New System.Drawing.Size(51, 20)
-        Me.txtTipo.TabIndex = 17
+        Me.txtNroPago.Location = New System.Drawing.Point(214, 126)
+        Me.txtNroPago.MaxLength = 5
+        Me.txtNroPago.Name = "txtNroPago"
+        Me.txtNroPago.Size = New System.Drawing.Size(51, 20)
+        Me.txtNroPago.TabIndex = 17
         '
         'txtImporteAdeudado
         '
-        Me.txtImporteAdeudado.Location = New System.Drawing.Point(547, 65)
+        Me.txtImporteAdeudado.Location = New System.Drawing.Point(146, 59)
         Me.txtImporteAdeudado.MaxLength = 10
         Me.txtImporteAdeudado.Name = "txtImporteAdeudado"
         Me.txtImporteAdeudado.Size = New System.Drawing.Size(91, 20)
@@ -212,7 +206,7 @@ Partial Class frmRegistro
         'txtDescripcionDeuda
         '
         Me.txtDescripcionDeuda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtDescripcionDeuda.Location = New System.Drawing.Point(644, 65)
+        Me.txtDescripcionDeuda.Location = New System.Drawing.Point(312, 177)
         Me.txtDescripcionDeuda.MaxLength = 10000
         Me.txtDescripcionDeuda.Multiline = True
         Me.txtDescripcionDeuda.Name = "txtDescripcionDeuda"
@@ -228,16 +222,18 @@ Partial Class frmRegistro
         Me.GroupBox1.Controls.Add(Me.txtCCNro)
         Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Location = New System.Drawing.Point(15, 112)
+        Me.GroupBox1.Controls.Add(Me.txtMomentoContable)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 23)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(288, 90)
+        Me.GroupBox1.Size = New System.Drawing.Size(393, 90)
         Me.GroupBox1.TabIndex = 20
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "COMPROBANTE DE CONTABILIDAD"
         '
         'txtCCImporteAdeudado
         '
-        Me.txtCCImporteAdeudado.Location = New System.Drawing.Point(185, 58)
+        Me.txtCCImporteAdeudado.Location = New System.Drawing.Point(271, 57)
         Me.txtCCImporteAdeudado.MaxLength = 10
         Me.txtCCImporteAdeudado.Name = "txtCCImporteAdeudado"
         Me.txtCCImporteAdeudado.Size = New System.Drawing.Size(91, 20)
@@ -246,7 +242,7 @@ Partial Class frmRegistro
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(182, 28)
+        Me.Label14.Location = New System.Drawing.Point(268, 28)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(94, 13)
         Me.Label14.TabIndex = 23
@@ -255,23 +251,23 @@ Partial Class frmRegistro
         'dtpCCFechaPago
         '
         Me.dtpCCFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpCCFechaPago.Location = New System.Drawing.Point(86, 58)
+        Me.dtpCCFechaPago.Location = New System.Drawing.Point(182, 57)
         Me.dtpCCFechaPago.Name = "dtpCCFechaPago"
         Me.dtpCCFechaPago.Size = New System.Drawing.Size(83, 20)
         Me.dtpCCFechaPago.TabIndex = 22
         '
         'txtCCNro
         '
-        Me.txtCCNro.Location = New System.Drawing.Point(19, 58)
+        Me.txtCCNro.Location = New System.Drawing.Point(133, 57)
         Me.txtCCNro.MaxLength = 5
         Me.txtCCNro.Name = "txtCCNro"
-        Me.txtCCNro.Size = New System.Drawing.Size(51, 20)
+        Me.txtCCNro.Size = New System.Drawing.Size(43, 20)
         Me.txtCCNro.TabIndex = 21
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(83, 28)
+        Me.Label13.Location = New System.Drawing.Point(179, 28)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(80, 13)
         Me.Label13.TabIndex = 21
@@ -287,9 +283,9 @@ Partial Class frmRegistro
         Me.GroupBox2.Controls.Add(Me.txtCHNro)
         Me.GroupBox2.Controls.Add(Me.Label16)
         Me.GroupBox2.Controls.Add(Me.Label17)
-        Me.GroupBox2.Location = New System.Drawing.Point(324, 112)
+        Me.GroupBox2.Location = New System.Drawing.Point(18, 314)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(288, 162)
+        Me.GroupBox2.Size = New System.Drawing.Size(552, 91)
         Me.GroupBox2.TabIndex = 25
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "CHEQUE"
@@ -297,7 +293,7 @@ Partial Class frmRegistro
         'txtNombreBeneficiario
         '
         Me.txtNombreBeneficiario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtNombreBeneficiario.Location = New System.Drawing.Point(19, 126)
+        Me.txtNombreBeneficiario.Location = New System.Drawing.Point(290, 52)
         Me.txtNombreBeneficiario.Name = "txtNombreBeneficiario"
         Me.txtNombreBeneficiario.Size = New System.Drawing.Size(254, 20)
         Me.txtNombreBeneficiario.TabIndex = 26
@@ -305,7 +301,7 @@ Partial Class frmRegistro
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(16, 94)
+        Me.Label9.Location = New System.Drawing.Point(287, 30)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(124, 13)
         Me.Label9.TabIndex = 25
@@ -313,7 +309,7 @@ Partial Class frmRegistro
         '
         'txtCHImporteCheque
         '
-        Me.txtCHImporteCheque.Location = New System.Drawing.Point(185, 58)
+        Me.txtCHImporteCheque.Location = New System.Drawing.Point(185, 52)
         Me.txtCHImporteCheque.MaxLength = 10
         Me.txtCHImporteCheque.Name = "txtCHImporteCheque"
         Me.txtCHImporteCheque.Size = New System.Drawing.Size(91, 20)
@@ -322,7 +318,7 @@ Partial Class frmRegistro
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(182, 28)
+        Me.Label15.Location = New System.Drawing.Point(182, 30)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(99, 13)
         Me.Label15.TabIndex = 23
@@ -331,14 +327,14 @@ Partial Class frmRegistro
         'dtpCHFechaCobro
         '
         Me.dtpCHFechaCobro.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpCHFechaCobro.Location = New System.Drawing.Point(86, 58)
+        Me.dtpCHFechaCobro.Location = New System.Drawing.Point(86, 52)
         Me.dtpCHFechaCobro.Name = "dtpCHFechaCobro"
         Me.dtpCHFechaCobro.Size = New System.Drawing.Size(83, 20)
         Me.dtpCHFechaCobro.TabIndex = 22
         '
         'txtCHNro
         '
-        Me.txtCHNro.Location = New System.Drawing.Point(19, 58)
+        Me.txtCHNro.Location = New System.Drawing.Point(19, 52)
         Me.txtCHNro.MaxLength = 5
         Me.txtCHNro.Name = "txtCHNro"
         Me.txtCHNro.Size = New System.Drawing.Size(51, 20)
@@ -347,7 +343,7 @@ Partial Class frmRegistro
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(83, 28)
+        Me.Label16.Location = New System.Drawing.Point(83, 30)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(83, 13)
         Me.Label16.TabIndex = 21
@@ -356,7 +352,7 @@ Partial Class frmRegistro
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(16, 28)
+        Me.Label17.Location = New System.Drawing.Point(16, 30)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(27, 13)
         Me.Label17.TabIndex = 9
@@ -364,7 +360,7 @@ Partial Class frmRegistro
         '
         'btnGuardar
         '
-        Me.btnGuardar.Location = New System.Drawing.Point(647, 218)
+        Me.btnGuardar.Location = New System.Drawing.Point(373, 420)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(103, 56)
         Me.btnGuardar.TabIndex = 26
@@ -373,7 +369,7 @@ Partial Class frmRegistro
         '
         'btnVolver
         '
-        Me.btnVolver.Location = New System.Drawing.Point(779, 218)
+        Me.btnVolver.Location = New System.Drawing.Point(39, 420)
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.Size = New System.Drawing.Size(102, 56)
         Me.btnVolver.TabIndex = 29
@@ -386,33 +382,33 @@ Partial Class frmRegistro
         Me.GroupBox3.Controls.Add(Me.txtFormularioNro)
         Me.GroupBox3.Controls.Add(Me.Label12)
         Me.GroupBox3.Controls.Add(Me.Label11)
-        Me.GroupBox3.Location = New System.Drawing.Point(15, 206)
+        Me.GroupBox3.Location = New System.Drawing.Point(422, 23)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(288, 68)
+        Me.GroupBox3.Size = New System.Drawing.Size(127, 90)
         Me.GroupBox3.TabIndex = 30
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Formulario"
         '
         'txtBoleto
         '
-        Me.txtBoleto.Location = New System.Drawing.Point(153, 32)
+        Me.txtBoleto.Location = New System.Drawing.Point(62, 57)
         Me.txtBoleto.MaxLength = 5
         Me.txtBoleto.Name = "txtBoleto"
-        Me.txtBoleto.Size = New System.Drawing.Size(99, 20)
+        Me.txtBoleto.Size = New System.Drawing.Size(57, 20)
         Me.txtBoleto.TabIndex = 32
         '
         'txtFormularioNro
         '
-        Me.txtFormularioNro.Location = New System.Drawing.Point(19, 32)
+        Me.txtFormularioNro.Location = New System.Drawing.Point(6, 57)
         Me.txtFormularioNro.MaxLength = 5
         Me.txtFormularioNro.Name = "txtFormularioNro"
-        Me.txtFormularioNro.Size = New System.Drawing.Size(99, 20)
+        Me.txtFormularioNro.Size = New System.Drawing.Size(50, 20)
         Me.txtFormularioNro.TabIndex = 31
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(150, 16)
+        Me.Label12.Location = New System.Drawing.Point(59, 28)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(37, 13)
         Me.Label12.TabIndex = 28
@@ -421,38 +417,55 @@ Partial Class frmRegistro
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(16, 16)
+        Me.Label11.Location = New System.Drawing.Point(3, 28)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(24, 13)
         Me.Label11.TabIndex = 27
         Me.Label11.Text = "Nro"
         '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.txtGestion)
+        Me.GroupBox4.Controls.Add(Me.txtImporteAdeudado)
+        Me.GroupBox4.Controls.Add(Me.Label2)
+        Me.GroupBox4.Controls.Add(Me.Label3)
+        Me.GroupBox4.Controls.Add(Me.Label4)
+        Me.GroupBox4.Controls.Add(Me.Label5)
+        Me.GroupBox4.Controls.Add(Me.Label6)
+        Me.GroupBox4.Controls.Add(Me.Label7)
+        Me.GroupBox4.Controls.Add(Me.txtNroTomo)
+        Me.GroupBox4.Controls.Add(Me.txtNroPago)
+        Me.GroupBox4.Controls.Add(Me.dtpFechaPago)
+        Me.GroupBox4.Controls.Add(Me.txtPeriodoAdeudado)
+        Me.GroupBox4.Location = New System.Drawing.Point(18, 147)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(288, 161)
+        Me.GroupBox4.TabIndex = 31
+        Me.GroupBox4.TabStop = False
+        '
+        'txtGestion
+        '
+        Me.txtGestion.Location = New System.Drawing.Point(70, 59)
+        Me.txtGestion.Maximum = New Decimal(New Integer() {2100, 0, 0, 0})
+        Me.txtGestion.Minimum = New Decimal(New Integer() {1900, 0, 0, 0})
+        Me.txtGestion.Name = "txtGestion"
+        Me.txtGestion.Size = New System.Drawing.Size(70, 20)
+        Me.txtGestion.TabIndex = 32
+        Me.txtGestion.Value = New Decimal(New Integer() {2015, 0, 0, 0})
+        '
         'frmRegistro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(901, 289)
+        Me.ClientSize = New System.Drawing.Size(607, 488)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.txtDescripcionDeuda)
-        Me.Controls.Add(Me.txtImporteAdeudado)
-        Me.Controls.Add(Me.txtTipo)
-        Me.Controls.Add(Me.dtpFechaPago)
-        Me.Controls.Add(Me.txtPeriodoAdeudado)
-        Me.Controls.Add(Me.txtGestion)
-        Me.Controls.Add(Me.txtNroTomo)
-        Me.Controls.Add(Me.txtMomentoContable)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
@@ -464,6 +477,9 @@ Partial Class frmRegistro
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        CType(Me.txtGestion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -479,10 +495,9 @@ Partial Class frmRegistro
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents txtMomentoContable As System.Windows.Forms.ComboBox
     Friend WithEvents txtNroTomo As System.Windows.Forms.TextBox
-    Friend WithEvents txtGestion As System.Windows.Forms.ComboBox
     Friend WithEvents txtPeriodoAdeudado As System.Windows.Forms.ComboBox
     Friend WithEvents dtpFechaPago As System.Windows.Forms.DateTimePicker
-    Friend WithEvents txtTipo As System.Windows.Forms.TextBox
+    Friend WithEvents txtNroPago As System.Windows.Forms.TextBox
     Friend WithEvents txtImporteAdeudado As System.Windows.Forms.TextBox
     Friend WithEvents txtDescripcionDeuda As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
@@ -507,4 +522,6 @@ Partial Class frmRegistro
     Friend WithEvents txtBoleto As System.Windows.Forms.TextBox
     Friend WithEvents txtFormularioNro As System.Windows.Forms.TextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
+    Friend WithEvents txtGestion As System.Windows.Forms.NumericUpDown
 End Class

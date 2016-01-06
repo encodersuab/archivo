@@ -103,7 +103,7 @@
                 dts.gCHNro = txtCHNro.Text
                 dts.gMomentoContable = txtMomentoContable.Text
                 dts.gPeriodoAdeudado = txtPeriodoAdeudado.Text
-                dts.gTipo = txtTipo.Text
+                dts.gNroPago = txtNroPago.Text
                 dts.gDescripcionDeuda = txtDescripcionDeuda.Text
                 dts.gFechaPago = dtpFechaPago.Value
                 dts.gCCFechaPago = dtpCCFechaPago.Value
@@ -154,7 +154,7 @@
         txtGestion.Text = datalistado.SelectedCells.Item(6).Value
         txtPeriodoAdeudado.Text = datalistado.SelectedCells.Item(7).Value
         dtpFechaPago.Text = datalistado.SelectedCells.Item(8).Value
-        txtTipo.Text = datalistado.SelectedCells.Item(9).Value
+        txtNroPago.Text = datalistado.SelectedCells.Item(9).Value
         txtImporteAdeudado.Text = datalistado.SelectedCells.Item(10).Value
         txtDescripcionDeuda.Text = datalistado.SelectedCells.Item(11).Value
         txtCCNro.Text = datalistado.SelectedCells.Item(12).Value

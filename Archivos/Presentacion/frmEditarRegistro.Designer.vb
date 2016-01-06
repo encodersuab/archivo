@@ -62,19 +62,19 @@ Partial Class frmEditarRegistro
         Me.txtCCNro = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtTipo = New System.Windows.Forms.TextBox()
+        Me.txtNroPago = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtGestion = New System.Windows.Forms.ComboBox()
         Me.dtpFechaPago = New System.Windows.Forms.DateTimePicker()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtPeriodoAdeudado = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtId = New System.Windows.Forms.TextBox()
         Me.TRegistroTableAdapter = New Archivos.BDArchivosDataSetTableAdapters.TRegistroTableAdapter()
         Me.BDArchivosDataSet1 = New Archivos.BDArchivosDataSet()
         Me.MostrarregistroBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Mostrar_registroTableAdapter = New Archivos.BDArchivosDataSetTableAdapters.mostrar_registroTableAdapter()
+        Me.txtPeriodoAdeudado = New System.Windows.Forms.ComboBox()
+        Me.txtGestion = New System.Windows.Forms.NumericUpDown()
         CType(Me.erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TRegistroBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,6 +85,7 @@ Partial Class frmEditarRegistro
         Me.GroupBox4.SuspendLayout()
         CType(Me.BDArchivosDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MostrarregistroBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtGestion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'erroricono
@@ -151,6 +152,7 @@ Partial Class frmEditarRegistro
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.txtGestion)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.txtBoleto)
         Me.GroupBox1.Controls.Add(Me.Label2)
@@ -166,9 +168,8 @@ Partial Class frmEditarRegistro
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.Label18)
         Me.GroupBox1.Controls.Add(Me.GroupBox4)
-        Me.GroupBox1.Controls.Add(Me.txtTipo)
+        Me.GroupBox1.Controls.Add(Me.txtNroPago)
         Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.txtGestion)
         Me.GroupBox1.Controls.Add(Me.dtpFechaPago)
         Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.Label9)
@@ -447,13 +448,13 @@ Partial Class frmEditarRegistro
         Me.Label10.TabIndex = 9
         Me.Label10.Text = "Nro "
         '
-        'txtTipo
+        'txtNroPago
         '
-        Me.txtTipo.Location = New System.Drawing.Point(126, 161)
-        Me.txtTipo.MaxLength = 5
-        Me.txtTipo.Name = "txtTipo"
-        Me.txtTipo.Size = New System.Drawing.Size(51, 20)
-        Me.txtTipo.TabIndex = 43
+        Me.txtNroPago.Location = New System.Drawing.Point(126, 161)
+        Me.txtNroPago.MaxLength = 5
+        Me.txtNroPago.Name = "txtNroPago"
+        Me.txtNroPago.Size = New System.Drawing.Size(51, 20)
+        Me.txtNroPago.TabIndex = 43
         '
         'Label7
         '
@@ -463,15 +464,6 @@ Partial Class frmEditarRegistro
         Me.Label7.Size = New System.Drawing.Size(94, 13)
         Me.Label7.TabIndex = 36
         Me.Label7.Text = "Importe Adeudado"
-        '
-        'txtGestion
-        '
-        Me.txtGestion.FormattingEnabled = True
-        Me.txtGestion.Items.AddRange(New Object() {"2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"})
-        Me.txtGestion.Location = New System.Drawing.Point(126, 76)
-        Me.txtGestion.Name = "txtGestion"
-        Me.txtGestion.Size = New System.Drawing.Size(67, 21)
-        Me.txtGestion.TabIndex = 40
         '
         'dtpFechaPago
         '
@@ -493,21 +485,11 @@ Partial Class frmEditarRegistro
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(67, 169)
+        Me.Label9.Location = New System.Drawing.Point(15, 164)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(28, 13)
+        Me.Label9.Size = New System.Drawing.Size(87, 13)
         Me.Label9.TabIndex = 35
-        Me.Label9.Text = "Tipo"
-        '
-        'txtPeriodoAdeudado
-        '
-        Me.txtPeriodoAdeudado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.txtPeriodoAdeudado.FormattingEnabled = True
-        Me.txtPeriodoAdeudado.Items.AddRange(New Object() {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"})
-        Me.txtPeriodoAdeudado.Location = New System.Drawing.Point(126, 103)
-        Me.txtPeriodoAdeudado.Name = "txtPeriodoAdeudado"
-        Me.txtPeriodoAdeudado.Size = New System.Drawing.Size(92, 21)
-        Me.txtPeriodoAdeudado.TabIndex = 41
+        Me.Label9.Text = "Numero de Pago"
         '
         'Label11
         '
@@ -540,6 +522,26 @@ Partial Class frmEditarRegistro
         '
         Me.Mostrar_registroTableAdapter.ClearBeforeFill = True
         '
+        'txtPeriodoAdeudado
+        '
+        Me.txtPeriodoAdeudado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.txtPeriodoAdeudado.FormattingEnabled = True
+        Me.txtPeriodoAdeudado.Items.AddRange(New Object() {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"})
+        Me.txtPeriodoAdeudado.Location = New System.Drawing.Point(126, 103)
+        Me.txtPeriodoAdeudado.Name = "txtPeriodoAdeudado"
+        Me.txtPeriodoAdeudado.Size = New System.Drawing.Size(92, 21)
+        Me.txtPeriodoAdeudado.TabIndex = 41
+        '
+        'txtGestion
+        '
+        Me.txtGestion.Location = New System.Drawing.Point(126, 75)
+        Me.txtGestion.Maximum = New Decimal(New Integer() {2100, 0, 0, 0})
+        Me.txtGestion.Minimum = New Decimal(New Integer() {1900, 0, 0, 0})
+        Me.txtGestion.Name = "txtGestion"
+        Me.txtGestion.Size = New System.Drawing.Size(92, 20)
+        Me.txtGestion.TabIndex = 52
+        Me.txtGestion.Value = New Decimal(New Integer() {2015, 0, 0, 0})
+        '
         'frmEditarRegistro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -568,6 +570,7 @@ Partial Class frmEditarRegistro
         Me.GroupBox4.PerformLayout()
         CType(Me.BDArchivosDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MostrarregistroBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtGestion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -604,13 +607,11 @@ Partial Class frmEditarRegistro
     Friend WithEvents txtCCNro As System.Windows.Forms.TextBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents txtTipo As System.Windows.Forms.TextBox
+    Friend WithEvents txtNroPago As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents txtGestion As System.Windows.Forms.ComboBox
     Friend WithEvents dtpFechaPago As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents txtPeriodoAdeudado As System.Windows.Forms.ComboBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents btnEditar As System.Windows.Forms.Button
     Friend WithEvents Inexistente As System.Windows.Forms.LinkLabel
@@ -623,4 +624,6 @@ Partial Class frmEditarRegistro
     Friend WithEvents txtBoleto As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtFormularioNro As System.Windows.Forms.TextBox
+    Friend WithEvents txtGestion As System.Windows.Forms.NumericUpDown
+    Friend WithEvents txtPeriodoAdeudado As System.Windows.Forms.ComboBox
 End Class

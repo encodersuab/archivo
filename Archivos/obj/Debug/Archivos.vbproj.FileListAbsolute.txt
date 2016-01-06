@@ -18,3 +18,23 @@ C:\Users\soft\documents\visual studio 2013\Projects\Archivos\Archivos\obj\Debug\
 C:\Users\soft\documents\visual studio 2013\Projects\Archivos\Archivos\obj\Debug\RdlCompile.compiled
 C:\Users\soft\documents\visual studio 2013\Projects\Archivos\Archivos\obj\Debug\Archivos.frmReportePorNombreBeneficiario.resources
 C:\Users\soft\documents\visual studio 2013\Projects\Archivos\Archivos\obj\Debug\Archivos.frmReporte.resources
+C:\Users\soft\Desktop\archivo\Archivos\bin\Debug\Archivos.exe.config
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.exe
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.xml
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.pdb
+C:\Users\soft\Desktop\archivo\Archivos\bin\Debug\Archivos.exe
+C:\Users\soft\Desktop\archivo\Archivos\bin\Debug\Archivos.pdb
+C:\Users\soft\Desktop\archivo\Archivos\bin\Debug\Archivos.xml
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.vbprojResolveAssemblyReference.cache
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmEditarRegistro.resources
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmInicioF.resources
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmLogin.resources
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmRegistro.resources
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmReporte.resources
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmUsuario.resources
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.Resources.resources
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmReportePorNombreBeneficiario.resources
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmReportePorNroCheque.resources
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.vbproj.GenerateResource.Cache
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\RdlCompile.cache
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\RdlCompile.compiled
