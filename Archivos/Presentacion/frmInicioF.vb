@@ -211,4 +211,13 @@ Public Class frmInicioF
         End
 
     End Sub
+
+    Private Sub ReportePorTomoYMomentoContableToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportePorTomoYMomentoContableToolStripMenuItem.Click
+        frmReportePorTomoMomento.MdiParent = Me
+        frmReportePorTomoMomento.Show()
+    End Sub
+
+    Private Sub SalirToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem1.Click
+        End
+    End Sub
 End Class

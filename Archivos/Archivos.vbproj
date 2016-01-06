@@ -147,6 +147,12 @@
     <Compile Include="Reportes\frmReportePorNroCheque.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\frmReportePorTomoMomento.Designer.vb">
+      <DependentUpon>frmReportePorTomoMomento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportePorTomoMomento.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Presentacion\frmEditarRegistro.resx">
@@ -179,7 +185,11 @@
     <EmbeddedResource Include="Reportes\frmReportePorNroCheque.resx">
       <DependentUpon>frmReportePorNroCheque.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportePorTomoMomento.resx">
+      <DependentUpon>frmReportePorTomoMomento.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptReportePorNroCheque.rdlc" />
+    <EmbeddedResource Include="Reportes\rptReportePorTomoMomento.rdlc" />
     <EmbeddedResource Include="Reportes\rptReportepórNombreCliente.rdlc" />
   </ItemGroup>
   <ItemGroup>

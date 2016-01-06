@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.58479cm</Width>
+              <Width>3.39958cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.94437cm</Width>
+              <Width>1.46812cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.30937cm</Width>
@@ -24,28 +24,28 @@
               <Width>2.07667cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.12417cm</Width>
+              <Width>1.07125cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.39417cm</Width>
+              <Width>1.94438cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.49458cm</Width>
+              <Width>1.28291cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.12958cm</Width>
+              <Width>2.05021cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.31479cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.23cm</Width>
+              <Width>1.09771cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.10313cm</Width>
+              <Width>2.15605cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>1.865cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -94,7 +94,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Formulario </Value>
+                              <Value>Form </Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -446,7 +446,18 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>CHNro</Value>
+                              <Value>Cheq</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Nro</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -479,7 +490,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>CHFecha Cobro</Value>
+                              <Value>Cheq Fecha Cobro</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -512,7 +523,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>CHImporte Cheque</Value>
+                              <Value>Importe Cheque</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -551,7 +562,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!NombreBeneficiario.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -679,7 +692,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!PeriodoAdeudado.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -1029,9 +1044,9 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>2.96016cm</Top>
-        <Left>0.60854cm</Left>
+        <Left>0.10833cm</Left>
         <Height>1.67625cm</Height>
-        <Width>27.67104cm</Width>
+        <Width>25.31625cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1047,7 +1062,9 @@
               <TextRun>
                 <Value>REPORTE POR NOMBRE  DE BENEFICIARIO</Value>
                 <Style>
+                  <FontFamily>Century</FontFamily>
                   <FontSize>20pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
                   <TextDecoration>Underline</TextDecoration>
                 </Style>
               </TextRun>
@@ -1059,9 +1076,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox85</rd:DefaultName>
         <Top>1.08162cm</Top>
-        <Left>6.39979cm</Left>
+        <Left>5.39937cm</Left>
         <Height>1.26146cm</Height>
-        <Width>15.75562cm</Width>
+        <Width>17.79291cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -1081,7 +1098,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>11.50869in</Width>
+  <Width>10.20661in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

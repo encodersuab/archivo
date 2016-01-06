@@ -38,3 +38,4 @@ C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmReportePorNroCheque
 C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.vbproj.GenerateResource.Cache
 C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\RdlCompile.cache
 C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\RdlCompile.compiled
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmReportePorTomoMomento.resources
