@@ -23,17 +23,27 @@ Partial Class frmReportePorNroCheque
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource7 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.mostrar_registro_por_numero_chequeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BDArchivosDataSet = New Archivos.BDArchivosDataSet()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtNumeroCheque = New System.Windows.Forms.TextBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.BDArchivosDataSet = New Archivos.BDArchivosDataSet()
-        Me.mostrar_registro_por_numero_chequeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.mostrar_registro_por_numero_chequeTableAdapter = New Archivos.BDArchivosDataSetTableAdapters.mostrar_registro_por_numero_chequeTableAdapter()
-        CType(Me.BDArchivosDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mostrar_registro_por_numero_chequeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BDArchivosDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'mostrar_registro_por_numero_chequeBindingSource
+        '
+        Me.mostrar_registro_por_numero_chequeBindingSource.DataMember = "mostrar_registro_por_numero_cheque"
+        Me.mostrar_registro_por_numero_chequeBindingSource.DataSource = Me.BDArchivosDataSet
+        '
+        'BDArchivosDataSet
+        '
+        Me.BDArchivosDataSet.DataSetName = "BDArchivosDataSet"
+        Me.BDArchivosDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'btnBuscar
         '
@@ -63,24 +73,14 @@ Partial Class frmReportePorNroCheque
         '
         'ReportViewer1
         '
-        ReportDataSource7.Name = "DataSet1"
-        ReportDataSource7.Value = Me.mostrar_registro_por_numero_chequeBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource7)
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.mostrar_registro_por_numero_chequeBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Archivos.rptReportePorNroCheque.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(12, 55)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(1056, 420)
+        Me.ReportViewer1.Size = New System.Drawing.Size(672, 420)
         Me.ReportViewer1.TabIndex = 4
-        '
-        'BDArchivosDataSet
-        '
-        Me.BDArchivosDataSet.DataSetName = "BDArchivosDataSet"
-        Me.BDArchivosDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'mostrar_registro_por_numero_chequeBindingSource
-        '
-        Me.mostrar_registro_por_numero_chequeBindingSource.DataMember = "mostrar_registro_por_numero_cheque"
-        Me.mostrar_registro_por_numero_chequeBindingSource.DataSource = Me.BDArchivosDataSet
         '
         'mostrar_registro_por_numero_chequeTableAdapter
         '
@@ -90,15 +90,15 @@ Partial Class frmReportePorNroCheque
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1071, 475)
+        Me.ClientSize = New System.Drawing.Size(685, 475)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.txtNumeroCheque)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnBuscar)
         Me.Name = "frmReportePorNroCheque"
         Me.Text = "frmReportePorNroCheque"
-        CType(Me.BDArchivosDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mostrar_registro_por_numero_chequeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BDArchivosDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
