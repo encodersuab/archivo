@@ -79,7 +79,7 @@ Partial Class frmReportePorNroCheque
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Archivos.rptReportePorNroCheque.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(12, 55)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(672, 420)
+        Me.ReportViewer1.Size = New System.Drawing.Size(620, 420)
         Me.ReportViewer1.TabIndex = 4
         '
         'mostrar_registro_por_numero_chequeTableAdapter
@@ -90,11 +90,13 @@ Partial Class frmReportePorNroCheque
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(685, 475)
+        Me.ClientSize = New System.Drawing.Size(637, 475)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.txtNumeroCheque)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnBuscar)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "frmReportePorNroCheque"
         Me.Text = "frmReportePorNroCheque"
         CType(Me.mostrar_registro_por_numero_chequeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

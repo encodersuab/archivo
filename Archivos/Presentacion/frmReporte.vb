@@ -101,8 +101,13 @@
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        frmReportePorNroCheque.txtNumeroCheque.Text = Me.txtCHNro.Text
-        frmReportePorNroCheque.ShowDialog()
+        'frmReportePorNroCheque.txtNumeroCheque.Text = Me.txtCHNro.Text
+        'frmReportePorNroCheque.ShowDialog()
+
+        frmCardadoImagen.txtCCNro.Text = Me.txtCCNro.Text
+        frmCardadoImagen.txtIdRegistro.Text = Me.txtId.Text
+        frmCardadoImagen.Show()
+
 
     End Sub
 End Class

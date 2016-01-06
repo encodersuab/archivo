@@ -80,8 +80,16 @@
       <DependentUpon>BDArchivosDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datos\Conexion.vb" />
+    <Compile Include="Datos\vImagen.vb" />
     <Compile Include="Datos\vRegistro.vb" />
+    <Compile Include="Logica\fImagen.vb" />
     <Compile Include="Logica\fRegistro.vb" />
+    <Compile Include="Presentacion\frmCardadoImagen.Designer.vb">
+      <DependentUpon>frmCardadoImagen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmCardadoImagen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Presentacion\frmEditarRegistro.Designer.vb">
       <DependentUpon>frmEditarRegistro.vb</DependentUpon>
     </Compile>
@@ -155,6 +163,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Presentacion\frmCardadoImagen.resx">
+      <DependentUpon>frmCardadoImagen.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmEditarRegistro.resx">
       <DependentUpon>frmEditarRegistro.vb</DependentUpon>
     </EmbeddedResource>
@@ -217,6 +228,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cancel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo_transparente_fotos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cargado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Limpiar.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
