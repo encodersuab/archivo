@@ -34,6 +34,7 @@ Partial Class frmInicioF
         Me.lbrol = New System.Windows.Forms.Label()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.InicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalirToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.USUARIO = New System.Windows.Forms.ToolStripMenuItem()
         Me.REGISTROToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.REPORTESToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -44,6 +45,7 @@ Partial Class frmInicioF
         Me.REPORTES = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportePorNumeroDeChequeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportePorNombreBeneficiarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportePorTomoYMomentoContableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IndexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -53,8 +55,6 @@ Partial Class frmInicioF
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.btnSalir = New System.Windows.Forms.Button()
-        Me.ReportePorTomoYMomentoContableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalirToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -129,6 +129,12 @@ Partial Class frmInicioF
         Me.InicioToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.InicioToolStripMenuItem.Text = "INICIO"
         '
+        'SalirToolStripMenuItem1
+        '
+        Me.SalirToolStripMenuItem1.Name = "SalirToolStripMenuItem1"
+        Me.SalirToolStripMenuItem1.Size = New System.Drawing.Size(96, 22)
+        Me.SalirToolStripMenuItem1.Text = "Salir"
+        '
         'USUARIO
         '
         Me.USUARIO.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.REGISTROToolStripMenuItem, Me.REPORTESToolStripMenuItem})
@@ -139,14 +145,14 @@ Partial Class frmInicioF
         'REGISTROToolStripMenuItem
         '
         Me.REGISTROToolStripMenuItem.Name = "REGISTROToolStripMenuItem"
-        Me.REGISTROToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
+        Me.REGISTROToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
         Me.REGISTROToolStripMenuItem.Text = "REGISTRO"
         '
         'REPORTESToolStripMenuItem
         '
         Me.REPORTESToolStripMenuItem.Name = "REPORTESToolStripMenuItem"
-        Me.REPORTESToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
-        Me.REPORTESToolStripMenuItem.Text = "REPORTES"
+        Me.REPORTESToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
+        Me.REPORTESToolStripMenuItem.Text = "CARGADO DE IMAGENES"
         '
         'ADMINISTRADOR
         '
@@ -191,6 +197,12 @@ Partial Class frmInicioF
         Me.ReportePorNombreBeneficiarioToolStripMenuItem.Name = "ReportePorNombreBeneficiarioToolStripMenuItem"
         Me.ReportePorNombreBeneficiarioToolStripMenuItem.Size = New System.Drawing.Size(286, 22)
         Me.ReportePorNombreBeneficiarioToolStripMenuItem.Text = "Reporte por NombreBeneficiario"
+        '
+        'ReportePorTomoYMomentoContableToolStripMenuItem
+        '
+        Me.ReportePorTomoYMomentoContableToolStripMenuItem.Name = "ReportePorTomoYMomentoContableToolStripMenuItem"
+        Me.ReportePorTomoYMomentoContableToolStripMenuItem.Size = New System.Drawing.Size(286, 22)
+        Me.ReportePorTomoYMomentoContableToolStripMenuItem.Text = "Reporte por Tomo y Momento Contable"
         '
         'HelpMenu
         '
@@ -257,18 +269,6 @@ Partial Class frmInicioF
         Me.btnSalir.Size = New System.Drawing.Size(40, 36)
         Me.btnSalir.TabIndex = 27
         Me.btnSalir.UseVisualStyleBackColor = True
-        '
-        'ReportePorTomoYMomentoContableToolStripMenuItem
-        '
-        Me.ReportePorTomoYMomentoContableToolStripMenuItem.Name = "ReportePorTomoYMomentoContableToolStripMenuItem"
-        Me.ReportePorTomoYMomentoContableToolStripMenuItem.Size = New System.Drawing.Size(286, 22)
-        Me.ReportePorTomoYMomentoContableToolStripMenuItem.Text = "Reporte por Tomo y Momento Contable"
-        '
-        'SalirToolStripMenuItem1
-        '
-        Me.SalirToolStripMenuItem1.Name = "SalirToolStripMenuItem1"
-        Me.SalirToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.SalirToolStripMenuItem1.Text = "Salir"
         '
         'frmInicioF
         '

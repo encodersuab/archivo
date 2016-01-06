@@ -40,3 +40,4 @@ C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\RdlCompile.cache
 C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\RdlCompile.compiled
 C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmReportePorTomoMomento.resources
 C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmCardadoImagen.resources
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmReporteImagenes.resources

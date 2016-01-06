@@ -40,7 +40,7 @@ Partial Class frmCardadoImagen
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(73, 12)
+        Me.Label1.Location = New System.Drawing.Point(48, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(58, 13)
         Me.Label1.TabIndex = 0
@@ -49,7 +49,7 @@ Partial Class frmCardadoImagen
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(73, 60)
+        Me.Label2.Location = New System.Drawing.Point(48, 57)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(146, 13)
         Me.Label2.TabIndex = 1
@@ -58,7 +58,7 @@ Partial Class frmCardadoImagen
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(73, 121)
+        Me.Label3.Location = New System.Drawing.Point(48, 118)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(63, 13)
         Me.Label3.TabIndex = 2
@@ -75,21 +75,23 @@ Partial Class frmCardadoImagen
         '
         'txtIdRegistro
         '
-        Me.txtIdRegistro.Location = New System.Drawing.Point(76, 28)
+        Me.txtIdRegistro.Location = New System.Drawing.Point(51, 25)
         Me.txtIdRegistro.Name = "txtIdRegistro"
+        Me.txtIdRegistro.ReadOnly = True
         Me.txtIdRegistro.Size = New System.Drawing.Size(100, 20)
         Me.txtIdRegistro.TabIndex = 4
         '
         'txtCCNro
         '
-        Me.txtCCNro.Location = New System.Drawing.Point(76, 87)
+        Me.txtCCNro.Location = New System.Drawing.Point(51, 84)
         Me.txtCCNro.Name = "txtCCNro"
+        Me.txtCCNro.ReadOnly = True
         Me.txtCCNro.Size = New System.Drawing.Size(100, 20)
         Me.txtCCNro.TabIndex = 5
         '
         'txtDescripcion
         '
-        Me.txtDescripcion.Location = New System.Drawing.Point(76, 152)
+        Me.txtDescripcion.Location = New System.Drawing.Point(51, 149)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(141, 52)
@@ -99,7 +101,7 @@ Partial Class frmCardadoImagen
         '
         Me.btnLimpiar.BackgroundImage = Global.Archivos.My.Resources.Resources.Limpiar
         Me.btnLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnLimpiar.Location = New System.Drawing.Point(107, 225)
+        Me.btnLimpiar.Location = New System.Drawing.Point(131, 225)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(79, 81)
         Me.btnLimpiar.TabIndex = 9
@@ -109,7 +111,7 @@ Partial Class frmCardadoImagen
         '
         Me.btnCargar.BackgroundImage = Global.Archivos.My.Resources.Resources.Cargado
         Me.btnCargar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnCargar.Location = New System.Drawing.Point(12, 225)
+        Me.btnCargar.Location = New System.Drawing.Point(27, 225)
         Me.btnCargar.Name = "btnCargar"
         Me.btnCargar.Size = New System.Drawing.Size(79, 81)
         Me.btnCargar.TabIndex = 8
@@ -131,9 +133,9 @@ Partial Class frmCardadoImagen
         '
         'btnGuardar
         '
-        Me.btnGuardar.Location = New System.Drawing.Point(76, 361)
+        Me.btnGuardar.Location = New System.Drawing.Point(75, 343)
         Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(75, 23)
+        Me.btnGuardar.Size = New System.Drawing.Size(91, 41)
         Me.btnGuardar.TabIndex = 10
         Me.btnGuardar.Text = "Guardar"
         Me.btnGuardar.UseVisualStyleBackColor = True

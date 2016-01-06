@@ -101,13 +101,27 @@
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'frmReportePorNroCheque.txtNumeroCheque.Text = Me.txtCHNro.Text
-        'frmReportePorNroCheque.ShowDialog()
+
+      
 
         frmCardadoImagen.txtCCNro.Text = Me.txtCCNro.Text
         frmCardadoImagen.txtIdRegistro.Text = Me.txtId.Text
-        frmCardadoImagen.Show()
+        frmCardadoImagen.ShowDialog()
 
 
+
+    End Sub
+
+    Private Sub datalistado_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellContentClick
+
+    End Sub
+
+    Private Sub datalistado_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellContentDoubleClick
+
+    End Sub
+
+    Private Sub datalistado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellDoubleClick
+        frmReporteImagenes.txtCCNro.Text = Me.txtCCNro.Text
+        frmReporteImagenes.Show()
     End Sub
 End Class

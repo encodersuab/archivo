@@ -78,9 +78,9 @@ Partial Class frmReporte
         '
         'btncancelar
         '
-        Me.btncancelar.Location = New System.Drawing.Point(196, 512)
+        Me.btncancelar.Location = New System.Drawing.Point(26, 497)
         Me.btncancelar.Name = "btncancelar"
-        Me.btncancelar.Size = New System.Drawing.Size(67, 26)
+        Me.btncancelar.Size = New System.Drawing.Size(75, 41)
         Me.btncancelar.TabIndex = 13
         Me.btncancelar.Text = "Cancelar"
         Me.btncancelar.UseVisualStyleBackColor = True
@@ -228,11 +228,11 @@ Partial Class frmReporte
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(41, 512)
+        Me.Button1.Location = New System.Drawing.Point(187, 497)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.Size = New System.Drawing.Size(75, 41)
         Me.Button1.TabIndex = 46
-        Me.Button1.Text = "Detalles"
+        Me.Button1.Text = "Cargar Imagen"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'txtImporteCheque
