@@ -95,11 +95,11 @@
                 dts.grol = txtRol.Text
 
                 If func.insertar(dts) Then
-                    MessageBox.Show("cliente registrado correctamente", "guardando registro", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Usuario registrado correctamente", "guardando registro", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     mostrar()
                     limpiar()
                 Else
-                    MessageBox.Show("cliente no registrado", "intente de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("Usuario no registrado", "intente de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     mostrar()
                     limpiar()
 
@@ -286,11 +286,11 @@
         End If
     End Sub
 
-    Private Sub txtAcceso_TextChanged(sender As Object, e As EventArgs) Handles txtAcceso.TextChanged
+    Private Sub txtAcceso_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub txtAcceso_Validated(sender As Object, e As EventArgs) Handles txtAcceso.Validated
+    Private Sub txtAcceso_Validated(sender As Object, e As EventArgs)
         If DirectCast(sender, TextBox).Text.Length > 0 Then
             Me.erroricono.SetError(sender, "")
         Else

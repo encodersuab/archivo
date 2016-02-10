@@ -26,7 +26,6 @@ Partial Class frmUsuario
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmUsuario))
         Me.erroricono = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtAcceso = New System.Windows.Forms.TextBox()
         Me.txtRol = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -56,10 +55,12 @@ Partial Class frmUsuario
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtIdUsuario = New System.Windows.Forms.TextBox()
+        Me.txtAcceso = New System.Windows.Forms.NumericUpDown()
         CType(Me.erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.txtAcceso, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'erroricono
@@ -74,14 +75,6 @@ Partial Class frmUsuario
         Me.Label10.Size = New System.Drawing.Size(43, 13)
         Me.Label10.TabIndex = 24
         Me.Label10.Text = "Acceso"
-        '
-        'txtAcceso
-        '
-        Me.txtAcceso.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtAcceso.Location = New System.Drawing.Point(133, 224)
-        Me.txtAcceso.Name = "txtAcceso"
-        Me.txtAcceso.Size = New System.Drawing.Size(140, 20)
-        Me.txtAcceso.TabIndex = 23
         '
         'txtRol
         '
@@ -207,8 +200,8 @@ Partial Class frmUsuario
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.txtAcceso)
+        Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.txtRol)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label8)
@@ -368,6 +361,14 @@ Partial Class frmUsuario
         Me.txtIdUsuario.Size = New System.Drawing.Size(140, 20)
         Me.txtIdUsuario.TabIndex = 0
         '
+        'txtAcceso
+        '
+        Me.txtAcceso.Location = New System.Drawing.Point(132, 223)
+        Me.txtAcceso.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.txtAcceso.Name = "txtAcceso"
+        Me.txtAcceso.Size = New System.Drawing.Size(140, 20)
+        Me.txtAcceso.TabIndex = 4
+        '
         'frmUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -386,6 +387,7 @@ Partial Class frmUsuario
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.txtAcceso, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -398,7 +400,6 @@ Partial Class frmUsuario
     Friend WithEvents eliminar As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents txtAcceso As System.Windows.Forms.TextBox
     Friend WithEvents txtRol As System.Windows.Forms.ComboBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
@@ -421,4 +422,5 @@ Partial Class frmUsuario
     Friend WithEvents txtNombre As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txtIdUsuario As System.Windows.Forms.TextBox
+    Friend WithEvents txtAcceso As System.Windows.Forms.NumericUpDown
 End Class

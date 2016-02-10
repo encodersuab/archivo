@@ -34,6 +34,7 @@ Partial Class frmCardadoImagen
         Me.Imagen = New System.Windows.Forms.PictureBox()
         Me.dlg = New System.Windows.Forms.OpenFileDialog()
         Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.btnsalir = New System.Windows.Forms.Button()
         CType(Me.Imagen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -133,18 +134,28 @@ Partial Class frmCardadoImagen
         '
         'btnGuardar
         '
-        Me.btnGuardar.Location = New System.Drawing.Point(75, 343)
+        Me.btnGuardar.Location = New System.Drawing.Point(73, 321)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(91, 41)
         Me.btnGuardar.TabIndex = 10
         Me.btnGuardar.Text = "Guardar"
         Me.btnGuardar.UseVisualStyleBackColor = True
         '
+        'btnsalir
+        '
+        Me.btnsalir.Location = New System.Drawing.Point(73, 378)
+        Me.btnsalir.Name = "btnsalir"
+        Me.btnsalir.Size = New System.Drawing.Size(91, 41)
+        Me.btnsalir.TabIndex = 11
+        Me.btnsalir.Text = "Salir"
+        Me.btnsalir.UseVisualStyleBackColor = True
+        '
         'frmCardadoImagen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(514, 435)
+        Me.Controls.Add(Me.btnsalir)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.btnCargar)
@@ -175,4 +186,5 @@ Partial Class frmCardadoImagen
     Friend WithEvents btnLimpiar As System.Windows.Forms.Button
     Friend WithEvents dlg As System.Windows.Forms.OpenFileDialog
     Friend WithEvents btnGuardar As System.Windows.Forms.Button
+    Friend WithEvents btnsalir As System.Windows.Forms.Button
 End Class

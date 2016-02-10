@@ -41,20 +41,19 @@ Partial Class frmInicioF
         Me.ADMINISTRADOR = New System.Windows.Forms.ToolStripMenuItem()
         Me.REGISTRODEUSUARIOSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EDITARREGISTRODEARCHIVOSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.WindowsMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.REPORTES = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportePorNumeroDeChequeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportePorNombreBeneficiarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportePorTomoYMomentoContableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.WindowsMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.IndexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.btnSalir = New System.Windows.Forms.Button()
+        Me.IndexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -70,7 +69,7 @@ Partial Class frmInicioF
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
         Me.StatusStrip.Location = New System.Drawing.Point(0, 586)
         Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Size = New System.Drawing.Size(1256, 22)
+        Me.StatusStrip.Size = New System.Drawing.Size(1078, 22)
         Me.StatusStrip.TabIndex = 7
         Me.StatusStrip.Text = "StatusStrip"
         '
@@ -114,11 +113,11 @@ Partial Class frmInicioF
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioToolStripMenuItem, Me.USUARIO, Me.ADMINISTRADOR, Me.WindowsMenu, Me.REPORTES, Me.HelpMenu, Me.SalirToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioToolStripMenuItem, Me.USUARIO, Me.ADMINISTRADOR, Me.REPORTES, Me.WindowsMenu, Me.HelpMenu, Me.SalirToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 24)
         Me.MenuStrip.MdiWindowListItem = Me.WindowsMenu
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(1256, 24)
+        Me.MenuStrip.Size = New System.Drawing.Size(1078, 24)
         Me.MenuStrip.TabIndex = 24
         Me.MenuStrip.Text = "MenuStrip"
         '
@@ -127,7 +126,7 @@ Partial Class frmInicioF
         Me.InicioToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalirToolStripMenuItem1})
         Me.InicioToolStripMenuItem.Name = "InicioToolStripMenuItem"
         Me.InicioToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
-        Me.InicioToolStripMenuItem.Text = "INICIO"
+        Me.InicioToolStripMenuItem.Text = "&INICIO"
         '
         'SalirToolStripMenuItem1
         '
@@ -140,7 +139,7 @@ Partial Class frmInicioF
         Me.USUARIO.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.REGISTROToolStripMenuItem, Me.REPORTESToolStripMenuItem})
         Me.USUARIO.Name = "USUARIO"
         Me.USUARIO.Size = New System.Drawing.Size(68, 20)
-        Me.USUARIO.Text = "USUARIO"
+        Me.USUARIO.Text = "&USUARIO"
         '
         'REGISTROToolStripMenuItem
         '
@@ -159,7 +158,7 @@ Partial Class frmInicioF
         Me.ADMINISTRADOR.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.REGISTRODEUSUARIOSToolStripMenuItem, Me.EDITARREGISTRODEARCHIVOSToolStripMenuItem})
         Me.ADMINISTRADOR.Name = "ADMINISTRADOR"
         Me.ADMINISTRADOR.Size = New System.Drawing.Size(113, 20)
-        Me.ADMINISTRADOR.Text = "ADMINISTRADOR"
+        Me.ADMINISTRADOR.Text = "A&DMINISTRADOR"
         '
         'REGISTRODEUSUARIOSToolStripMenuItem
         '
@@ -173,18 +172,12 @@ Partial Class frmInicioF
         Me.EDITARREGISTRODEARCHIVOSToolStripMenuItem.Size = New System.Drawing.Size(245, 22)
         Me.EDITARREGISTRODEARCHIVOSToolStripMenuItem.Text = "EDITAR REGISTRO DE ARCHIVOS"
         '
-        'WindowsMenu
-        '
-        Me.WindowsMenu.Name = "WindowsMenu"
-        Me.WindowsMenu.Size = New System.Drawing.Size(78, 20)
-        Me.WindowsMenu.Text = "&VENTANAS"
-        '
         'REPORTES
         '
         Me.REPORTES.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReportePorNumeroDeChequeToolStripMenuItem, Me.ReportePorNombreBeneficiarioToolStripMenuItem, Me.ReportePorTomoYMomentoContableToolStripMenuItem})
         Me.REPORTES.Name = "REPORTES"
         Me.REPORTES.Size = New System.Drawing.Size(73, 20)
-        Me.REPORTES.Text = "REPORTES"
+        Me.REPORTES.Text = "&REPORTES"
         '
         'ReportePorNumeroDeChequeToolStripMenuItem
         '
@@ -204,9 +197,15 @@ Partial Class frmInicioF
         Me.ReportePorTomoYMomentoContableToolStripMenuItem.Size = New System.Drawing.Size(286, 22)
         Me.ReportePorTomoYMomentoContableToolStripMenuItem.Text = "Reporte por Tomo y Momento Contable"
         '
+        'WindowsMenu
+        '
+        Me.WindowsMenu.Name = "WindowsMenu"
+        Me.WindowsMenu.Size = New System.Drawing.Size(78, 20)
+        Me.WindowsMenu.Text = "&VENTANAS"
+        '
         'HelpMenu
         '
-        Me.HelpMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContentsToolStripMenuItem, Me.IndexToolStripMenuItem, Me.SearchToolStripMenuItem, Me.ToolStripSeparator8, Me.AboutToolStripMenuItem})
+        Me.HelpMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContentsToolStripMenuItem, Me.IndexToolStripMenuItem, Me.ToolStripSeparator8, Me.AboutToolStripMenuItem})
         Me.HelpMenu.Name = "HelpMenu"
         Me.HelpMenu.Size = New System.Drawing.Size(57, 20)
         Me.HelpMenu.Text = "AY&UDA"
@@ -215,24 +214,8 @@ Partial Class frmInicioF
         '
         Me.ContentsToolStripMenuItem.Name = "ContentsToolStripMenuItem"
         Me.ContentsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F1), System.Windows.Forms.Keys)
-        Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
-        Me.ContentsToolStripMenuItem.Text = "&Contenido"
-        '
-        'IndexToolStripMenuItem
-        '
-        Me.IndexToolStripMenuItem.Image = CType(resources.GetObject("IndexToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.IndexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.IndexToolStripMenuItem.Name = "IndexToolStripMenuItem"
-        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
-        Me.IndexToolStripMenuItem.Text = "&Índice"
-        '
-        'SearchToolStripMenuItem
-        '
-        Me.SearchToolStripMenuItem.Image = CType(resources.GetObject("SearchToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.SearchToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
-        Me.SearchToolStripMenuItem.Text = "&Buscar"
+        Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
+        Me.ContentsToolStripMenuItem.Text = "&Ayuda"
         '
         'ToolStripSeparator8
         '
@@ -255,7 +238,7 @@ Partial Class frmInicioF
         '
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1256, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1078, 24)
         Me.MenuStrip1.TabIndex = 25
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -264,17 +247,25 @@ Partial Class frmInicioF
         Me.btnSalir.BackgroundImage = Global.Archivos.My.Resources.Resources.cancel
         Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnSalir.Location = New System.Drawing.Point(1216, 5)
+        Me.btnSalir.Location = New System.Drawing.Point(1024, 6)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(40, 36)
         Me.btnSalir.TabIndex = 27
         Me.btnSalir.UseVisualStyleBackColor = True
         '
+        'IndexToolStripMenuItem
+        '
+        Me.IndexToolStripMenuItem.Image = CType(resources.GetObject("IndexToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.IndexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
+        Me.IndexToolStripMenuItem.Name = "IndexToolStripMenuItem"
+        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
+        Me.IndexToolStripMenuItem.Text = "Contactenos"
+        '
         'frmInicioF
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1256, 608)
+        Me.ClientSize = New System.Drawing.Size(1078, 608)
         Me.ControlBox = False
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.MenuStrip)
@@ -312,7 +303,6 @@ Partial Class frmInicioF
     Friend WithEvents HelpMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ContentsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents IndexToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SearchToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator8 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

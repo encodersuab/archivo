@@ -9,10 +9,10 @@ Imports System.Runtime.InteropServices
 ' Revisar los valores de los atributos del ensamblado
 
 <Assembly: AssemblyTitle("Archivos")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyDescription("Sistema de Archivos Desarrollado por el AREA DE SOFTWARE de la Universidad Autónoma del Beni José Ballivián")> 
+<Assembly: AssemblyCompany("U.A.B.J.B.")> 
 <Assembly: AssemblyProduct("Archivos")> 
-<Assembly: AssemblyCopyright("Copyright ©  2015")> 
+<Assembly: AssemblyCopyright("Copyright ©  2016")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

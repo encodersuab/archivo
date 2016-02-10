@@ -10,7 +10,7 @@
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         'TODO: esta línea de código carga datos en la tabla 'BDArchivosDataSet.mostrar_registro_por_tomo_momentocontable' Puede moverla o quitarla según sea necesario.
-        Me.mostrar_registro_por_tomo_momentocontableTableAdapter.Fill(Me.BDArchivosDataSet.mostrar_registro_por_tomo_momentocontable, cbMomentoContable.Text, txtNroTomo.Value)
+        Me.mostrar_registro_por_tomo_momentocontableTableAdapter.Fill(Me.BDArchivosDataSet.mostrar_registro_por_tomo_momentocontable, cbMomentoContable.Text, txtNroTomo.Value, txtGestion.Text)
 
         Me.ReportViewer1.RefreshReport()
     End Sub

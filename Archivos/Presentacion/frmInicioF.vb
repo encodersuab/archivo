@@ -220,4 +220,26 @@ Public Class frmInicioF
     Private Sub SalirToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem1.Click
         End
     End Sub
+
+    Private Sub HelpMenu_Click(sender As Object, e As EventArgs) Handles HelpMenu.Click
+        'Dim rutaEjecutable As String = System.IO.Directory.GetCurrentDirectory().ToString
+        ''Los archivos de la documentación HTML están en una carpeta llamada HTML
+        'System.Diagnostics.Process.Start(rutaEjecutable & "\HTML\Ejemplo de prueba.html")
+        'Dim rutaEjecutable As String = System.IO.Directory.GetCurrentDirectory().ToString
+        'System.Diagnostics.Process.Start(rutaEjecutable & "\prueba para archivos.chm")
+    End Sub
+
+    Private Sub ContentsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContentsToolStripMenuItem.Click
+        Dim rutaEjecutable As String = System.IO.Directory.GetCurrentDirectory().ToString
+        System.Diagnostics.Process.Start(rutaEjecutable & "\prueba para archivos.chm")
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+
+        frmAcercaDe.ShowDialog()
+    End Sub
+
+    Private Sub WindowsMenu_Click(sender As Object, e As EventArgs) Handles WindowsMenu.Click
+
+    End Sub
 End Class

@@ -46,6 +46,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
@@ -89,6 +92,12 @@
     <Compile Include="Datos\vRegistro.vb" />
     <Compile Include="Logica\fImagen.vb" />
     <Compile Include="Logica\fRegistro.vb" />
+    <Compile Include="Presentacion\frmAcercaDe.Designer.vb">
+      <DependentUpon>frmAcercaDe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmAcercaDe.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Presentacion\frmCardadoImagen.Designer.vb">
       <DependentUpon>frmCardadoImagen.vb</DependentUpon>
     </Compile>
@@ -174,6 +183,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Presentacion\frmAcercaDe.resx">
+      <DependentUpon>frmAcercaDe.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmCardadoImagen.resx">
       <DependentUpon>frmCardadoImagen.vb</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +253,7 @@
     <None Include="BDArchivosDataSet1.xss">
       <DependentUpon>BDArchivosDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -263,6 +276,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Limpiar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\archivos-ordenados1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
