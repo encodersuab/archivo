@@ -231,7 +231,7 @@ Public Class frmInicioF
 
     Private Sub ContentsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContentsToolStripMenuItem.Click
         Dim rutaEjecutable As String = System.IO.Directory.GetCurrentDirectory().ToString
-        System.Diagnostics.Process.Start(rutaEjecutable & "\prueba para archivos.chm")
+        System.Diagnostics.Process.Start(rutaEjecutable & "\Ayuda Sistema De Archivos.chm")
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
