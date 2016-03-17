@@ -24,16 +24,27 @@ Partial Class frmReportePorNombreBeneficiario
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.BDArchivosDataSet = New Archivos.BDArchivosDataSet()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmReportePorNombreBeneficiario))
         Me.mostrar_registro_por_nombre_beneficiarioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BDArchivosDataSet = New Archivos.BDArchivosDataSet()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.mostrar_registro_por_nombre_beneficiarioTableAdapter = New Archivos.BDArchivosDataSetTableAdapters.mostrar_registro_por_nombre_beneficiarioTableAdapter()
         Me.txtNombreBeneficiario = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnBuscar = New System.Windows.Forms.Button()
-        CType(Me.BDArchivosDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mostrar_registro_por_nombre_beneficiarioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BDArchivosDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'mostrar_registro_por_nombre_beneficiarioBindingSource
+        '
+        Me.mostrar_registro_por_nombre_beneficiarioBindingSource.DataMember = "mostrar_registro_por_nombre_beneficiario"
+        Me.mostrar_registro_por_nombre_beneficiarioBindingSource.DataSource = Me.BDArchivosDataSet
+        '
+        'BDArchivosDataSet
+        '
+        Me.BDArchivosDataSet.DataSetName = "BDArchivosDataSet"
+        Me.BDArchivosDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
@@ -45,16 +56,6 @@ Partial Class frmReportePorNombreBeneficiario
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(1124, 388)
         Me.ReportViewer1.TabIndex = 0
-        '
-        'BDArchivosDataSet
-        '
-        Me.BDArchivosDataSet.DataSetName = "BDArchivosDataSet"
-        Me.BDArchivosDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'mostrar_registro_por_nombre_beneficiarioBindingSource
-        '
-        Me.mostrar_registro_por_nombre_beneficiarioBindingSource.DataMember = "mostrar_registro_por_nombre_beneficiario"
-        Me.mostrar_registro_por_nombre_beneficiarioBindingSource.DataSource = Me.BDArchivosDataSet
         '
         'mostrar_registro_por_nombre_beneficiarioTableAdapter
         '
@@ -95,10 +96,11 @@ Partial Class frmReportePorNombreBeneficiario
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmReportePorNombreBeneficiario"
         Me.Text = "frmReportePorNombreBeneficiario"
-        CType(Me.BDArchivosDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mostrar_registro_por_nombre_beneficiarioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BDArchivosDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

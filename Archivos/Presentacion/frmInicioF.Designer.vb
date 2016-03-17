@@ -48,12 +48,12 @@ Partial Class frmInicioF
         Me.WindowsMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IndexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.btnSalir = New System.Windows.Forms.Button()
-        Me.IndexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -69,7 +69,7 @@ Partial Class frmInicioF
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
         Me.StatusStrip.Location = New System.Drawing.Point(0, 586)
         Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Size = New System.Drawing.Size(1078, 22)
+        Me.StatusStrip.Size = New System.Drawing.Size(1171, 22)
         Me.StatusStrip.TabIndex = 7
         Me.StatusStrip.Text = "StatusStrip"
         '
@@ -113,11 +113,12 @@ Partial Class frmInicioF
         '
         'MenuStrip
         '
+        Me.MenuStrip.BackgroundImage = Global.Archivos.My.Resources.Resources.owl
         Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioToolStripMenuItem, Me.USUARIO, Me.ADMINISTRADOR, Me.REPORTES, Me.WindowsMenu, Me.HelpMenu, Me.SalirToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 24)
         Me.MenuStrip.MdiWindowListItem = Me.WindowsMenu
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(1078, 24)
+        Me.MenuStrip.Size = New System.Drawing.Size(1171, 24)
         Me.MenuStrip.TabIndex = 24
         Me.MenuStrip.Text = "MenuStrip"
         '
@@ -189,7 +190,7 @@ Partial Class frmInicioF
         '
         Me.ReportePorNombreBeneficiarioToolStripMenuItem.Name = "ReportePorNombreBeneficiarioToolStripMenuItem"
         Me.ReportePorNombreBeneficiarioToolStripMenuItem.Size = New System.Drawing.Size(286, 22)
-        Me.ReportePorNombreBeneficiarioToolStripMenuItem.Text = "Reporte por NombreBeneficiario"
+        Me.ReportePorNombreBeneficiarioToolStripMenuItem.Text = "Reporte por Nombre del Beneficiario"
         '
         'ReportePorTomoYMomentoContableToolStripMenuItem
         '
@@ -217,15 +218,23 @@ Partial Class frmInicioF
         Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.ContentsToolStripMenuItem.Text = "&Ayuda"
         '
+        'IndexToolStripMenuItem
+        '
+        Me.IndexToolStripMenuItem.Image = CType(resources.GetObject("IndexToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.IndexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
+        Me.IndexToolStripMenuItem.Name = "IndexToolStripMenuItem"
+        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
+        Me.IndexToolStripMenuItem.Text = "Contactenos"
+        '
         'ToolStripSeparator8
         '
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(173, 6)
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(151, 6)
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.AboutToolStripMenuItem.Text = "&Acerca de..."
         '
         'SalirToolStripMenuItem
@@ -238,7 +247,7 @@ Partial Class frmInicioF
         '
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1078, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1171, 24)
         Me.MenuStrip1.TabIndex = 25
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -247,25 +256,20 @@ Partial Class frmInicioF
         Me.btnSalir.BackgroundImage = Global.Archivos.My.Resources.Resources.cancel
         Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnSalir.Location = New System.Drawing.Point(1024, 6)
+        Me.btnSalir.Location = New System.Drawing.Point(893, 6)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(40, 36)
         Me.btnSalir.TabIndex = 27
         Me.btnSalir.UseVisualStyleBackColor = True
         '
-        'IndexToolStripMenuItem
-        '
-        Me.IndexToolStripMenuItem.Image = CType(resources.GetObject("IndexToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.IndexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.IndexToolStripMenuItem.Name = "IndexToolStripMenuItem"
-        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
-        Me.IndexToolStripMenuItem.Text = "Contactenos"
-        '
         'frmInicioF
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1078, 608)
+        Me.BackColor = System.Drawing.Color.White
+        Me.BackgroundImage = Global.Archivos.My.Resources.Resources.owl
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.ClientSize = New System.Drawing.Size(1171, 608)
         Me.ControlBox = False
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.MenuStrip)
@@ -276,6 +280,7 @@ Partial Class frmInicioF
         Me.Controls.Add(Me.StatusStrip)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.ImeMode = System.Windows.Forms.ImeMode.[On]
         Me.IsMdiContainer = True
         Me.Name = "frmInicioF"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

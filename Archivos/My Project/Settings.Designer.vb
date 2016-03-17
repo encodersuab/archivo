@@ -63,6 +63,17 @@ Namespace My
                 Return CType(Me("BDArchivosConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.1.25;Initial Catalog=BDArchivos;User ID=union;Password=123456"& _ 
+            "")>  _
+        Public ReadOnly Property Setting() As String
+            Get
+                Return CType(Me("Setting"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

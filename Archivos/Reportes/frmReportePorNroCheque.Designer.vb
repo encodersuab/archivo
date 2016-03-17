@@ -24,6 +24,7 @@ Partial Class frmReportePorNroCheque
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmReportePorNroCheque))
         Me.mostrar_registro_por_numero_chequeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BDArchivosDataSet = New Archivos.BDArchivosDataSet()
         Me.btnBuscar = New System.Windows.Forms.Button()
@@ -96,6 +97,7 @@ Partial Class frmReportePorNroCheque
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnBuscar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "frmReportePorNroCheque"
         Me.Text = "frmReportePorNroCheque"

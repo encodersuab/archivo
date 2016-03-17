@@ -42,3 +42,8 @@ C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmReportePorTomoMomen
 C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmCardadoImagen.resources
 C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmReporteImagenes.resources
 C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.frmAcercaDe.resources
+C:\Users\soft\Desktop\archivo\Archivos\bin\Debug\Archivos.exe.manifest
+C:\Users\soft\Desktop\archivo\Archivos\bin\Debug\Archivos.application
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.TrustInfo.xml
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.exe.manifest
+C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.application

@@ -40,6 +40,7 @@ Partial Class frmUsuario
         Me.datalistado = New System.Windows.Forms.DataGridView()
         Me.eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtAcceso = New System.Windows.Forms.NumericUpDown()
         Me.btnEditar = New System.Windows.Forms.Button()
         Me.btncancelar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
@@ -55,7 +56,6 @@ Partial Class frmUsuario
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtIdUsuario = New System.Windows.Forms.TextBox()
-        Me.txtAcceso = New System.Windows.Forms.NumericUpDown()
         CType(Me.erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -231,6 +231,14 @@ Partial Class frmUsuario
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Mantenimiento"
         '
+        'txtAcceso
+        '
+        Me.txtAcceso.Location = New System.Drawing.Point(132, 223)
+        Me.txtAcceso.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.txtAcceso.Name = "txtAcceso"
+        Me.txtAcceso.Size = New System.Drawing.Size(140, 20)
+        Me.txtAcceso.TabIndex = 4
+        '
         'btnEditar
         '
         Me.btnEditar.Location = New System.Drawing.Point(121, 292)
@@ -360,14 +368,6 @@ Partial Class frmUsuario
         Me.txtIdUsuario.Name = "txtIdUsuario"
         Me.txtIdUsuario.Size = New System.Drawing.Size(140, 20)
         Me.txtIdUsuario.TabIndex = 0
-        '
-        'txtAcceso
-        '
-        Me.txtAcceso.Location = New System.Drawing.Point(132, 223)
-        Me.txtAcceso.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.txtAcceso.Name = "txtAcceso"
-        Me.txtAcceso.Size = New System.Drawing.Size(140, 20)
-        Me.txtAcceso.TabIndex = 4
         '
         'frmUsuario
         '

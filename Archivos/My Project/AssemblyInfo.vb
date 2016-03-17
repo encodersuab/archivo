@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Revisar los valores de los atributos del ensamblado
 
-<Assembly: AssemblyTitle("Archivos")> 
-<Assembly: AssemblyDescription("Sistema de Archivos Desarrollado por el AREA DE SOFTWARE de la Universidad Autónoma del Beni José Ballivián")> 
+<Assembly: AssemblyTitle("Sistema de Archivos")> 
+<Assembly: AssemblyDescription("Sistema de Archivos Desarrollado por la Seccion Tecnologia Moxos - SOFTWARE de la Universidad Autónoma del Beni José Ballivián")> 
 <Assembly: AssemblyCompany("U.A.B.J.B.")> 
-<Assembly: AssemblyProduct("Archivos")> 
+<Assembly: AssemblyProduct("Sistema de Archivos")> 
 <Assembly: AssemblyCopyright("Copyright ©  2016")> 
 <Assembly: AssemblyTrademark("")> 
 

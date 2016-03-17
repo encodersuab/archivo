@@ -24,16 +24,27 @@ Partial Class frmReporteImagenes
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmReporteImagenes))
+        Me.mostrar_imagenes_por_CCNroBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BDArchivosDataSet1 = New Archivos.BDArchivosDataSet1()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtCCNro = New System.Windows.Forms.TextBox()
-        Me.BDArchivosDataSet1 = New Archivos.BDArchivosDataSet1()
-        Me.mostrar_imagenes_por_CCNroBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.mostrar_imagenes_por_CCNroTableAdapter = New Archivos.BDArchivosDataSet1TableAdapters.mostrar_imagenes_por_CCNroTableAdapter()
-        CType(Me.BDArchivosDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mostrar_imagenes_por_CCNroBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BDArchivosDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'mostrar_imagenes_por_CCNroBindingSource
+        '
+        Me.mostrar_imagenes_por_CCNroBindingSource.DataMember = "mostrar_imagenes_por_CCNro"
+        Me.mostrar_imagenes_por_CCNroBindingSource.DataSource = Me.BDArchivosDataSet1
+        '
+        'BDArchivosDataSet1
+        '
+        Me.BDArchivosDataSet1.DataSetName = "BDArchivosDataSet1"
+        Me.BDArchivosDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
@@ -72,16 +83,6 @@ Partial Class frmReporteImagenes
         Me.txtCCNro.Size = New System.Drawing.Size(100, 20)
         Me.txtCCNro.TabIndex = 3
         '
-        'BDArchivosDataSet1
-        '
-        Me.BDArchivosDataSet1.DataSetName = "BDArchivosDataSet1"
-        Me.BDArchivosDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'mostrar_imagenes_por_CCNroBindingSource
-        '
-        Me.mostrar_imagenes_por_CCNroBindingSource.DataMember = "mostrar_imagenes_por_CCNro"
-        Me.mostrar_imagenes_por_CCNroBindingSource.DataSource = Me.BDArchivosDataSet1
-        '
         'mostrar_imagenes_por_CCNroTableAdapter
         '
         Me.mostrar_imagenes_por_CCNroTableAdapter.ClearBeforeFill = True
@@ -95,10 +96,11 @@ Partial Class frmReporteImagenes
         Me.Controls.Add(Me.txtCCNro)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnBuscar)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmReporteImagenes"
         Me.Text = "frmReporteImagenes"
-        CType(Me.BDArchivosDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mostrar_imagenes_por_CCNroBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BDArchivosDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

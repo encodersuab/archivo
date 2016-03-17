@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Archivos.exe" version="1.0.0.1" publicKeyToken="87e1572be8530c01" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="onlineowl.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Archivos" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Archivos.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- Opciones del manifiesto de Control de cuentas de usuario
+             Si desea cambiar el nivel de Control de cuentas de usuario de Windows, reemplace el 
+             nodo requestedExecutionLevel por alguno de los siguientes.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            La especificación del nodo requestedExecutionLevel deshabilitará la virtualización de archivos y del Registro.
+            Si desea usar la virtualización de archivos y del Registro para la compatibilidad 
+            con versiones anteriores, elimine el nodo requestedExecutionLevel.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.ReportViewer.Common" version="11.0.0.0" publicKeyToken="89845DCD8080CC91" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.ReportViewer.DataVisualization" version="11.0.0.0" publicKeyToken="89845DCD8080CC91" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.ReportViewer.ProcessingObjectModel" version="11.0.0.0" publicKeyToken="89845DCD8080CC91" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.ReportViewer.WinForms" version="11.0.0.0" publicKeyToken="89845DCD8080CC91" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.SqlServer.Types" version="11.0.0.0" publicKeyToken="89845DCD8080CC91" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Archivos.exe" size="1974784">
+      <assemblyIdentity name="Archivos" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>+7YTdbsyZq6qelQRT7vqnzzB1z1zodC7ceLtLKeiZjI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Archivos.exe.config" size="719">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>uglWgcaB+qhBaDZh3VY1H+z28HlNgBB6MZgwF+PQBEM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="onlineowl.ico" size="95745">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>tKaSyYNEA6rpuLmUGIFxtgeCpsQjm10GIgUGAltj4tA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- Lista de todas las versiones de Windows con las que esta aplicación está diseñada para funcionar. 
+      Windows seleccionará automáticamente el entorno de mayor compatibilidad.-->
+      <!-- Si la aplicación está diseñada para funcionar con Windows Vista, quite los comentarios del siguiente nodo supportedOS-->
+      <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}"></supportedOS>-->
+      <!-- Si la aplicación está diseñada para funcionar con Windows 7, quite los comentarios del siguiente nodo supportedOS-->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}"/>-->
+      <!-- Si la aplicación está diseñada para funcionar con Windows 8, quite los comentarios del siguiente nodo supportedOS-->
+      <!--<supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}"></supportedOS>-->
+      <!-- Si la aplicación está diseñada para funcionar con Windows 8.1, quite los comentarios del siguiente nodo supportedOS-->
+      <!--<supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}"/>-->
+    </application>
+  </compatibility>
+<publisherIdentity name="CN=DESKTOP-BTSMTU2\soft" issuerKeyHash="0e777b9bb7fc35089fe5c1d4e7cb14d81c6383e0" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>ff63Q4Z/FO83EsghKb964PIvPLnpRl8RbFue/JbeNzk=</DigestValue></Reference></SignedInfo><SignatureValue>Os7X2NquqHAztTHhh//yqk1LBdJ8AJE7uODt5gL+VL4IFUK7IVg4jgopb5KNZ18ckcqHP5ocEyD/DFzXgKFJXzO14uxLdWQ7JJGuoKZUfHaz7BmzFRT8OTIJBle1V1Kn5m12SyWhothBaEJmSRYl1ujBSLWZKMH5iNUq8g3F1KA=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>wNwWPpTOcSds+wn9eW6TKBe6gHs9Zqp5O4t6ZAQXXjafC7B4M299m0f5izbLGsXy5DRKqDkO60KDABkM3/+FuAHhzyuwfjf4W6RkTcwpt/6Er4dR9ZO83qd44NUwde/jYH82Qyj0hvdgfjgJ9yvFb7YXGyGzaxCJBYJIu8PEnx8=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="3937de96fc9e5b6c115f46e9b93c2ff2e07abf2921c81237ef147f8643b7fe7d" Description="" Url=""><as:assemblyIdentity name="Archivos.exe" version="1.0.0.1" publicKeyToken="87e1572be8530c01" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-BTSMTU2\soft</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>ox2dPtM8P1ix2OqfET9s/U7/mUe7wPDueFGsu2Uun+w=</DigestValue></Reference></SignedInfo><SignatureValue>vNWLVW4pImHeVviK6LsK+1PjCIKp6MBW8/vTBFNKHNp8aA9MklhZk4NCPZ1gTfeElREqr00PtBrQ4sxugFkfcBXB9Z/4/jJDdL71+3WSDjm17f8uf3ugsW8x8JRjIvIqR8FMYqVZpNG1TZ3GYDLm5yn7/PwNB+M5dUZ2h4gTfn0=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>wNwWPpTOcSds+wn9eW6TKBe6gHs9Zqp5O4t6ZAQXXjafC7B4M299m0f5izbLGsXy5DRKqDkO60KDABkM3/+FuAHhzyuwfjf4W6RkTcwpt/6Er4dR9ZO83qd44NUwde/jYH82Qyj0hvdgfjgJ9yvFb7YXGyGzaxCJBYJIu8PEnx8=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB6TCCAVKgAwIBAgIQblfZjtkBSppHWRzToq5dtTANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDHigARABFAFMASwBUAE8AUAAtAEIAVABTAE0AVABVADIAXABzAG8AZgB0MB4XDTE2MDIyNjIxNDYzNFoXDTE3MDIyNjAzNDYzNFowMzExMC8GA1UEAx4oAEQARQBTAEsAVABPAFAALQBCAFQAUwBNAFQAVQAyAFwAcwBvAGYAdDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwNwWPpTOcSds+wn9eW6TKBe6gHs9Zqp5O4t6ZAQXXjafC7B4M299m0f5izbLGsXy5DRKqDkO60KDABkM3/+FuAHhzyuwfjf4W6RkTcwpt/6Er4dR9ZO83qd44NUwde/jYH82Qyj0hvdgfjgJ9yvFb7YXGyGzaxCJBYJIu8PEnx8CAwEAATANBgkqhkiG9w0BAQsFAAOBgQBEv/fF5RXiTUNZEKZlSgp2syY1vi4Oci4MzW1ti7DTdRnboeuaTp5bA082T4jjTQlr/ENS/kbhK0djAH5Rlh95kJiG5ED11Enpf4TjqeP/yifnWP6LlCEolatWp9kL5okjJL4U3Lvrzozg7XJ66hgBwC1Jkab0znZx8CWFHyUDVA==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

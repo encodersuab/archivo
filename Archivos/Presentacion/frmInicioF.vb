@@ -242,4 +242,12 @@ Public Class frmInicioF
     Private Sub WindowsMenu_Click(sender As Object, e As EventArgs) Handles WindowsMenu.Click
 
     End Sub
+
+    Private Sub MenuStrip_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip.ItemClicked
+
+    End Sub
+
+    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
+
+    End Sub
 End Class

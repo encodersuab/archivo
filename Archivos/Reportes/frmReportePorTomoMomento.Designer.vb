@@ -24,6 +24,7 @@ Partial Class frmReportePorTomoMomento
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmReportePorTomoMomento))
         Me.mostrar_registro_por_tomo_momentocontableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BDArchivosDataSet = New Archivos.BDArchivosDataSet()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -143,6 +144,7 @@ Partial Class frmReportePorTomoMomento
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnBuscar)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmReportePorTomoMomento"
         Me.Text = "frmReportePorTomoMomento"
         CType(Me.mostrar_registro_por_tomo_momentocontableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

@@ -33,6 +33,7 @@ Partial Class frmEditarRegistro
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Inexistente = New System.Windows.Forms.LinkLabel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtGestion = New System.Windows.Forms.NumericUpDown()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtBoleto = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -67,25 +68,24 @@ Partial Class frmEditarRegistro
         Me.dtpFechaPago = New System.Windows.Forms.DateTimePicker()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtPeriodoAdeudado = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtId = New System.Windows.Forms.TextBox()
         Me.TRegistroTableAdapter = New Archivos.BDArchivosDataSetTableAdapters.TRegistroTableAdapter()
         Me.BDArchivosDataSet1 = New Archivos.BDArchivosDataSet()
         Me.MostrarregistroBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Mostrar_registroTableAdapter = New Archivos.BDArchivosDataSetTableAdapters.mostrar_registroTableAdapter()
-        Me.txtPeriodoAdeudado = New System.Windows.Forms.ComboBox()
-        Me.txtGestion = New System.Windows.Forms.NumericUpDown()
         CType(Me.erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TRegistroBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BDArchivosDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.txtGestion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         CType(Me.BDArchivosDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MostrarregistroBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtGestion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'erroricono
@@ -181,6 +181,16 @@ Partial Class frmEditarRegistro
         Me.GroupBox1.TabIndex = 17
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Mantenimiento"
+        '
+        'txtGestion
+        '
+        Me.txtGestion.Location = New System.Drawing.Point(126, 75)
+        Me.txtGestion.Maximum = New Decimal(New Integer() {2100, 0, 0, 0})
+        Me.txtGestion.Minimum = New Decimal(New Integer() {1900, 0, 0, 0})
+        Me.txtGestion.Name = "txtGestion"
+        Me.txtGestion.Size = New System.Drawing.Size(92, 20)
+        Me.txtGestion.TabIndex = 52
+        Me.txtGestion.Value = New Decimal(New Integer() {2015, 0, 0, 0})
         '
         'Label3
         '
@@ -491,6 +501,16 @@ Partial Class frmEditarRegistro
         Me.Label9.TabIndex = 35
         Me.Label9.Text = "Numero de Pago"
         '
+        'txtPeriodoAdeudado
+        '
+        Me.txtPeriodoAdeudado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.txtPeriodoAdeudado.FormattingEnabled = True
+        Me.txtPeriodoAdeudado.Items.AddRange(New Object() {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"})
+        Me.txtPeriodoAdeudado.Location = New System.Drawing.Point(126, 103)
+        Me.txtPeriodoAdeudado.Name = "txtPeriodoAdeudado"
+        Me.txtPeriodoAdeudado.Size = New System.Drawing.Size(92, 21)
+        Me.txtPeriodoAdeudado.TabIndex = 41
+        '
         'Label11
         '
         Me.Label11.AutoSize = True
@@ -522,26 +542,6 @@ Partial Class frmEditarRegistro
         '
         Me.Mostrar_registroTableAdapter.ClearBeforeFill = True
         '
-        'txtPeriodoAdeudado
-        '
-        Me.txtPeriodoAdeudado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.txtPeriodoAdeudado.FormattingEnabled = True
-        Me.txtPeriodoAdeudado.Items.AddRange(New Object() {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"})
-        Me.txtPeriodoAdeudado.Location = New System.Drawing.Point(126, 103)
-        Me.txtPeriodoAdeudado.Name = "txtPeriodoAdeudado"
-        Me.txtPeriodoAdeudado.Size = New System.Drawing.Size(92, 21)
-        Me.txtPeriodoAdeudado.TabIndex = 41
-        '
-        'txtGestion
-        '
-        Me.txtGestion.Location = New System.Drawing.Point(126, 75)
-        Me.txtGestion.Maximum = New Decimal(New Integer() {2100, 0, 0, 0})
-        Me.txtGestion.Minimum = New Decimal(New Integer() {1900, 0, 0, 0})
-        Me.txtGestion.Name = "txtGestion"
-        Me.txtGestion.Size = New System.Drawing.Size(92, 20)
-        Me.txtGestion.TabIndex = 52
-        Me.txtGestion.Value = New Decimal(New Integer() {2015, 0, 0, 0})
-        '
         'frmEditarRegistro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -564,13 +564,13 @@ Partial Class frmEditarRegistro
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.txtGestion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         CType(Me.BDArchivosDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MostrarregistroBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtGestion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
