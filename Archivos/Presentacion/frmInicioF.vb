@@ -230,8 +230,9 @@ Public Class frmInicioF
     End Sub
 
     Private Sub ContentsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContentsToolStripMenuItem.Click
-        Dim rutaEjecutable As String = System.IO.Directory.GetCurrentDirectory().ToString
-        System.Diagnostics.Process.Start(rutaEjecutable & "\Ayuda Sistema De Archivos.chm")
+        'Dim rutaEjecutable As String = System.IO.Directory.GetCurrentDirectory().ToString
+        'System.Diagnostics.Process.Start(rutaEjecutable & "\Ayuda Sistema De Archivos.chm")
+        Shell("explorer.exe root =\\192.168.1.25\Users\Public\Documents\Ayuda Sistema De Archivos.chm", vbNormalFocus)
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click

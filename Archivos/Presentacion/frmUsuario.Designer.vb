@@ -73,7 +73,7 @@ Partial Class frmUsuario
         Me.Label10.Location = New System.Drawing.Point(73, 227)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(43, 13)
-        Me.Label10.TabIndex = 24
+        Me.Label10.TabIndex = 19
         Me.Label10.Text = "Acceso"
         '
         'txtRol
@@ -84,7 +84,7 @@ Partial Class frmUsuario
         Me.txtRol.Location = New System.Drawing.Point(132, 249)
         Me.txtRol.Name = "txtRol"
         Me.txtRol.Size = New System.Drawing.Size(141, 21)
-        Me.txtRol.TabIndex = 22
+        Me.txtRol.TabIndex = 9
         '
         'Label9
         '
@@ -92,7 +92,7 @@ Partial Class frmUsuario
         Me.Label9.Location = New System.Drawing.Point(93, 255)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(23, 13)
-        Me.Label9.TabIndex = 21
+        Me.Label9.TabIndex = 20
         Me.Label9.Text = "Rol"
         '
         'Label8
@@ -101,7 +101,7 @@ Partial Class frmUsuario
         Me.Label8.Location = New System.Drawing.Point(53, 202)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(61, 13)
-        Me.Label8.TabIndex = 19
+        Me.Label8.TabIndex = 18
         Me.Label8.Text = "Contraseña"
         '
         'txtContraceña
@@ -110,7 +110,7 @@ Partial Class frmUsuario
         Me.txtContraceña.Location = New System.Drawing.Point(132, 199)
         Me.txtContraceña.Name = "txtContraceña"
         Me.txtContraceña.Size = New System.Drawing.Size(140, 20)
-        Me.txtContraceña.TabIndex = 18
+        Me.txtContraceña.TabIndex = 7
         '
         'Label7
         '
@@ -127,14 +127,14 @@ Partial Class frmUsuario
         Me.txtLogin.Location = New System.Drawing.Point(132, 173)
         Me.txtLogin.Name = "txtLogin"
         Me.txtLogin.Size = New System.Drawing.Size(140, 20)
-        Me.txtLogin.TabIndex = 16
+        Me.txtLogin.TabIndex = 6
         '
         'btnGuardar
         '
         Me.btnGuardar.Location = New System.Drawing.Point(121, 292)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(67, 26)
-        Me.btnGuardar.TabIndex = 15
+        Me.btnGuardar.TabIndex = 10
         Me.btnGuardar.Text = "Guardar"
         Me.btnGuardar.UseVisualStyleBackColor = True
         '
@@ -237,7 +237,7 @@ Partial Class frmUsuario
         Me.txtAcceso.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.txtAcceso.Name = "txtAcceso"
         Me.txtAcceso.Size = New System.Drawing.Size(140, 20)
-        Me.txtAcceso.TabIndex = 4
+        Me.txtAcceso.TabIndex = 8
         '
         'btnEditar
         '
@@ -253,7 +253,7 @@ Partial Class frmUsuario
         Me.btncancelar.Location = New System.Drawing.Point(206, 292)
         Me.btncancelar.Name = "btncancelar"
         Me.btncancelar.Size = New System.Drawing.Size(67, 26)
-        Me.btncancelar.TabIndex = 13
+        Me.btncancelar.TabIndex = 22
         Me.btncancelar.Text = "Cancelar"
         Me.btncancelar.UseVisualStyleBackColor = True
         '
@@ -262,7 +262,7 @@ Partial Class frmUsuario
         Me.btnNuevo.Location = New System.Drawing.Point(37, 292)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(67, 26)
-        Me.btnNuevo.TabIndex = 12
+        Me.btnNuevo.TabIndex = 21
         Me.btnNuevo.Text = "Nuevo"
         Me.btnNuevo.UseVisualStyleBackColor = True
         '
@@ -272,7 +272,7 @@ Partial Class frmUsuario
         Me.Label6.Location = New System.Drawing.Point(99, 98)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(16, 13)
-        Me.Label6.TabIndex = 11
+        Me.Label6.TabIndex = 14
         Me.Label6.Text = "Ci"
         '
         'txtCi
@@ -281,7 +281,7 @@ Partial Class frmUsuario
         Me.txtCi.Location = New System.Drawing.Point(133, 95)
         Me.txtCi.Name = "txtCi"
         Me.txtCi.Size = New System.Drawing.Size(140, 20)
-        Me.txtCi.TabIndex = 10
+        Me.txtCi.TabIndex = 3
         '
         'Label5
         '
@@ -289,7 +289,7 @@ Partial Class frmUsuario
         Me.Label5.Location = New System.Drawing.Point(66, 150)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(49, 13)
-        Me.Label5.TabIndex = 9
+        Me.Label5.TabIndex = 16
         Me.Label5.Text = "Telefono"
         '
         'txtTelefono
@@ -298,7 +298,7 @@ Partial Class frmUsuario
         Me.txtTelefono.Location = New System.Drawing.Point(132, 147)
         Me.txtTelefono.Name = "txtTelefono"
         Me.txtTelefono.Size = New System.Drawing.Size(140, 20)
-        Me.txtTelefono.TabIndex = 8
+        Me.txtTelefono.TabIndex = 5
         '
         'Label4
         '
@@ -306,7 +306,7 @@ Partial Class frmUsuario
         Me.Label4.Location = New System.Drawing.Point(63, 124)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(52, 13)
-        Me.Label4.TabIndex = 7
+        Me.Label4.TabIndex = 15
         Me.Label4.Text = "Direccion"
         '
         'txtDireccion
@@ -315,7 +315,7 @@ Partial Class frmUsuario
         Me.txtDireccion.Location = New System.Drawing.Point(132, 121)
         Me.txtDireccion.Name = "txtDireccion"
         Me.txtDireccion.Size = New System.Drawing.Size(140, 20)
-        Me.txtDireccion.TabIndex = 6
+        Me.txtDireccion.TabIndex = 4
         '
         'Label3
         '
@@ -323,7 +323,7 @@ Partial Class frmUsuario
         Me.Label3.Location = New System.Drawing.Point(66, 72)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(49, 13)
-        Me.Label3.TabIndex = 5
+        Me.Label3.TabIndex = 13
         Me.Label3.Text = "Apellidos"
         '
         'txtApellido
@@ -332,7 +332,7 @@ Partial Class frmUsuario
         Me.txtApellido.Location = New System.Drawing.Point(133, 69)
         Me.txtApellido.Name = "txtApellido"
         Me.txtApellido.Size = New System.Drawing.Size(140, 20)
-        Me.txtApellido.TabIndex = 4
+        Me.txtApellido.TabIndex = 2
         '
         'Label2
         '
@@ -340,7 +340,7 @@ Partial Class frmUsuario
         Me.Label2.Location = New System.Drawing.Point(71, 46)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(44, 13)
-        Me.Label2.TabIndex = 3
+        Me.Label2.TabIndex = 12
         Me.Label2.Text = "Nombre"
         '
         'txtNombre
@@ -349,7 +349,7 @@ Partial Class frmUsuario
         Me.txtNombre.Location = New System.Drawing.Point(133, 43)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(140, 20)
-        Me.txtNombre.TabIndex = 2
+        Me.txtNombre.TabIndex = 1
         '
         'Label1
         '
@@ -357,7 +357,7 @@ Partial Class frmUsuario
         Me.Label1.Location = New System.Drawing.Point(67, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(48, 13)
-        Me.Label1.TabIndex = 1
+        Me.Label1.TabIndex = 11
         Me.Label1.Text = "IdCliente"
         '
         'txtIdUsuario
@@ -380,7 +380,6 @@ Partial Class frmUsuario
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "frmUsuario"
-        Me.Text = ".:Registro de Usuario:."
         CType(Me.erroricono, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()

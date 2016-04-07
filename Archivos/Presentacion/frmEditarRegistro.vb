@@ -2,7 +2,7 @@
     Private dt As New DataTable
     Private Sub frmUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'BDArchivosDataSet1.mostrar_registro' Puede moverla o quitarla según sea necesario.
-        Me.Mostrar_registroTableAdapter.Fill(Me.BDArchivosDataSet1.mostrar_registro)
+        Me.Mostrar_registroTableAdapter.Fill(Me.BDArchivosDataSet.mostrar_registro)
         mostrar()
 
     End Sub
