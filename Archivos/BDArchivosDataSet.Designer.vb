@@ -25,11 +25,13 @@ Option Explicit On
 Partial Public Class BDArchivosDataSet
     Inherits Global.System.Data.DataSet
     
+    Private tableTImagenes As TImagenesDataTable
+    
     Private tableTRegistro As TRegistroDataTable
     
     Private tableTUsuario As TUsuarioDataTable
     
-    Private tablevalidar_usuario_idusuario As validar_usuario_idusuarioDataTable
+    Private tablemostrar_imagenes_por_CCNro As mostrar_imagenes_por_CCNroDataTable
     
     Private tablemostrar_registro As mostrar_registroDataTable
     
@@ -37,11 +39,15 @@ Partial Public Class BDArchivosDataSet
     
     Private tablemostrar_registro_por_numero_cheque As mostrar_registro_por_numero_chequeDataTable
     
+    Private tablemostrar_registro_por_tomo_momentocontable As mostrar_registro_por_tomo_momentocontableDataTable
+    
     Private tablemostrar_usuario As mostrar_usuarioDataTable
     
     Private tablevalidar_usuario As validar_usuarioDataTable
     
-    Private tablemostrar_registro_por_tomo_momentocontable As mostrar_registro_por_tomo_momentocontableDataTable
+    Private tablevalidar_usuario_idusuario As validar_usuario_idusuarioDataTable
+    
+    Private relationFK__TImagenes__IdReg__0519C6AF As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -72,14 +78,17 @@ Partial Public Class BDArchivosDataSet
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
+            If (Not (ds.Tables("TImagenes")) Is Nothing) Then
+                MyBase.Tables.Add(New TImagenesDataTable(ds.Tables("TImagenes")))
+            End If
             If (Not (ds.Tables("TRegistro")) Is Nothing) Then
                 MyBase.Tables.Add(New TRegistroDataTable(ds.Tables("TRegistro")))
             End If
             If (Not (ds.Tables("TUsuario")) Is Nothing) Then
                 MyBase.Tables.Add(New TUsuarioDataTable(ds.Tables("TUsuario")))
             End If
-            If (Not (ds.Tables("validar_usuario_idusuario")) Is Nothing) Then
-                MyBase.Tables.Add(New validar_usuario_idusuarioDataTable(ds.Tables("validar_usuario_idusuario")))
+            If (Not (ds.Tables("mostrar_imagenes_por_CCNro")) Is Nothing) Then
+                MyBase.Tables.Add(New mostrar_imagenes_por_CCNroDataTable(ds.Tables("mostrar_imagenes_por_CCNro")))
             End If
             If (Not (ds.Tables("mostrar_registro")) Is Nothing) Then
                 MyBase.Tables.Add(New mostrar_registroDataTable(ds.Tables("mostrar_registro")))
@@ -90,14 +99,17 @@ Partial Public Class BDArchivosDataSet
             If (Not (ds.Tables("mostrar_registro_por_numero_cheque")) Is Nothing) Then
                 MyBase.Tables.Add(New mostrar_registro_por_numero_chequeDataTable(ds.Tables("mostrar_registro_por_numero_cheque")))
             End If
+            If (Not (ds.Tables("mostrar_registro_por_tomo_momentocontable")) Is Nothing) Then
+                MyBase.Tables.Add(New mostrar_registro_por_tomo_momentocontableDataTable(ds.Tables("mostrar_registro_por_tomo_momentocontable")))
+            End If
             If (Not (ds.Tables("mostrar_usuario")) Is Nothing) Then
                 MyBase.Tables.Add(New mostrar_usuarioDataTable(ds.Tables("mostrar_usuario")))
             End If
             If (Not (ds.Tables("validar_usuario")) Is Nothing) Then
                 MyBase.Tables.Add(New validar_usuarioDataTable(ds.Tables("validar_usuario")))
             End If
-            If (Not (ds.Tables("mostrar_registro_por_tomo_momentocontable")) Is Nothing) Then
-                MyBase.Tables.Add(New mostrar_registro_por_tomo_momentocontableDataTable(ds.Tables("mostrar_registro_por_tomo_momentocontable")))
+            If (Not (ds.Tables("validar_usuario_idusuario")) Is Nothing) Then
+                MyBase.Tables.Add(New validar_usuario_idusuarioDataTable(ds.Tables("validar_usuario_idusuario")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -115,6 +127,16 @@ Partial Public Class BDArchivosDataSet
         AddHandler MyBase.Tables.CollectionChanged, schemaChangedHandler
         AddHandler Me.Relations.CollectionChanged, schemaChangedHandler
     End Sub
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property TImagenes() As TImagenesDataTable
+        Get
+            Return Me.tableTImagenes
+        End Get
+    End Property
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
@@ -140,9 +162,9 @@ Partial Public Class BDArchivosDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property validar_usuario_idusuario() As validar_usuario_idusuarioDataTable
+    Public ReadOnly Property mostrar_imagenes_por_CCNro() As mostrar_imagenes_por_CCNroDataTable
         Get
-            Return Me.tablevalidar_usuario_idusuario
+            Return Me.tablemostrar_imagenes_por_CCNro
         End Get
     End Property
     
@@ -180,6 +202,16 @@ Partial Public Class BDArchivosDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property mostrar_registro_por_tomo_momentocontable() As mostrar_registro_por_tomo_momentocontableDataTable
+        Get
+            Return Me.tablemostrar_registro_por_tomo_momentocontable
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
     Public ReadOnly Property mostrar_usuario() As mostrar_usuarioDataTable
         Get
             Return Me.tablemostrar_usuario
@@ -200,9 +232,9 @@ Partial Public Class BDArchivosDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property mostrar_registro_por_tomo_momentocontable() As mostrar_registro_por_tomo_momentocontableDataTable
+    Public ReadOnly Property validar_usuario_idusuario() As validar_usuario_idusuarioDataTable
         Get
-            Return Me.tablemostrar_registro_por_tomo_momentocontable
+            Return Me.tablevalidar_usuario_idusuario
         End Get
     End Property
     
@@ -273,14 +305,17 @@ Partial Public Class BDArchivosDataSet
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
+            If (Not (ds.Tables("TImagenes")) Is Nothing) Then
+                MyBase.Tables.Add(New TImagenesDataTable(ds.Tables("TImagenes")))
+            End If
             If (Not (ds.Tables("TRegistro")) Is Nothing) Then
                 MyBase.Tables.Add(New TRegistroDataTable(ds.Tables("TRegistro")))
             End If
             If (Not (ds.Tables("TUsuario")) Is Nothing) Then
                 MyBase.Tables.Add(New TUsuarioDataTable(ds.Tables("TUsuario")))
             End If
-            If (Not (ds.Tables("validar_usuario_idusuario")) Is Nothing) Then
-                MyBase.Tables.Add(New validar_usuario_idusuarioDataTable(ds.Tables("validar_usuario_idusuario")))
+            If (Not (ds.Tables("mostrar_imagenes_por_CCNro")) Is Nothing) Then
+                MyBase.Tables.Add(New mostrar_imagenes_por_CCNroDataTable(ds.Tables("mostrar_imagenes_por_CCNro")))
             End If
             If (Not (ds.Tables("mostrar_registro")) Is Nothing) Then
                 MyBase.Tables.Add(New mostrar_registroDataTable(ds.Tables("mostrar_registro")))
@@ -291,14 +326,17 @@ Partial Public Class BDArchivosDataSet
             If (Not (ds.Tables("mostrar_registro_por_numero_cheque")) Is Nothing) Then
                 MyBase.Tables.Add(New mostrar_registro_por_numero_chequeDataTable(ds.Tables("mostrar_registro_por_numero_cheque")))
             End If
+            If (Not (ds.Tables("mostrar_registro_por_tomo_momentocontable")) Is Nothing) Then
+                MyBase.Tables.Add(New mostrar_registro_por_tomo_momentocontableDataTable(ds.Tables("mostrar_registro_por_tomo_momentocontable")))
+            End If
             If (Not (ds.Tables("mostrar_usuario")) Is Nothing) Then
                 MyBase.Tables.Add(New mostrar_usuarioDataTable(ds.Tables("mostrar_usuario")))
             End If
             If (Not (ds.Tables("validar_usuario")) Is Nothing) Then
                 MyBase.Tables.Add(New validar_usuarioDataTable(ds.Tables("validar_usuario")))
             End If
-            If (Not (ds.Tables("mostrar_registro_por_tomo_momentocontable")) Is Nothing) Then
-                MyBase.Tables.Add(New mostrar_registro_por_tomo_momentocontableDataTable(ds.Tables("mostrar_registro_por_tomo_momentocontable")))
+            If (Not (ds.Tables("validar_usuario_idusuario")) Is Nothing) Then
+                MyBase.Tables.Add(New validar_usuario_idusuarioDataTable(ds.Tables("validar_usuario_idusuario")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -332,6 +370,12 @@ Partial Public Class BDArchivosDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
+        Me.tableTImagenes = CType(MyBase.Tables("TImagenes"),TImagenesDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableTImagenes) Is Nothing) Then
+                Me.tableTImagenes.InitVars
+            End If
+        End If
         Me.tableTRegistro = CType(MyBase.Tables("TRegistro"),TRegistroDataTable)
         If (initTable = true) Then
             If (Not (Me.tableTRegistro) Is Nothing) Then
@@ -344,10 +388,10 @@ Partial Public Class BDArchivosDataSet
                 Me.tableTUsuario.InitVars
             End If
         End If
-        Me.tablevalidar_usuario_idusuario = CType(MyBase.Tables("validar_usuario_idusuario"),validar_usuario_idusuarioDataTable)
+        Me.tablemostrar_imagenes_por_CCNro = CType(MyBase.Tables("mostrar_imagenes_por_CCNro"),mostrar_imagenes_por_CCNroDataTable)
         If (initTable = true) Then
-            If (Not (Me.tablevalidar_usuario_idusuario) Is Nothing) Then
-                Me.tablevalidar_usuario_idusuario.InitVars
+            If (Not (Me.tablemostrar_imagenes_por_CCNro) Is Nothing) Then
+                Me.tablemostrar_imagenes_por_CCNro.InitVars
             End If
         End If
         Me.tablemostrar_registro = CType(MyBase.Tables("mostrar_registro"),mostrar_registroDataTable)
@@ -368,6 +412,12 @@ Partial Public Class BDArchivosDataSet
                 Me.tablemostrar_registro_por_numero_cheque.InitVars
             End If
         End If
+        Me.tablemostrar_registro_por_tomo_momentocontable = CType(MyBase.Tables("mostrar_registro_por_tomo_momentocontable"),mostrar_registro_por_tomo_momentocontableDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tablemostrar_registro_por_tomo_momentocontable) Is Nothing) Then
+                Me.tablemostrar_registro_por_tomo_momentocontable.InitVars
+            End If
+        End If
         Me.tablemostrar_usuario = CType(MyBase.Tables("mostrar_usuario"),mostrar_usuarioDataTable)
         If (initTable = true) Then
             If (Not (Me.tablemostrar_usuario) Is Nothing) Then
@@ -380,12 +430,13 @@ Partial Public Class BDArchivosDataSet
                 Me.tablevalidar_usuario.InitVars
             End If
         End If
-        Me.tablemostrar_registro_por_tomo_momentocontable = CType(MyBase.Tables("mostrar_registro_por_tomo_momentocontable"),mostrar_registro_por_tomo_momentocontableDataTable)
+        Me.tablevalidar_usuario_idusuario = CType(MyBase.Tables("validar_usuario_idusuario"),validar_usuario_idusuarioDataTable)
         If (initTable = true) Then
-            If (Not (Me.tablemostrar_registro_por_tomo_momentocontable) Is Nothing) Then
-                Me.tablemostrar_registro_por_tomo_momentocontable.InitVars
+            If (Not (Me.tablevalidar_usuario_idusuario) Is Nothing) Then
+                Me.tablevalidar_usuario_idusuario.InitVars
             End If
         End If
+        Me.relationFK__TImagenes__IdReg__0519C6AF = Me.Relations("FK__TImagenes__IdReg__0519C6AF")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -396,25 +447,37 @@ Partial Public Class BDArchivosDataSet
         Me.Namespace = "http://tempuri.org/BDArchivosDataSet.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
+        Me.tableTImagenes = New TImagenesDataTable()
+        MyBase.Tables.Add(Me.tableTImagenes)
         Me.tableTRegistro = New TRegistroDataTable()
         MyBase.Tables.Add(Me.tableTRegistro)
         Me.tableTUsuario = New TUsuarioDataTable()
         MyBase.Tables.Add(Me.tableTUsuario)
-        Me.tablevalidar_usuario_idusuario = New validar_usuario_idusuarioDataTable()
-        MyBase.Tables.Add(Me.tablevalidar_usuario_idusuario)
+        Me.tablemostrar_imagenes_por_CCNro = New mostrar_imagenes_por_CCNroDataTable()
+        MyBase.Tables.Add(Me.tablemostrar_imagenes_por_CCNro)
         Me.tablemostrar_registro = New mostrar_registroDataTable()
         MyBase.Tables.Add(Me.tablemostrar_registro)
         Me.tablemostrar_registro_por_nombre_beneficiario = New mostrar_registro_por_nombre_beneficiarioDataTable()
         MyBase.Tables.Add(Me.tablemostrar_registro_por_nombre_beneficiario)
         Me.tablemostrar_registro_por_numero_cheque = New mostrar_registro_por_numero_chequeDataTable()
         MyBase.Tables.Add(Me.tablemostrar_registro_por_numero_cheque)
+        Me.tablemostrar_registro_por_tomo_momentocontable = New mostrar_registro_por_tomo_momentocontableDataTable()
+        MyBase.Tables.Add(Me.tablemostrar_registro_por_tomo_momentocontable)
         Me.tablemostrar_usuario = New mostrar_usuarioDataTable()
         MyBase.Tables.Add(Me.tablemostrar_usuario)
         Me.tablevalidar_usuario = New validar_usuarioDataTable()
         MyBase.Tables.Add(Me.tablevalidar_usuario)
-        Me.tablemostrar_registro_por_tomo_momentocontable = New mostrar_registro_por_tomo_momentocontableDataTable()
-        MyBase.Tables.Add(Me.tablemostrar_registro_por_tomo_momentocontable)
+        Me.tablevalidar_usuario_idusuario = New validar_usuario_idusuarioDataTable()
+        MyBase.Tables.Add(Me.tablevalidar_usuario_idusuario)
+        Me.relationFK__TImagenes__IdReg__0519C6AF = New Global.System.Data.DataRelation("FK__TImagenes__IdReg__0519C6AF", New Global.System.Data.DataColumn() {Me.tableTRegistro.IdColumn}, New Global.System.Data.DataColumn() {Me.tableTImagenes.IdRegistroColumn}, false)
+        Me.Relations.Add(Me.relationFK__TImagenes__IdReg__0519C6AF)
     End Sub
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializeTImagenes() As Boolean
+        Return false
+    End Function
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -430,7 +493,7 @@ Partial Public Class BDArchivosDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializevalidar_usuario_idusuario() As Boolean
+    Private Function ShouldSerializemostrar_imagenes_por_CCNro() As Boolean
         Return false
     End Function
     
@@ -454,6 +517,12 @@ Partial Public Class BDArchivosDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializemostrar_registro_por_tomo_momentocontable() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Function ShouldSerializemostrar_usuario() As Boolean
         Return false
     End Function
@@ -466,7 +535,7 @@ Partial Public Class BDArchivosDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializemostrar_registro_por_tomo_momentocontable() As Boolean
+    Private Function ShouldSerializevalidar_usuario_idusuario() As Boolean
         Return false
     End Function
     
@@ -529,13 +598,16 @@ Partial Public Class BDArchivosDataSet
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub TImagenesRowChangeEventHandler(ByVal sender As Object, ByVal e As TImagenesRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub TRegistroRowChangeEventHandler(ByVal sender As Object, ByVal e As TRegistroRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub TUsuarioRowChangeEventHandler(ByVal sender As Object, ByVal e As TUsuarioRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub validar_usuario_idusuarioRowChangeEventHandler(ByVal sender As Object, ByVal e As validar_usuario_idusuarioRowChangeEvent)
+    Public Delegate Sub mostrar_imagenes_por_CCNroRowChangeEventHandler(ByVal sender As Object, ByVal e As mostrar_imagenes_por_CCNroRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub mostrar_registroRowChangeEventHandler(ByVal sender As Object, ByVal e As mostrar_registroRowChangeEvent)
@@ -547,13 +619,339 @@ Partial Public Class BDArchivosDataSet
     Public Delegate Sub mostrar_registro_por_numero_chequeRowChangeEventHandler(ByVal sender As Object, ByVal e As mostrar_registro_por_numero_chequeRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub mostrar_registro_por_tomo_momentocontableRowChangeEventHandler(ByVal sender As Object, ByVal e As mostrar_registro_por_tomo_momentocontableRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub mostrar_usuarioRowChangeEventHandler(ByVal sender As Object, ByVal e As mostrar_usuarioRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub validar_usuarioRowChangeEventHandler(ByVal sender As Object, ByVal e As validar_usuarioRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub mostrar_registro_por_tomo_momentocontableRowChangeEventHandler(ByVal sender As Object, ByVal e As mostrar_registro_por_tomo_momentocontableRowChangeEvent)
+    Public Delegate Sub validar_usuario_idusuarioRowChangeEventHandler(ByVal sender As Object, ByVal e As validar_usuario_idusuarioRowChangeEvent)
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class TImagenesDataTable
+        Inherits Global.System.Data.TypedTableBase(Of TImagenesRow)
+        
+        Private columnId As Global.System.Data.DataColumn
+        
+        Private columnCCNro As Global.System.Data.DataColumn
+        
+        Private columnDescripcionImagen As Global.System.Data.DataColumn
+        
+        Private columnImagen As Global.System.Data.DataColumn
+        
+        Private columnIdRegistro As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "TImagenes"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnId
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CCNroColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCCNro
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DescripcionImagenColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDescripcionImagen
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ImagenColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnImagen
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IdRegistroColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIdRegistro
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As TImagenesRow
+            Get
+                Return CType(Me.Rows(index),TImagenesRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event TImagenesRowChanging As TImagenesRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event TImagenesRowChanged As TImagenesRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event TImagenesRowDeleting As TImagenesRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event TImagenesRowDeleted As TImagenesRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddTImagenesRow(ByVal row As TImagenesRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddTImagenesRow(ByVal CCNro As Integer, ByVal DescripcionImagen As String, ByVal Imagen() As Byte, ByVal parentTRegistroRowByFK__TImagenes__IdReg__0519C6AF As TRegistroRow) As TImagenesRow
+            Dim rowTImagenesRow As TImagenesRow = CType(Me.NewRow,TImagenesRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, CCNro, DescripcionImagen, Imagen, Nothing}
+            If (Not (parentTRegistroRowByFK__TImagenes__IdReg__0519C6AF) Is Nothing) Then
+                columnValuesArray(4) = parentTRegistroRowByFK__TImagenes__IdReg__0519C6AF(0)
+            End If
+            rowTImagenesRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowTImagenesRow)
+            Return rowTImagenesRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function FindById(ByVal Id As Integer) As TImagenesRow
+            Return CType(Me.Rows.Find(New Object() {Id}),TImagenesRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As TImagenesDataTable = CType(MyBase.Clone,TImagenesDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New TImagenesDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnId = MyBase.Columns("Id")
+            Me.columnCCNro = MyBase.Columns("CCNro")
+            Me.columnDescripcionImagen = MyBase.Columns("DescripcionImagen")
+            Me.columnImagen = MyBase.Columns("Imagen")
+            Me.columnIdRegistro = MyBase.Columns("IdRegistro")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnId = New Global.System.Data.DataColumn("Id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnId)
+            Me.columnCCNro = New Global.System.Data.DataColumn("CCNro", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCCNro)
+            Me.columnDescripcionImagen = New Global.System.Data.DataColumn("DescripcionImagen", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDescripcionImagen)
+            Me.columnImagen = New Global.System.Data.DataColumn("Imagen", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnImagen)
+            Me.columnIdRegistro = New Global.System.Data.DataColumn("IdRegistro", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIdRegistro)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId}, true))
+            Me.columnId.AutoIncrement = true
+            Me.columnId.AutoIncrementSeed = -1
+            Me.columnId.AutoIncrementStep = -1
+            Me.columnId.AllowDBNull = false
+            Me.columnId.ReadOnly = true
+            Me.columnId.Unique = true
+            Me.columnCCNro.AllowDBNull = false
+            Me.columnDescripcionImagen.MaxLength = 2147483647
+            Me.columnIdRegistro.AllowDBNull = false
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewTImagenesRow() As TImagenesRow
+            Return CType(Me.NewRow,TImagenesRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New TImagenesRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(TImagenesRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.TImagenesRowChangedEvent) Is Nothing) Then
+                RaiseEvent TImagenesRowChanged(Me, New TImagenesRowChangeEvent(CType(e.Row,TImagenesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.TImagenesRowChangingEvent) Is Nothing) Then
+                RaiseEvent TImagenesRowChanging(Me, New TImagenesRowChangeEvent(CType(e.Row,TImagenesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.TImagenesRowDeletedEvent) Is Nothing) Then
+                RaiseEvent TImagenesRowDeleted(Me, New TImagenesRowChangeEvent(CType(e.Row,TImagenesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.TImagenesRowDeletingEvent) Is Nothing) Then
+                RaiseEvent TImagenesRowDeleting(Me, New TImagenesRowChangeEvent(CType(e.Row,TImagenesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemoveTImagenesRow(ByVal row As TImagenesRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As BDArchivosDataSet = New BDArchivosDataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "TImagenesDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -1465,16 +1863,24 @@ Partial Public Class BDArchivosDataSet
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class validar_usuario_idusuarioDataTable
-        Inherits Global.System.Data.TypedTableBase(Of validar_usuario_idusuarioRow)
+    Partial Public Class mostrar_imagenes_por_CCNroDataTable
+        Inherits Global.System.Data.TypedTableBase(Of mostrar_imagenes_por_CCNroRow)
         
-        Private columnidusuario As Global.System.Data.DataColumn
+        Private columnid As Global.System.Data.DataColumn
+        
+        Private columnCCNro As Global.System.Data.DataColumn
+        
+        Private columnDescripcionImagen As Global.System.Data.DataColumn
+        
+        Private columnImagen As Global.System.Data.DataColumn
+        
+        Private columnIdRegistro As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "validar_usuario_idusuario"
+            Me.TableName = "mostrar_imagenes_por_CCNro"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -1507,9 +1913,41 @@ Partial Public Class BDArchivosDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property idusuarioColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property idColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnidusuario
+                Return Me.columnid
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CCNroColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCCNro
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DescripcionImagenColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDescripcionImagen
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ImagenColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnImagen
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IdRegistroColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIdRegistro
             End Get
         End Property
         
@@ -1524,50 +1962,50 @@ Partial Public Class BDArchivosDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As validar_usuario_idusuarioRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As mostrar_imagenes_por_CCNroRow
             Get
-                Return CType(Me.Rows(index),validar_usuario_idusuarioRow)
+                Return CType(Me.Rows(index),mostrar_imagenes_por_CCNroRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event validar_usuario_idusuarioRowChanging As validar_usuario_idusuarioRowChangeEventHandler
+        Public Event mostrar_imagenes_por_CCNroRowChanging As mostrar_imagenes_por_CCNroRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event validar_usuario_idusuarioRowChanged As validar_usuario_idusuarioRowChangeEventHandler
+        Public Event mostrar_imagenes_por_CCNroRowChanged As mostrar_imagenes_por_CCNroRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event validar_usuario_idusuarioRowDeleting As validar_usuario_idusuarioRowChangeEventHandler
+        Public Event mostrar_imagenes_por_CCNroRowDeleting As mostrar_imagenes_por_CCNroRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event validar_usuario_idusuarioRowDeleted As validar_usuario_idusuarioRowChangeEventHandler
+        Public Event mostrar_imagenes_por_CCNroRowDeleted As mostrar_imagenes_por_CCNroRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub Addvalidar_usuario_idusuarioRow(ByVal row As validar_usuario_idusuarioRow)
+        Public Overloads Sub Addmostrar_imagenes_por_CCNroRow(ByVal row As mostrar_imagenes_por_CCNroRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addvalidar_usuario_idusuarioRow() As validar_usuario_idusuarioRow
-            Dim rowvalidar_usuario_idusuarioRow As validar_usuario_idusuarioRow = CType(Me.NewRow,validar_usuario_idusuarioRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing}
-            rowvalidar_usuario_idusuarioRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowvalidar_usuario_idusuarioRow)
-            Return rowvalidar_usuario_idusuarioRow
+        Public Overloads Function Addmostrar_imagenes_por_CCNroRow(ByVal CCNro As Integer, ByVal DescripcionImagen As String, ByVal Imagen() As Byte, ByVal IdRegistro As Integer) As mostrar_imagenes_por_CCNroRow
+            Dim rowmostrar_imagenes_por_CCNroRow As mostrar_imagenes_por_CCNroRow = CType(Me.NewRow,mostrar_imagenes_por_CCNroRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, CCNro, DescripcionImagen, Imagen, IdRegistro}
+            rowmostrar_imagenes_por_CCNroRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowmostrar_imagenes_por_CCNroRow)
+            Return rowmostrar_imagenes_por_CCNroRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindByidusuario(ByVal idusuario As Integer) As validar_usuario_idusuarioRow
-            Return CType(Me.Rows.Find(New Object() {idusuario}),validar_usuario_idusuarioRow)
+        Public Function FindByid(ByVal id As Integer) As mostrar_imagenes_por_CCNroRow
+            Return CType(Me.Rows.Find(New Object() {id}),mostrar_imagenes_por_CCNroRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As validar_usuario_idusuarioDataTable = CType(MyBase.Clone,validar_usuario_idusuarioDataTable)
+            Dim cln As mostrar_imagenes_por_CCNroDataTable = CType(MyBase.Clone,mostrar_imagenes_por_CCNroDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -1575,51 +2013,66 @@ Partial Public Class BDArchivosDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New validar_usuario_idusuarioDataTable()
+            Return New mostrar_imagenes_por_CCNroDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnidusuario = MyBase.Columns("idusuario")
+            Me.columnid = MyBase.Columns("id")
+            Me.columnCCNro = MyBase.Columns("CCNro")
+            Me.columnDescripcionImagen = MyBase.Columns("DescripcionImagen")
+            Me.columnImagen = MyBase.Columns("Imagen")
+            Me.columnIdRegistro = MyBase.Columns("IdRegistro")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnidusuario = New Global.System.Data.DataColumn("idusuario", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnidusuario)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnidusuario}, true))
-            Me.columnidusuario.AutoIncrement = true
-            Me.columnidusuario.AllowDBNull = false
-            Me.columnidusuario.ReadOnly = true
-            Me.columnidusuario.Unique = true
+            Me.columnid = New Global.System.Data.DataColumn("id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnid)
+            Me.columnCCNro = New Global.System.Data.DataColumn("CCNro", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCCNro)
+            Me.columnDescripcionImagen = New Global.System.Data.DataColumn("DescripcionImagen", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDescripcionImagen)
+            Me.columnImagen = New Global.System.Data.DataColumn("Imagen", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnImagen)
+            Me.columnIdRegistro = New Global.System.Data.DataColumn("IdRegistro", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIdRegistro)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
+            Me.columnid.AutoIncrement = true
+            Me.columnid.AllowDBNull = false
+            Me.columnid.ReadOnly = true
+            Me.columnid.Unique = true
+            Me.columnCCNro.AllowDBNull = false
+            Me.columnDescripcionImagen.MaxLength = 2147483647
+            Me.columnIdRegistro.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function Newvalidar_usuario_idusuarioRow() As validar_usuario_idusuarioRow
-            Return CType(Me.NewRow,validar_usuario_idusuarioRow)
+        Public Function Newmostrar_imagenes_por_CCNroRow() As mostrar_imagenes_por_CCNroRow
+            Return CType(Me.NewRow,mostrar_imagenes_por_CCNroRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New validar_usuario_idusuarioRow(builder)
+            Return New mostrar_imagenes_por_CCNroRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(validar_usuario_idusuarioRow)
+            Return GetType(mostrar_imagenes_por_CCNroRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.validar_usuario_idusuarioRowChangedEvent) Is Nothing) Then
-                RaiseEvent validar_usuario_idusuarioRowChanged(Me, New validar_usuario_idusuarioRowChangeEvent(CType(e.Row,validar_usuario_idusuarioRow), e.Action))
+            If (Not (Me.mostrar_imagenes_por_CCNroRowChangedEvent) Is Nothing) Then
+                RaiseEvent mostrar_imagenes_por_CCNroRowChanged(Me, New mostrar_imagenes_por_CCNroRowChangeEvent(CType(e.Row,mostrar_imagenes_por_CCNroRow), e.Action))
             End If
         End Sub
         
@@ -1627,8 +2080,8 @@ Partial Public Class BDArchivosDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.validar_usuario_idusuarioRowChangingEvent) Is Nothing) Then
-                RaiseEvent validar_usuario_idusuarioRowChanging(Me, New validar_usuario_idusuarioRowChangeEvent(CType(e.Row,validar_usuario_idusuarioRow), e.Action))
+            If (Not (Me.mostrar_imagenes_por_CCNroRowChangingEvent) Is Nothing) Then
+                RaiseEvent mostrar_imagenes_por_CCNroRowChanging(Me, New mostrar_imagenes_por_CCNroRowChangeEvent(CType(e.Row,mostrar_imagenes_por_CCNroRow), e.Action))
             End If
         End Sub
         
@@ -1636,8 +2089,8 @@ Partial Public Class BDArchivosDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.validar_usuario_idusuarioRowDeletedEvent) Is Nothing) Then
-                RaiseEvent validar_usuario_idusuarioRowDeleted(Me, New validar_usuario_idusuarioRowChangeEvent(CType(e.Row,validar_usuario_idusuarioRow), e.Action))
+            If (Not (Me.mostrar_imagenes_por_CCNroRowDeletedEvent) Is Nothing) Then
+                RaiseEvent mostrar_imagenes_por_CCNroRowDeleted(Me, New mostrar_imagenes_por_CCNroRowChangeEvent(CType(e.Row,mostrar_imagenes_por_CCNroRow), e.Action))
             End If
         End Sub
         
@@ -1645,14 +2098,14 @@ Partial Public Class BDArchivosDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.validar_usuario_idusuarioRowDeletingEvent) Is Nothing) Then
-                RaiseEvent validar_usuario_idusuarioRowDeleting(Me, New validar_usuario_idusuarioRowChangeEvent(CType(e.Row,validar_usuario_idusuarioRow), e.Action))
+            If (Not (Me.mostrar_imagenes_por_CCNroRowDeletingEvent) Is Nothing) Then
+                RaiseEvent mostrar_imagenes_por_CCNroRowDeleting(Me, New mostrar_imagenes_por_CCNroRowChangeEvent(CType(e.Row,mostrar_imagenes_por_CCNroRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub Removevalidar_usuario_idusuarioRow(ByVal row As validar_usuario_idusuarioRow)
+        Public Sub Removemostrar_imagenes_por_CCNroRow(ByVal row As mostrar_imagenes_por_CCNroRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -1679,7 +2132,7 @@ Partial Public Class BDArchivosDataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "validar_usuario_idusuarioDataTable"
+            attribute2.FixedValue = "mostrar_imagenes_por_CCNroDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -3264,6 +3717,518 @@ Partial Public Class BDArchivosDataSet
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class mostrar_registro_por_tomo_momentocontableDataTable
+        Inherits Global.System.Data.TypedTableBase(Of mostrar_registro_por_tomo_momentocontableRow)
+        
+        Private columnid As Global.System.Data.DataColumn
+        
+        Private columnFormularioNro As Global.System.Data.DataColumn
+        
+        Private columnBoleto As Global.System.Data.DataColumn
+        
+        Private columnNombreBeneficiario As Global.System.Data.DataColumn
+        
+        Private columnMomentoContable As Global.System.Data.DataColumn
+        
+        Private columnNroTomo As Global.System.Data.DataColumn
+        
+        Private columnGestion As Global.System.Data.DataColumn
+        
+        Private columnPeriodoAdeudado As Global.System.Data.DataColumn
+        
+        Private columnFechaPago As Global.System.Data.DataColumn
+        
+        Private columnNroPago As Global.System.Data.DataColumn
+        
+        Private columnImporteAdeudado As Global.System.Data.DataColumn
+        
+        Private columnDescripcionDeuda As Global.System.Data.DataColumn
+        
+        Private columnCCNro As Global.System.Data.DataColumn
+        
+        Private columnCCFechaPago As Global.System.Data.DataColumn
+        
+        Private columnCCImporteAdeudado As Global.System.Data.DataColumn
+        
+        Private columnCHNro As Global.System.Data.DataColumn
+        
+        Private columnCHFechaCobro As Global.System.Data.DataColumn
+        
+        Private columnCHImporteCheque As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "mostrar_registro_por_tomo_momentocontable"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property idColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnid
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property FormularioNroColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFormularioNro
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property BoletoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBoleto
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property NombreBeneficiarioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNombreBeneficiario
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property MomentoContableColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMomentoContable
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property NroTomoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNroTomo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property GestionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnGestion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PeriodoAdeudadoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPeriodoAdeudado
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property FechaPagoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFechaPago
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property NroPagoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNroPago
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ImporteAdeudadoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnImporteAdeudado
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DescripcionDeudaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDescripcionDeuda
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CCNroColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCCNro
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CCFechaPagoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCCFechaPago
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CCImporteAdeudadoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCCImporteAdeudado
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CHNroColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCHNro
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CHFechaCobroColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCHFechaCobro
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CHImporteChequeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCHImporteCheque
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As mostrar_registro_por_tomo_momentocontableRow
+            Get
+                Return CType(Me.Rows(index),mostrar_registro_por_tomo_momentocontableRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event mostrar_registro_por_tomo_momentocontableRowChanging As mostrar_registro_por_tomo_momentocontableRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event mostrar_registro_por_tomo_momentocontableRowChanged As mostrar_registro_por_tomo_momentocontableRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event mostrar_registro_por_tomo_momentocontableRowDeleting As mostrar_registro_por_tomo_momentocontableRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event mostrar_registro_por_tomo_momentocontableRowDeleted As mostrar_registro_por_tomo_momentocontableRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub Addmostrar_registro_por_tomo_momentocontableRow(ByVal row As mostrar_registro_por_tomo_momentocontableRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function Addmostrar_registro_por_tomo_momentocontableRow( _
+                    ByVal FormularioNro As String,  _
+                    ByVal Boleto As String,  _
+                    ByVal NombreBeneficiario As String,  _
+                    ByVal MomentoContable As String,  _
+                    ByVal NroTomo As String,  _
+                    ByVal Gestion As String,  _
+                    ByVal PeriodoAdeudado As String,  _
+                    ByVal FechaPago As Date,  _
+                    ByVal NroPago As String,  _
+                    ByVal ImporteAdeudado As Double,  _
+                    ByVal DescripcionDeuda As String,  _
+                    ByVal CCNro As String,  _
+                    ByVal CCFechaPago As Date,  _
+                    ByVal CCImporteAdeudado As Double,  _
+                    ByVal CHNro As String,  _
+                    ByVal CHFechaCobro As Date,  _
+                    ByVal CHImporteCheque As Double) As mostrar_registro_por_tomo_momentocontableRow
+            Dim rowmostrar_registro_por_tomo_momentocontableRow As mostrar_registro_por_tomo_momentocontableRow = CType(Me.NewRow,mostrar_registro_por_tomo_momentocontableRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, FormularioNro, Boleto, NombreBeneficiario, MomentoContable, NroTomo, Gestion, PeriodoAdeudado, FechaPago, NroPago, ImporteAdeudado, DescripcionDeuda, CCNro, CCFechaPago, CCImporteAdeudado, CHNro, CHFechaCobro, CHImporteCheque}
+            rowmostrar_registro_por_tomo_momentocontableRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowmostrar_registro_por_tomo_momentocontableRow)
+            Return rowmostrar_registro_por_tomo_momentocontableRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function FindByid(ByVal id As Integer) As mostrar_registro_por_tomo_momentocontableRow
+            Return CType(Me.Rows.Find(New Object() {id}),mostrar_registro_por_tomo_momentocontableRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As mostrar_registro_por_tomo_momentocontableDataTable = CType(MyBase.Clone,mostrar_registro_por_tomo_momentocontableDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New mostrar_registro_por_tomo_momentocontableDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnid = MyBase.Columns("id")
+            Me.columnFormularioNro = MyBase.Columns("FormularioNro")
+            Me.columnBoleto = MyBase.Columns("Boleto")
+            Me.columnNombreBeneficiario = MyBase.Columns("NombreBeneficiario")
+            Me.columnMomentoContable = MyBase.Columns("MomentoContable")
+            Me.columnNroTomo = MyBase.Columns("NroTomo")
+            Me.columnGestion = MyBase.Columns("Gestion")
+            Me.columnPeriodoAdeudado = MyBase.Columns("PeriodoAdeudado")
+            Me.columnFechaPago = MyBase.Columns("FechaPago")
+            Me.columnNroPago = MyBase.Columns("NroPago")
+            Me.columnImporteAdeudado = MyBase.Columns("ImporteAdeudado")
+            Me.columnDescripcionDeuda = MyBase.Columns("DescripcionDeuda")
+            Me.columnCCNro = MyBase.Columns("CCNro")
+            Me.columnCCFechaPago = MyBase.Columns("CCFechaPago")
+            Me.columnCCImporteAdeudado = MyBase.Columns("CCImporteAdeudado")
+            Me.columnCHNro = MyBase.Columns("CHNro")
+            Me.columnCHFechaCobro = MyBase.Columns("CHFechaCobro")
+            Me.columnCHImporteCheque = MyBase.Columns("CHImporteCheque")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnid = New Global.System.Data.DataColumn("id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnid)
+            Me.columnFormularioNro = New Global.System.Data.DataColumn("FormularioNro", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFormularioNro)
+            Me.columnBoleto = New Global.System.Data.DataColumn("Boleto", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBoleto)
+            Me.columnNombreBeneficiario = New Global.System.Data.DataColumn("NombreBeneficiario", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNombreBeneficiario)
+            Me.columnMomentoContable = New Global.System.Data.DataColumn("MomentoContable", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMomentoContable)
+            Me.columnNroTomo = New Global.System.Data.DataColumn("NroTomo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNroTomo)
+            Me.columnGestion = New Global.System.Data.DataColumn("Gestion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnGestion)
+            Me.columnPeriodoAdeudado = New Global.System.Data.DataColumn("PeriodoAdeudado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPeriodoAdeudado)
+            Me.columnFechaPago = New Global.System.Data.DataColumn("FechaPago", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFechaPago)
+            Me.columnNroPago = New Global.System.Data.DataColumn("NroPago", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNroPago)
+            Me.columnImporteAdeudado = New Global.System.Data.DataColumn("ImporteAdeudado", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnImporteAdeudado)
+            Me.columnDescripcionDeuda = New Global.System.Data.DataColumn("DescripcionDeuda", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDescripcionDeuda)
+            Me.columnCCNro = New Global.System.Data.DataColumn("CCNro", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCCNro)
+            Me.columnCCFechaPago = New Global.System.Data.DataColumn("CCFechaPago", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCCFechaPago)
+            Me.columnCCImporteAdeudado = New Global.System.Data.DataColumn("CCImporteAdeudado", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCCImporteAdeudado)
+            Me.columnCHNro = New Global.System.Data.DataColumn("CHNro", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCHNro)
+            Me.columnCHFechaCobro = New Global.System.Data.DataColumn("CHFechaCobro", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCHFechaCobro)
+            Me.columnCHImporteCheque = New Global.System.Data.DataColumn("CHImporteCheque", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCHImporteCheque)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
+            Me.columnid.AutoIncrement = true
+            Me.columnid.AllowDBNull = false
+            Me.columnid.ReadOnly = true
+            Me.columnid.Unique = true
+            Me.columnFormularioNro.MaxLength = 50
+            Me.columnBoleto.MaxLength = 50
+            Me.columnNombreBeneficiario.MaxLength = 50
+            Me.columnMomentoContable.MaxLength = 50
+            Me.columnNroTomo.MaxLength = 50
+            Me.columnGestion.MaxLength = 50
+            Me.columnPeriodoAdeudado.MaxLength = 50
+            Me.columnNroPago.MaxLength = 50
+            Me.columnDescripcionDeuda.MaxLength = 2147483647
+            Me.columnCCNro.MaxLength = 50
+            Me.columnCHNro.MaxLength = 50
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Newmostrar_registro_por_tomo_momentocontableRow() As mostrar_registro_por_tomo_momentocontableRow
+            Return CType(Me.NewRow,mostrar_registro_por_tomo_momentocontableRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New mostrar_registro_por_tomo_momentocontableRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(mostrar_registro_por_tomo_momentocontableRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.mostrar_registro_por_tomo_momentocontableRowChangedEvent) Is Nothing) Then
+                RaiseEvent mostrar_registro_por_tomo_momentocontableRowChanged(Me, New mostrar_registro_por_tomo_momentocontableRowChangeEvent(CType(e.Row,mostrar_registro_por_tomo_momentocontableRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.mostrar_registro_por_tomo_momentocontableRowChangingEvent) Is Nothing) Then
+                RaiseEvent mostrar_registro_por_tomo_momentocontableRowChanging(Me, New mostrar_registro_por_tomo_momentocontableRowChangeEvent(CType(e.Row,mostrar_registro_por_tomo_momentocontableRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.mostrar_registro_por_tomo_momentocontableRowDeletedEvent) Is Nothing) Then
+                RaiseEvent mostrar_registro_por_tomo_momentocontableRowDeleted(Me, New mostrar_registro_por_tomo_momentocontableRowChangeEvent(CType(e.Row,mostrar_registro_por_tomo_momentocontableRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.mostrar_registro_por_tomo_momentocontableRowDeletingEvent) Is Nothing) Then
+                RaiseEvent mostrar_registro_por_tomo_momentocontableRowDeleting(Me, New mostrar_registro_por_tomo_momentocontableRowChangeEvent(CType(e.Row,mostrar_registro_por_tomo_momentocontableRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Removemostrar_registro_por_tomo_momentocontableRow(ByVal row As mostrar_registro_por_tomo_momentocontableRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As BDArchivosDataSet = New BDArchivosDataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "mostrar_registro_por_tomo_momentocontableDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class mostrar_usuarioDataTable
         Inherits Global.System.Data.TypedTableBase(Of mostrar_usuarioRow)
         
@@ -3906,50 +4871,16 @@ Partial Public Class BDArchivosDataSet
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class mostrar_registro_por_tomo_momentocontableDataTable
-        Inherits Global.System.Data.TypedTableBase(Of mostrar_registro_por_tomo_momentocontableRow)
+    Partial Public Class validar_usuario_idusuarioDataTable
+        Inherits Global.System.Data.TypedTableBase(Of validar_usuario_idusuarioRow)
         
-        Private columnid As Global.System.Data.DataColumn
-        
-        Private columnFormularioNro As Global.System.Data.DataColumn
-        
-        Private columnBoleto As Global.System.Data.DataColumn
-        
-        Private columnNombreBeneficiario As Global.System.Data.DataColumn
-        
-        Private columnMomentoContable As Global.System.Data.DataColumn
-        
-        Private columnNroTomo As Global.System.Data.DataColumn
-        
-        Private columnGestion As Global.System.Data.DataColumn
-        
-        Private columnPeriodoAdeudado As Global.System.Data.DataColumn
-        
-        Private columnFechaPago As Global.System.Data.DataColumn
-        
-        Private columnNroPago As Global.System.Data.DataColumn
-        
-        Private columnImporteAdeudado As Global.System.Data.DataColumn
-        
-        Private columnDescripcionDeuda As Global.System.Data.DataColumn
-        
-        Private columnCCNro As Global.System.Data.DataColumn
-        
-        Private columnCCFechaPago As Global.System.Data.DataColumn
-        
-        Private columnCCImporteAdeudado As Global.System.Data.DataColumn
-        
-        Private columnCHNro As Global.System.Data.DataColumn
-        
-        Private columnCHFechaCobro As Global.System.Data.DataColumn
-        
-        Private columnCHImporteCheque As Global.System.Data.DataColumn
+        Private columnidusuario As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "mostrar_registro_por_tomo_momentocontable"
+            Me.TableName = "validar_usuario_idusuario"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -3982,145 +4913,9 @@ Partial Public Class BDArchivosDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property idColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property idusuarioColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnid
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property FormularioNroColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFormularioNro
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property BoletoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnBoleto
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NombreBeneficiarioColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNombreBeneficiario
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property MomentoContableColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnMomentoContable
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NroTomoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNroTomo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property GestionColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnGestion
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property PeriodoAdeudadoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPeriodoAdeudado
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property FechaPagoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFechaPago
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NroPagoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNroPago
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property ImporteAdeudadoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnImporteAdeudado
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property DescripcionDeudaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDescripcionDeuda
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CCNroColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCCNro
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CCFechaPagoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCCFechaPago
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CCImporteAdeudadoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCCImporteAdeudado
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CHNroColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCHNro
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CHFechaCobroColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCHFechaCobro
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CHImporteChequeColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCHImporteCheque
+                Return Me.columnidusuario
             End Get
         End Property
         
@@ -4135,67 +4930,50 @@ Partial Public Class BDArchivosDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As mostrar_registro_por_tomo_momentocontableRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As validar_usuario_idusuarioRow
             Get
-                Return CType(Me.Rows(index),mostrar_registro_por_tomo_momentocontableRow)
+                Return CType(Me.Rows(index),validar_usuario_idusuarioRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event mostrar_registro_por_tomo_momentocontableRowChanging As mostrar_registro_por_tomo_momentocontableRowChangeEventHandler
+        Public Event validar_usuario_idusuarioRowChanging As validar_usuario_idusuarioRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event mostrar_registro_por_tomo_momentocontableRowChanged As mostrar_registro_por_tomo_momentocontableRowChangeEventHandler
+        Public Event validar_usuario_idusuarioRowChanged As validar_usuario_idusuarioRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event mostrar_registro_por_tomo_momentocontableRowDeleting As mostrar_registro_por_tomo_momentocontableRowChangeEventHandler
+        Public Event validar_usuario_idusuarioRowDeleting As validar_usuario_idusuarioRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event mostrar_registro_por_tomo_momentocontableRowDeleted As mostrar_registro_por_tomo_momentocontableRowChangeEventHandler
+        Public Event validar_usuario_idusuarioRowDeleted As validar_usuario_idusuarioRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub Addmostrar_registro_por_tomo_momentocontableRow(ByVal row As mostrar_registro_por_tomo_momentocontableRow)
+        Public Overloads Sub Addvalidar_usuario_idusuarioRow(ByVal row As validar_usuario_idusuarioRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addmostrar_registro_por_tomo_momentocontableRow( _
-                    ByVal FormularioNro As String,  _
-                    ByVal Boleto As String,  _
-                    ByVal NombreBeneficiario As String,  _
-                    ByVal MomentoContable As String,  _
-                    ByVal NroTomo As String,  _
-                    ByVal Gestion As String,  _
-                    ByVal PeriodoAdeudado As String,  _
-                    ByVal FechaPago As Date,  _
-                    ByVal NroPago As String,  _
-                    ByVal ImporteAdeudado As Double,  _
-                    ByVal DescripcionDeuda As String,  _
-                    ByVal CCNro As String,  _
-                    ByVal CCFechaPago As Date,  _
-                    ByVal CCImporteAdeudado As Double,  _
-                    ByVal CHNro As String,  _
-                    ByVal CHFechaCobro As Date,  _
-                    ByVal CHImporteCheque As Double) As mostrar_registro_por_tomo_momentocontableRow
-            Dim rowmostrar_registro_por_tomo_momentocontableRow As mostrar_registro_por_tomo_momentocontableRow = CType(Me.NewRow,mostrar_registro_por_tomo_momentocontableRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, FormularioNro, Boleto, NombreBeneficiario, MomentoContable, NroTomo, Gestion, PeriodoAdeudado, FechaPago, NroPago, ImporteAdeudado, DescripcionDeuda, CCNro, CCFechaPago, CCImporteAdeudado, CHNro, CHFechaCobro, CHImporteCheque}
-            rowmostrar_registro_por_tomo_momentocontableRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowmostrar_registro_por_tomo_momentocontableRow)
-            Return rowmostrar_registro_por_tomo_momentocontableRow
+        Public Overloads Function Addvalidar_usuario_idusuarioRow() As validar_usuario_idusuarioRow
+            Dim rowvalidar_usuario_idusuarioRow As validar_usuario_idusuarioRow = CType(Me.NewRow,validar_usuario_idusuarioRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing}
+            rowvalidar_usuario_idusuarioRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowvalidar_usuario_idusuarioRow)
+            Return rowvalidar_usuario_idusuarioRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindByid(ByVal id As Integer) As mostrar_registro_por_tomo_momentocontableRow
-            Return CType(Me.Rows.Find(New Object() {id}),mostrar_registro_por_tomo_momentocontableRow)
+        Public Function FindByidusuario(ByVal idusuario As Integer) As validar_usuario_idusuarioRow
+            Return CType(Me.Rows.Find(New Object() {idusuario}),validar_usuario_idusuarioRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As mostrar_registro_por_tomo_momentocontableDataTable = CType(MyBase.Clone,mostrar_registro_por_tomo_momentocontableDataTable)
+            Dim cln As validar_usuario_idusuarioDataTable = CType(MyBase.Clone,validar_usuario_idusuarioDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -4203,113 +4981,51 @@ Partial Public Class BDArchivosDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New mostrar_registro_por_tomo_momentocontableDataTable()
+            Return New validar_usuario_idusuarioDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnid = MyBase.Columns("id")
-            Me.columnFormularioNro = MyBase.Columns("FormularioNro")
-            Me.columnBoleto = MyBase.Columns("Boleto")
-            Me.columnNombreBeneficiario = MyBase.Columns("NombreBeneficiario")
-            Me.columnMomentoContable = MyBase.Columns("MomentoContable")
-            Me.columnNroTomo = MyBase.Columns("NroTomo")
-            Me.columnGestion = MyBase.Columns("Gestion")
-            Me.columnPeriodoAdeudado = MyBase.Columns("PeriodoAdeudado")
-            Me.columnFechaPago = MyBase.Columns("FechaPago")
-            Me.columnNroPago = MyBase.Columns("NroPago")
-            Me.columnImporteAdeudado = MyBase.Columns("ImporteAdeudado")
-            Me.columnDescripcionDeuda = MyBase.Columns("DescripcionDeuda")
-            Me.columnCCNro = MyBase.Columns("CCNro")
-            Me.columnCCFechaPago = MyBase.Columns("CCFechaPago")
-            Me.columnCCImporteAdeudado = MyBase.Columns("CCImporteAdeudado")
-            Me.columnCHNro = MyBase.Columns("CHNro")
-            Me.columnCHFechaCobro = MyBase.Columns("CHFechaCobro")
-            Me.columnCHImporteCheque = MyBase.Columns("CHImporteCheque")
+            Me.columnidusuario = MyBase.Columns("idusuario")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnid = New Global.System.Data.DataColumn("id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnid)
-            Me.columnFormularioNro = New Global.System.Data.DataColumn("FormularioNro", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFormularioNro)
-            Me.columnBoleto = New Global.System.Data.DataColumn("Boleto", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBoleto)
-            Me.columnNombreBeneficiario = New Global.System.Data.DataColumn("NombreBeneficiario", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNombreBeneficiario)
-            Me.columnMomentoContable = New Global.System.Data.DataColumn("MomentoContable", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnMomentoContable)
-            Me.columnNroTomo = New Global.System.Data.DataColumn("NroTomo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNroTomo)
-            Me.columnGestion = New Global.System.Data.DataColumn("Gestion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnGestion)
-            Me.columnPeriodoAdeudado = New Global.System.Data.DataColumn("PeriodoAdeudado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPeriodoAdeudado)
-            Me.columnFechaPago = New Global.System.Data.DataColumn("FechaPago", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFechaPago)
-            Me.columnNroPago = New Global.System.Data.DataColumn("NroPago", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNroPago)
-            Me.columnImporteAdeudado = New Global.System.Data.DataColumn("ImporteAdeudado", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnImporteAdeudado)
-            Me.columnDescripcionDeuda = New Global.System.Data.DataColumn("DescripcionDeuda", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDescripcionDeuda)
-            Me.columnCCNro = New Global.System.Data.DataColumn("CCNro", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCCNro)
-            Me.columnCCFechaPago = New Global.System.Data.DataColumn("CCFechaPago", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCCFechaPago)
-            Me.columnCCImporteAdeudado = New Global.System.Data.DataColumn("CCImporteAdeudado", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCCImporteAdeudado)
-            Me.columnCHNro = New Global.System.Data.DataColumn("CHNro", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCHNro)
-            Me.columnCHFechaCobro = New Global.System.Data.DataColumn("CHFechaCobro", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCHFechaCobro)
-            Me.columnCHImporteCheque = New Global.System.Data.DataColumn("CHImporteCheque", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCHImporteCheque)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
-            Me.columnid.AutoIncrement = true
-            Me.columnid.AllowDBNull = false
-            Me.columnid.ReadOnly = true
-            Me.columnid.Unique = true
-            Me.columnFormularioNro.MaxLength = 50
-            Me.columnBoleto.MaxLength = 50
-            Me.columnNombreBeneficiario.MaxLength = 50
-            Me.columnMomentoContable.MaxLength = 50
-            Me.columnNroTomo.MaxLength = 50
-            Me.columnGestion.MaxLength = 50
-            Me.columnPeriodoAdeudado.MaxLength = 50
-            Me.columnNroPago.MaxLength = 50
-            Me.columnDescripcionDeuda.MaxLength = 2147483647
-            Me.columnCCNro.MaxLength = 50
-            Me.columnCHNro.MaxLength = 50
+            Me.columnidusuario = New Global.System.Data.DataColumn("idusuario", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnidusuario)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnidusuario}, true))
+            Me.columnidusuario.AutoIncrement = true
+            Me.columnidusuario.AllowDBNull = false
+            Me.columnidusuario.ReadOnly = true
+            Me.columnidusuario.Unique = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function Newmostrar_registro_por_tomo_momentocontableRow() As mostrar_registro_por_tomo_momentocontableRow
-            Return CType(Me.NewRow,mostrar_registro_por_tomo_momentocontableRow)
+        Public Function Newvalidar_usuario_idusuarioRow() As validar_usuario_idusuarioRow
+            Return CType(Me.NewRow,validar_usuario_idusuarioRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New mostrar_registro_por_tomo_momentocontableRow(builder)
+            Return New validar_usuario_idusuarioRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(mostrar_registro_por_tomo_momentocontableRow)
+            Return GetType(validar_usuario_idusuarioRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.mostrar_registro_por_tomo_momentocontableRowChangedEvent) Is Nothing) Then
-                RaiseEvent mostrar_registro_por_tomo_momentocontableRowChanged(Me, New mostrar_registro_por_tomo_momentocontableRowChangeEvent(CType(e.Row,mostrar_registro_por_tomo_momentocontableRow), e.Action))
+            If (Not (Me.validar_usuario_idusuarioRowChangedEvent) Is Nothing) Then
+                RaiseEvent validar_usuario_idusuarioRowChanged(Me, New validar_usuario_idusuarioRowChangeEvent(CType(e.Row,validar_usuario_idusuarioRow), e.Action))
             End If
         End Sub
         
@@ -4317,8 +5033,8 @@ Partial Public Class BDArchivosDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.mostrar_registro_por_tomo_momentocontableRowChangingEvent) Is Nothing) Then
-                RaiseEvent mostrar_registro_por_tomo_momentocontableRowChanging(Me, New mostrar_registro_por_tomo_momentocontableRowChangeEvent(CType(e.Row,mostrar_registro_por_tomo_momentocontableRow), e.Action))
+            If (Not (Me.validar_usuario_idusuarioRowChangingEvent) Is Nothing) Then
+                RaiseEvent validar_usuario_idusuarioRowChanging(Me, New validar_usuario_idusuarioRowChangeEvent(CType(e.Row,validar_usuario_idusuarioRow), e.Action))
             End If
         End Sub
         
@@ -4326,8 +5042,8 @@ Partial Public Class BDArchivosDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.mostrar_registro_por_tomo_momentocontableRowDeletedEvent) Is Nothing) Then
-                RaiseEvent mostrar_registro_por_tomo_momentocontableRowDeleted(Me, New mostrar_registro_por_tomo_momentocontableRowChangeEvent(CType(e.Row,mostrar_registro_por_tomo_momentocontableRow), e.Action))
+            If (Not (Me.validar_usuario_idusuarioRowDeletedEvent) Is Nothing) Then
+                RaiseEvent validar_usuario_idusuarioRowDeleted(Me, New validar_usuario_idusuarioRowChangeEvent(CType(e.Row,validar_usuario_idusuarioRow), e.Action))
             End If
         End Sub
         
@@ -4335,14 +5051,14 @@ Partial Public Class BDArchivosDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.mostrar_registro_por_tomo_momentocontableRowDeletingEvent) Is Nothing) Then
-                RaiseEvent mostrar_registro_por_tomo_momentocontableRowDeleting(Me, New mostrar_registro_por_tomo_momentocontableRowChangeEvent(CType(e.Row,mostrar_registro_por_tomo_momentocontableRow), e.Action))
+            If (Not (Me.validar_usuario_idusuarioRowDeletingEvent) Is Nothing) Then
+                RaiseEvent validar_usuario_idusuarioRowDeleting(Me, New validar_usuario_idusuarioRowChangeEvent(CType(e.Row,validar_usuario_idusuarioRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub Removemostrar_registro_por_tomo_momentocontableRow(ByVal row As mostrar_registro_por_tomo_momentocontableRow)
+        Public Sub Removevalidar_usuario_idusuarioRow(ByVal row As validar_usuario_idusuarioRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -4369,7 +5085,7 @@ Partial Public Class BDArchivosDataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "mostrar_registro_por_tomo_momentocontableDataTable"
+            attribute2.FixedValue = "validar_usuario_idusuarioDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -4411,6 +5127,120 @@ Partial Public Class BDArchivosDataSet
             xs.Add(dsSchema)
             Return type
         End Function
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class TImagenesRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableTImagenes As TImagenesDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableTImagenes = CType(Me.Table,TImagenesDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Id() As Integer
+            Get
+                Return CType(Me(Me.tableTImagenes.IdColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableTImagenes.IdColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CCNro() As Integer
+            Get
+                Return CType(Me(Me.tableTImagenes.CCNroColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableTImagenes.CCNroColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DescripcionImagen() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTImagenes.DescripcionImagenColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'DescripcionImagen' de la tabla 'TImagenes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTImagenes.DescripcionImagenColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Imagen() As Byte()
+            Get
+                Try 
+                    Return CType(Me(Me.tableTImagenes.ImagenColumn),Byte())
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Imagen' de la tabla 'TImagenes' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTImagenes.ImagenColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property IdRegistro() As Integer
+            Get
+                Return CType(Me(Me.tableTImagenes.IdRegistroColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableTImagenes.IdRegistroColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property TRegistroRow() As TRegistroRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__TImagenes__IdReg__0519C6AF")),TRegistroRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK__TImagenes__IdReg__0519C6AF"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsDescripcionImagenNull() As Boolean
+            Return Me.IsNull(Me.tableTImagenes.DescripcionImagenColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetDescripcionImagenNull()
+            Me(Me.tableTImagenes.DescripcionImagenColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsImagenNull() As Boolean
+            Return Me.IsNull(Me.tableTImagenes.ImagenColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetImagenNull()
+            Me(Me.tableTImagenes.ImagenColumn) = Global.System.Convert.DBNull
+        End Sub
     End Class
     
     '''<summary>
@@ -4897,6 +5727,16 @@ Partial Public Class BDArchivosDataSet
         Public Sub SetCHImporteChequeNull()
             Me(Me.tableTRegistro.CHImporteChequeColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function GetTImagenesRows() As TImagenesRow()
+            If (Me.Table.ChildRelations("FK__TImagenes__IdReg__0519C6AF") Is Nothing) Then
+                Return New TImagenesRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__TImagenes__IdReg__0519C6AF")),TImagenesRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -5172,28 +6012,106 @@ Partial Public Class BDArchivosDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class validar_usuario_idusuarioRow
+    Partial Public Class mostrar_imagenes_por_CCNroRow
         Inherits Global.System.Data.DataRow
         
-        Private tablevalidar_usuario_idusuario As validar_usuario_idusuarioDataTable
+        Private tablemostrar_imagenes_por_CCNro As mostrar_imagenes_por_CCNroDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tablevalidar_usuario_idusuario = CType(Me.Table,validar_usuario_idusuarioDataTable)
+            Me.tablemostrar_imagenes_por_CCNro = CType(Me.Table,mostrar_imagenes_por_CCNroDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property idusuario() As Integer
+        Public Property id() As Integer
             Get
-                Return CType(Me(Me.tablevalidar_usuario_idusuario.idusuarioColumn),Integer)
+                Return CType(Me(Me.tablemostrar_imagenes_por_CCNro.idColumn),Integer)
             End Get
             Set
-                Me(Me.tablevalidar_usuario_idusuario.idusuarioColumn) = value
+                Me(Me.tablemostrar_imagenes_por_CCNro.idColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CCNro() As Integer
+            Get
+                Return CType(Me(Me.tablemostrar_imagenes_por_CCNro.CCNroColumn),Integer)
+            End Get
+            Set
+                Me(Me.tablemostrar_imagenes_por_CCNro.CCNroColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DescripcionImagen() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablemostrar_imagenes_por_CCNro.DescripcionImagenColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'DescripcionImagen' de la tabla 'mostrar_imagenes_por_CCNr"& _ 
+                            "o' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemostrar_imagenes_por_CCNro.DescripcionImagenColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Imagen() As Byte()
+            Get
+                Try 
+                    Return CType(Me(Me.tablemostrar_imagenes_por_CCNro.ImagenColumn),Byte())
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Imagen' de la tabla 'mostrar_imagenes_por_CCNro' es DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemostrar_imagenes_por_CCNro.ImagenColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property IdRegistro() As Integer
+            Get
+                Return CType(Me(Me.tablemostrar_imagenes_por_CCNro.IdRegistroColumn),Integer)
+            End Get
+            Set
+                Me(Me.tablemostrar_imagenes_por_CCNro.IdRegistroColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsDescripcionImagenNull() As Boolean
+            Return Me.IsNull(Me.tablemostrar_imagenes_por_CCNro.DescripcionImagenColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetDescripcionImagenNull()
+            Me(Me.tablemostrar_imagenes_por_CCNro.DescripcionImagenColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsImagenNull() As Boolean
+            Return Me.IsNull(Me.tablemostrar_imagenes_por_CCNro.ImagenColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetImagenNull()
+            Me(Me.tablemostrar_imagenes_por_CCNro.ImagenColumn) = Global.System.Convert.DBNull
+        End Sub
     End Class
     
     '''<summary>
@@ -6698,319 +7616,6 @@ Partial Public Class BDArchivosDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class mostrar_usuarioRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tablemostrar_usuario As mostrar_usuarioDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tablemostrar_usuario = CType(Me.Table,mostrar_usuarioDataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property idusuario() As Integer
-            Get
-                Return CType(Me(Me.tablemostrar_usuario.idusuarioColumn),Integer)
-            End Get
-            Set
-                Me(Me.tablemostrar_usuario.idusuarioColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property nombre() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablemostrar_usuario.nombreColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre' de la tabla 'mostrar_usuario' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablemostrar_usuario.nombreColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property apellidos() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablemostrar_usuario.apellidosColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'apellidos' de la tabla 'mostrar_usuario' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablemostrar_usuario.apellidosColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ci() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablemostrar_usuario.ciColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ci' de la tabla 'mostrar_usuario' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablemostrar_usuario.ciColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property direccion() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablemostrar_usuario.direccionColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'direccion' de la tabla 'mostrar_usuario' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablemostrar_usuario.direccionColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property telefono() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablemostrar_usuario.telefonoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'telefono' de la tabla 'mostrar_usuario' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablemostrar_usuario.telefonoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property login() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablemostrar_usuario.loginColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'login' de la tabla 'mostrar_usuario' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablemostrar_usuario.loginColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property password() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablemostrar_usuario.passwordColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'password' de la tabla 'mostrar_usuario' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablemostrar_usuario.passwordColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property acceso() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablemostrar_usuario.accesoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'acceso' de la tabla 'mostrar_usuario' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablemostrar_usuario.accesoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property rol() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablemostrar_usuario.rolColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'rol' de la tabla 'mostrar_usuario' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablemostrar_usuario.rolColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsnombreNull() As Boolean
-            Return Me.IsNull(Me.tablemostrar_usuario.nombreColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetnombreNull()
-            Me(Me.tablemostrar_usuario.nombreColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsapellidosNull() As Boolean
-            Return Me.IsNull(Me.tablemostrar_usuario.apellidosColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetapellidosNull()
-            Me(Me.tablemostrar_usuario.apellidosColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsciNull() As Boolean
-            Return Me.IsNull(Me.tablemostrar_usuario.ciColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetciNull()
-            Me(Me.tablemostrar_usuario.ciColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsdireccionNull() As Boolean
-            Return Me.IsNull(Me.tablemostrar_usuario.direccionColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetdireccionNull()
-            Me(Me.tablemostrar_usuario.direccionColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IstelefonoNull() As Boolean
-            Return Me.IsNull(Me.tablemostrar_usuario.telefonoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SettelefonoNull()
-            Me(Me.tablemostrar_usuario.telefonoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsloginNull() As Boolean
-            Return Me.IsNull(Me.tablemostrar_usuario.loginColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetloginNull()
-            Me(Me.tablemostrar_usuario.loginColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IspasswordNull() As Boolean
-            Return Me.IsNull(Me.tablemostrar_usuario.passwordColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetpasswordNull()
-            Me(Me.tablemostrar_usuario.passwordColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsaccesoNull() As Boolean
-            Return Me.IsNull(Me.tablemostrar_usuario.accesoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetaccesoNull()
-            Me(Me.tablemostrar_usuario.accesoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsrolNull() As Boolean
-            Return Me.IsNull(Me.tablemostrar_usuario.rolColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetrolNull()
-            Me(Me.tablemostrar_usuario.rolColumn) = Global.System.Convert.DBNull
-        End Sub
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class validar_usuarioRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tablevalidar_usuario As validar_usuarioDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tablevalidar_usuario = CType(Me.Table,validar_usuarioDataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property rol() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevalidar_usuario.rolColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'rol' de la tabla 'validar_usuario' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevalidar_usuario.rolColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsrolNull() As Boolean
-            Return Me.IsNull(Me.tablevalidar_usuario.rolColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetrolNull()
-            Me(Me.tablevalidar_usuario.rolColumn) = Global.System.Convert.DBNull
-        End Sub
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
     Partial Public Class mostrar_registro_por_tomo_momentocontableRow
         Inherits Global.System.Data.DataRow
         
@@ -7512,6 +8117,382 @@ Partial Public Class BDArchivosDataSet
     End Class
     
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class mostrar_usuarioRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tablemostrar_usuario As mostrar_usuarioDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tablemostrar_usuario = CType(Me.Table,mostrar_usuarioDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property idusuario() As Integer
+            Get
+                Return CType(Me(Me.tablemostrar_usuario.idusuarioColumn),Integer)
+            End Get
+            Set
+                Me(Me.tablemostrar_usuario.idusuarioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property nombre() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablemostrar_usuario.nombreColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre' de la tabla 'mostrar_usuario' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemostrar_usuario.nombreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property apellidos() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablemostrar_usuario.apellidosColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'apellidos' de la tabla 'mostrar_usuario' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemostrar_usuario.apellidosColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ci() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablemostrar_usuario.ciColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ci' de la tabla 'mostrar_usuario' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemostrar_usuario.ciColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property direccion() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablemostrar_usuario.direccionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'direccion' de la tabla 'mostrar_usuario' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemostrar_usuario.direccionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property telefono() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablemostrar_usuario.telefonoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'telefono' de la tabla 'mostrar_usuario' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemostrar_usuario.telefonoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property login() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablemostrar_usuario.loginColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'login' de la tabla 'mostrar_usuario' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemostrar_usuario.loginColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property password() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablemostrar_usuario.passwordColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'password' de la tabla 'mostrar_usuario' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemostrar_usuario.passwordColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property acceso() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablemostrar_usuario.accesoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'acceso' de la tabla 'mostrar_usuario' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemostrar_usuario.accesoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property rol() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablemostrar_usuario.rolColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'rol' de la tabla 'mostrar_usuario' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemostrar_usuario.rolColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsnombreNull() As Boolean
+            Return Me.IsNull(Me.tablemostrar_usuario.nombreColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetnombreNull()
+            Me(Me.tablemostrar_usuario.nombreColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsapellidosNull() As Boolean
+            Return Me.IsNull(Me.tablemostrar_usuario.apellidosColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetapellidosNull()
+            Me(Me.tablemostrar_usuario.apellidosColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsciNull() As Boolean
+            Return Me.IsNull(Me.tablemostrar_usuario.ciColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetciNull()
+            Me(Me.tablemostrar_usuario.ciColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdireccionNull() As Boolean
+            Return Me.IsNull(Me.tablemostrar_usuario.direccionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdireccionNull()
+            Me(Me.tablemostrar_usuario.direccionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IstelefonoNull() As Boolean
+            Return Me.IsNull(Me.tablemostrar_usuario.telefonoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SettelefonoNull()
+            Me(Me.tablemostrar_usuario.telefonoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsloginNull() As Boolean
+            Return Me.IsNull(Me.tablemostrar_usuario.loginColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetloginNull()
+            Me(Me.tablemostrar_usuario.loginColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IspasswordNull() As Boolean
+            Return Me.IsNull(Me.tablemostrar_usuario.passwordColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetpasswordNull()
+            Me(Me.tablemostrar_usuario.passwordColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsaccesoNull() As Boolean
+            Return Me.IsNull(Me.tablemostrar_usuario.accesoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetaccesoNull()
+            Me(Me.tablemostrar_usuario.accesoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsrolNull() As Boolean
+            Return Me.IsNull(Me.tablemostrar_usuario.rolColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetrolNull()
+            Me(Me.tablemostrar_usuario.rolColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class validar_usuarioRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tablevalidar_usuario As validar_usuarioDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tablevalidar_usuario = CType(Me.Table,validar_usuarioDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property rol() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablevalidar_usuario.rolColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'rol' de la tabla 'validar_usuario' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablevalidar_usuario.rolColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsrolNull() As Boolean
+            Return Me.IsNull(Me.tablevalidar_usuario.rolColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetrolNull()
+            Me(Me.tablevalidar_usuario.rolColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class validar_usuario_idusuarioRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tablevalidar_usuario_idusuario As validar_usuario_idusuarioDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tablevalidar_usuario_idusuario = CType(Me.Table,validar_usuario_idusuarioDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property idusuario() As Integer
+            Get
+                Return CType(Me(Me.tablevalidar_usuario_idusuario.idusuarioColumn),Integer)
+            End Get
+            Set
+                Me(Me.tablevalidar_usuario_idusuario.idusuarioColumn) = value
+            End Set
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class TImagenesRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As TImagenesRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As TImagenesRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As TImagenesRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -7587,16 +8568,16 @@ Partial Public Class BDArchivosDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class validar_usuario_idusuarioRowChangeEvent
+    Public Class mostrar_imagenes_por_CCNroRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As validar_usuario_idusuarioRow
+        Private eventRow As mostrar_imagenes_por_CCNroRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As validar_usuario_idusuarioRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As mostrar_imagenes_por_CCNroRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -7604,7 +8585,7 @@ Partial Public Class BDArchivosDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As validar_usuario_idusuarioRow
+        Public ReadOnly Property Row() As mostrar_imagenes_por_CCNroRow
             Get
                 Return Me.eventRow
             End Get
@@ -7731,6 +8712,42 @@ Partial Public Class BDArchivosDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class mostrar_registro_por_tomo_momentocontableRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As mostrar_registro_por_tomo_momentocontableRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As mostrar_registro_por_tomo_momentocontableRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As mostrar_registro_por_tomo_momentocontableRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Class mostrar_usuarioRowChangeEvent
         Inherits Global.System.EventArgs
         
@@ -7803,16 +8820,16 @@ Partial Public Class BDArchivosDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class mostrar_registro_por_tomo_momentocontableRowChangeEvent
+    Public Class validar_usuario_idusuarioRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As mostrar_registro_por_tomo_momentocontableRow
+        Private eventRow As validar_usuario_idusuarioRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As mostrar_registro_por_tomo_momentocontableRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As validar_usuario_idusuarioRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -7820,7 +8837,7 @@ Partial Public Class BDArchivosDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As mostrar_registro_por_tomo_momentocontableRow
+        Public ReadOnly Property Row() As validar_usuario_idusuarioRow
             Get
                 Return Me.eventRow
             End Get
@@ -7837,6 +8854,344 @@ Partial Public Class BDArchivosDataSet
 End Class
 
 Namespace BDArchivosDataSetTableAdapters
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class TImagenesTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "TImagenes"
+            tableMapping.ColumnMappings.Add("Id", "Id")
+            tableMapping.ColumnMappings.Add("CCNro", "CCNro")
+            tableMapping.ColumnMappings.Add("DescripcionImagen", "DescripcionImagen")
+            tableMapping.ColumnMappings.Add("Imagen", "Imagen")
+            tableMapping.ColumnMappings.Add("IdRegistro", "IdRegistro")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TImagenes] WHERE (([Id] = @Original_Id) AND ([CCNro] = @Origin"& _ 
+                "al_CCNro) AND ([IdRegistro] = @Original_IdRegistro))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CCNro", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CCNro", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IdRegistro", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IdRegistro", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TImagenes] ([CCNro], [DescripcionImagen], [Imagen], [IdRegistr"& _ 
+                "o]) VALUES (@CCNro, @DescripcionImagen, @Imagen, @IdRegistro);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, CCNro"& _ 
+                ", DescripcionImagen, Imagen, IdRegistro FROM TImagenes WHERE (Id = SCOPE_IDENTIT"& _ 
+                "Y())"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CCNro", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CCNro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DescripcionImagen", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DescripcionImagen", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Imagen", Global.System.Data.SqlDbType.Image, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Imagen", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IdRegistro", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IdRegistro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[TImagenes] SET [CCNro] = @CCNro, [DescripcionImagen] = @Descripcion"& _ 
+                "Imagen, [Imagen] = @Imagen, [IdRegistro] = @IdRegistro WHERE (([Id] = @Original_"& _ 
+                "Id) AND ([CCNro] = @Original_CCNro) AND ([IdRegistro] = @Original_IdRegistro));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, CCNro, DescripcionImagen, Imagen, IdRegistro FROM TImagenes WHERE (I"& _ 
+                "d = @Id)"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CCNro", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CCNro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DescripcionImagen", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DescripcionImagen", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Imagen", Global.System.Data.SqlDbType.Image, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Imagen", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IdRegistro", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IdRegistro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CCNro", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CCNro", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IdRegistro", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IdRegistro", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.Setting
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT Id, CCNro, DescripcionImagen, Imagen, IdRegistro FROM dbo.TImagenes"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As BDArchivosDataSet.TImagenesDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As BDArchivosDataSet.TImagenesDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As BDArchivosDataSet.TImagenesDataTable = New BDArchivosDataSet.TImagenesDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As BDArchivosDataSet.TImagenesDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As BDArchivosDataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "TImagenes")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_Id As Integer, ByVal Original_CCNro As Integer, ByVal Original_IdRegistro As Integer) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Id,Integer)
+            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_CCNro,Integer)
+            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_IdRegistro,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal CCNro As Integer, ByVal DescripcionImagen As String, ByVal Imagen() As Byte, ByVal IdRegistro As Integer) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(CCNro,Integer)
+            If (DescripcionImagen Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(DescripcionImagen,String)
+            End If
+            If (Imagen Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Imagen,Byte())
+            End If
+            Me.Adapter.InsertCommand.Parameters(3).Value = CType(IdRegistro,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal CCNro As Integer, ByVal DescripcionImagen As String, ByVal Imagen() As Byte, ByVal IdRegistro As Integer, ByVal Original_Id As Integer, ByVal Original_CCNro As Integer, ByVal Original_IdRegistro As Integer, ByVal Id As Integer) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CCNro,Integer)
+            If (DescripcionImagen Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(DescripcionImagen,String)
+            End If
+            If (Imagen Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Imagen,Byte())
+            End If
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(IdRegistro,Integer)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_Id,Integer)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_CCNro,Integer)
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_IdRegistro,Integer)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Id,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal CCNro As Integer, ByVal DescripcionImagen As String, ByVal Imagen() As Byte, ByVal IdRegistro As Integer, ByVal Original_Id As Integer, ByVal Original_CCNro As Integer, ByVal Original_IdRegistro As Integer) As Integer
+            Return Me.Update(CCNro, DescripcionImagen, Imagen, IdRegistro, Original_Id, Original_CCNro, Original_IdRegistro, Original_Id)
+        End Function
+    End Class
     
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
@@ -8163,7 +9518,7 @@ Namespace BDArchivosDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.BDArchivosConnectionString
+            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.Setting
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9041,7 +10396,7 @@ Namespace BDArchivosDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.BDArchivosConnectionString
+            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.Setting
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9443,7 +10798,7 @@ Namespace BDArchivosDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class validar_usuario_idusuarioTableAdapter
+    Partial Public Class mostrar_imagenes_por_CCNroTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -9560,8 +10915,12 @@ Namespace BDArchivosDataSetTableAdapters
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "validar_usuario_idusuario"
-            tableMapping.ColumnMappings.Add("idusuario", "idusuario")
+            tableMapping.DataSetTable = "mostrar_imagenes_por_CCNro"
+            tableMapping.ColumnMappings.Add("id", "id")
+            tableMapping.ColumnMappings.Add("CCNro", "CCNro")
+            tableMapping.ColumnMappings.Add("DescripcionImagen", "DescripcionImagen")
+            tableMapping.ColumnMappings.Add("Imagen", "Imagen")
+            tableMapping.ColumnMappings.Add("IdRegistro", "IdRegistro")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -9569,7 +10928,7 @@ Namespace BDArchivosDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.BDArchivosConnectionString
+            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.Setting
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9578,28 +10937,22 @@ Namespace BDArchivosDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "dbo.validar_usuario_idusuario"
+            Me._commandCollection(0).CommandText = "dbo.mostrar_imagenes_por_CCNro"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@login", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@password", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CCNro", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As BDArchivosDataSet.validar_usuario_idusuarioDataTable, ByVal login As String, ByVal password As String) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As BDArchivosDataSet.mostrar_imagenes_por_CCNroDataTable, ByVal CCNro As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (login Is Nothing) Then
+            If (CCNro.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(CCNro.Value,Integer)
+            Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(login,String)
-            End If
-            If (password Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(password,String)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -9612,19 +10965,14 @@ Namespace BDArchivosDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal login As String, ByVal password As String) As BDArchivosDataSet.validar_usuario_idusuarioDataTable
+        Public Overloads Overridable Function GetData(ByVal CCNro As Global.System.Nullable(Of Integer)) As BDArchivosDataSet.mostrar_imagenes_por_CCNroDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (login Is Nothing) Then
+            If (CCNro.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(CCNro.Value,Integer)
+            Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(login,String)
             End If
-            If (password Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(password,String)
-            End If
-            Dim dataTable As BDArchivosDataSet.validar_usuario_idusuarioDataTable = New BDArchivosDataSet.validar_usuario_idusuarioDataTable()
+            Dim dataTable As BDArchivosDataSet.mostrar_imagenes_por_CCNroDataTable = New BDArchivosDataSet.mostrar_imagenes_por_CCNroDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -9782,7 +11130,7 @@ Namespace BDArchivosDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.BDArchivosConnectionString
+            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.Setting
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9973,7 +11321,7 @@ Namespace BDArchivosDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.BDArchivosConnectionString
+            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.Setting
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10175,7 +11523,7 @@ Namespace BDArchivosDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.BDArchivosConnectionString
+            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.Setting
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10220,6 +11568,230 @@ Namespace BDArchivosDataSetTableAdapters
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(NumeroCheque,String)
             End If
             Dim dataTable As BDArchivosDataSet.mostrar_registro_por_numero_chequeDataTable = New BDArchivosDataSet.mostrar_registro_por_numero_chequeDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class mostrar_registro_por_tomo_momentocontableTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "mostrar_registro_por_tomo_momentocontable"
+            tableMapping.ColumnMappings.Add("id", "id")
+            tableMapping.ColumnMappings.Add("FormularioNro", "FormularioNro")
+            tableMapping.ColumnMappings.Add("Boleto", "Boleto")
+            tableMapping.ColumnMappings.Add("NombreBeneficiario", "NombreBeneficiario")
+            tableMapping.ColumnMappings.Add("MomentoContable", "MomentoContable")
+            tableMapping.ColumnMappings.Add("NroTomo", "NroTomo")
+            tableMapping.ColumnMappings.Add("Gestion", "Gestion")
+            tableMapping.ColumnMappings.Add("PeriodoAdeudado", "PeriodoAdeudado")
+            tableMapping.ColumnMappings.Add("FechaPago", "FechaPago")
+            tableMapping.ColumnMappings.Add("NroPago", "NroPago")
+            tableMapping.ColumnMappings.Add("ImporteAdeudado", "ImporteAdeudado")
+            tableMapping.ColumnMappings.Add("DescripcionDeuda", "DescripcionDeuda")
+            tableMapping.ColumnMappings.Add("CCNro", "CCNro")
+            tableMapping.ColumnMappings.Add("CCFechaPago", "CCFechaPago")
+            tableMapping.ColumnMappings.Add("CCImporteAdeudado", "CCImporteAdeudado")
+            tableMapping.ColumnMappings.Add("CHNro", "CHNro")
+            tableMapping.ColumnMappings.Add("CHFechaCobro", "CHFechaCobro")
+            tableMapping.ColumnMappings.Add("CHImporteCheque", "CHImporteCheque")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.Setting
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "dbo.mostrar_registro_por_tomo_momentocontable"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Momento", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tomo", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@gestion", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableDataTable, ByVal Momento As String, ByVal Tomo As Global.System.Nullable(Of Integer), ByVal gestion As Global.System.Nullable(Of Integer)) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Momento Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Momento,String)
+            End If
+            If (Tomo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(Tomo.Value,Integer)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (gestion.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(gestion.Value,Integer)
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal Momento As String, ByVal Tomo As Global.System.Nullable(Of Integer), ByVal gestion As Global.System.Nullable(Of Integer)) As BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Momento Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Momento,String)
+            End If
+            If (Tomo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(Tomo.Value,Integer)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (gestion.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(gestion.Value,Integer)
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            Dim dataTable As BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableDataTable = New BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -10369,7 +11941,7 @@ Namespace BDArchivosDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.BDArchivosConnectionString
+            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.Setting
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10543,7 +12115,7 @@ Namespace BDArchivosDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.BDArchivosConnectionString
+            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.Setting
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10613,7 +12185,7 @@ Namespace BDArchivosDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class mostrar_registro_por_tomo_momentocontableTableAdapter
+    Partial Public Class validar_usuario_idusuarioTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -10730,25 +12302,8 @@ Namespace BDArchivosDataSetTableAdapters
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "mostrar_registro_por_tomo_momentocontable"
-            tableMapping.ColumnMappings.Add("id", "id")
-            tableMapping.ColumnMappings.Add("FormularioNro", "FormularioNro")
-            tableMapping.ColumnMappings.Add("Boleto", "Boleto")
-            tableMapping.ColumnMappings.Add("NombreBeneficiario", "NombreBeneficiario")
-            tableMapping.ColumnMappings.Add("MomentoContable", "MomentoContable")
-            tableMapping.ColumnMappings.Add("NroTomo", "NroTomo")
-            tableMapping.ColumnMappings.Add("Gestion", "Gestion")
-            tableMapping.ColumnMappings.Add("PeriodoAdeudado", "PeriodoAdeudado")
-            tableMapping.ColumnMappings.Add("FechaPago", "FechaPago")
-            tableMapping.ColumnMappings.Add("NroPago", "NroPago")
-            tableMapping.ColumnMappings.Add("ImporteAdeudado", "ImporteAdeudado")
-            tableMapping.ColumnMappings.Add("DescripcionDeuda", "DescripcionDeuda")
-            tableMapping.ColumnMappings.Add("CCNro", "CCNro")
-            tableMapping.ColumnMappings.Add("CCFechaPago", "CCFechaPago")
-            tableMapping.ColumnMappings.Add("CCImporteAdeudado", "CCImporteAdeudado")
-            tableMapping.ColumnMappings.Add("CHNro", "CHNro")
-            tableMapping.ColumnMappings.Add("CHFechaCobro", "CHFechaCobro")
-            tableMapping.ColumnMappings.Add("CHImporteCheque", "CHImporteCheque")
+            tableMapping.DataSetTable = "validar_usuario_idusuario"
+            tableMapping.ColumnMappings.Add("idusuario", "idusuario")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -10756,7 +12311,7 @@ Namespace BDArchivosDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.BDArchivosConnectionString
+            Me._connection.ConnectionString = Global.Archivos.My.MySettings.Default.Setting
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10765,34 +12320,28 @@ Namespace BDArchivosDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "dbo.mostrar_registro_por_tomo_momentocontable"
+            Me._commandCollection(0).CommandText = "dbo.validar_usuario_idusuario"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Momento", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tomo", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@gestion", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@login", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@password", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableDataTable, ByVal Momento As String, ByVal Tomo As Global.System.Nullable(Of Integer), ByVal gestion As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As BDArchivosDataSet.validar_usuario_idusuarioDataTable, ByVal login As String, ByVal password As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Momento Is Nothing) Then
+            If (login Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Momento,String)
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(login,String)
             End If
-            If (Tomo.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(Tomo.Value,Integer)
-            Else
+            If (password Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            If (gestion.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(3).Value = CType(gestion.Value,Integer)
             Else
-                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(password,String)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -10805,24 +12354,19 @@ Namespace BDArchivosDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal Momento As String, ByVal Tomo As Global.System.Nullable(Of Integer), ByVal gestion As Global.System.Nullable(Of Integer)) As BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableDataTable
+        Public Overloads Overridable Function GetData(ByVal login As String, ByVal password As String) As BDArchivosDataSet.validar_usuario_idusuarioDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Momento Is Nothing) Then
+            If (login Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Momento,String)
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(login,String)
             End If
-            If (Tomo.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(Tomo.Value,Integer)
-            Else
+            If (password Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            If (gestion.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(3).Value = CType(gestion.Value,Integer)
             Else
-                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(password,String)
             End If
-            Dim dataTable As BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableDataTable = New BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableDataTable()
+            Dim dataTable As BDArchivosDataSet.validar_usuario_idusuarioDataTable = New BDArchivosDataSet.validar_usuario_idusuarioDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -10856,9 +12400,9 @@ Namespace BDArchivosDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.IDbCommand(3) {}
+            Me._commandCollection = New Global.System.Data.IDbCommand(4) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
-            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.Archivos.My.MySettings.Default.BDArchivosConnectionString)
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.Archivos.My.MySettings.Default.Setting)
             CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.editar_registro"
             CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
             CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -10881,7 +12425,7 @@ Namespace BDArchivosDataSetTableAdapters
             CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHFechaCobro", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHImporteCheque", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 53, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
-            CType(Me._commandCollection(1),Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.Archivos.My.MySettings.Default.BDArchivosConnectionString)
+            CType(Me._commandCollection(1),Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.Archivos.My.MySettings.Default.Setting)
             CType(Me._commandCollection(1),Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.editar_usuario"
             CType(Me._commandCollection(1),Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
             CType(Me._commandCollection(1),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -10896,41 +12440,50 @@ Namespace BDArchivosDataSetTableAdapters
             CType(Me._commandCollection(1),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@acceso", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             CType(Me._commandCollection(1),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@rol", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.Archivos.My.MySettings.Default.BDArchivosConnectionString)
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.insertar_registro"
+            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.Archivos.My.MySettings.Default.Setting)
+            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.insertar_imagen"
             CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
             CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FormularioNro", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Boleto", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NombreBeneficiario", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MomentoContable", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NroTomo", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Gestion", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PeriodoAdeudado", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FechaPago", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NroPago", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ImporteAdeudado", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 53, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DescripcionDeuda", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CCNro", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CCFechaPago", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CCImporteAdeudado", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 53, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHNro", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHFechaCobro", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHImporteCheque", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 53, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CCNro", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Descripcion", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Imagen", Global.System.Data.SqlDbType.Image, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IdRegistro", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.Archivos.My.MySettings.Default.BDArchivosConnectionString)
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.insertar_usuario"
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.Archivos.My.MySettings.Default.Setting)
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.insertar_registro"
             CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
             CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@nombre", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@apellidos", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ci", Global.System.Data.SqlDbType.VarChar, 9, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@direccion", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@telefono", Global.System.Data.SqlDbType.VarChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@login", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@password", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@acceso", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@rol", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FormularioNro", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Boleto", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NombreBeneficiario", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MomentoContable", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NroTomo", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Gestion", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PeriodoAdeudado", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FechaPago", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NroPago", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ImporteAdeudado", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 53, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DescripcionDeuda", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CCNro", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CCFechaPago", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CCImporteAdeudado", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 53, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHNro", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHFechaCobro", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHImporteCheque", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 53, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
+            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.Archivos.My.MySettings.Default.Setting)
+            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.insertar_usuario"
+            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
+            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@nombre", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@apellidos", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ci", Global.System.Data.SqlDbType.VarChar, 9, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@direccion", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@telefono", Global.System.Data.SqlDbType.VarChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@login", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@password", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@acceso", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@rol", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11136,6 +12689,47 @@ Namespace BDArchivosDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function insertar_imagen(ByVal CCNro As Global.System.Nullable(Of Integer), ByVal Descripcion As String, ByVal Imagen() As Byte, ByVal IdRegistro As Global.System.Nullable(Of Integer)) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(2),Global.System.Data.SqlClient.SqlCommand)
+            If (CCNro.HasValue = true) Then
+                command.Parameters(1).Value = CType(CCNro.Value,Integer)
+            Else
+                command.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (Descripcion Is Nothing) Then
+                command.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(2).Value = CType(Descripcion,String)
+            End If
+            If (Imagen Is Nothing) Then
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(3).Value = CType(Imagen,Byte())
+            End If
+            If (IdRegistro.HasValue = true) Then
+                command.Parameters(4).Value = CType(IdRegistro.Value,Integer)
+            Else
+                command.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function insertar_registro( _
                     ByVal FormularioNro As String,  _
                     ByVal Boleto As String,  _
@@ -11154,7 +12748,7 @@ Namespace BDArchivosDataSetTableAdapters
                     ByVal CHNro As String,  _
                     ByVal CHFechaCobro As Global.System.Nullable(Of Date),  _
                     ByVal CHImporteCheque As Global.System.Nullable(Of Double)) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(2),Global.System.Data.SqlClient.SqlCommand)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(3),Global.System.Data.SqlClient.SqlCommand)
             If (FormularioNro Is Nothing) Then
                 command.Parameters(1).Value = Global.System.DBNull.Value
             Else
@@ -11260,7 +12854,7 @@ Namespace BDArchivosDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function insertar_usuario(ByVal nombre As String, ByVal apellidos As String, ByVal ci As String, ByVal direccion As String, ByVal telefono As String, ByVal login As String, ByVal password As String, ByVal acceso As String, ByVal rol As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(3),Global.System.Data.SqlClient.SqlCommand)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(4),Global.System.Data.SqlClient.SqlCommand)
             If (nombre Is Nothing) Then
                 command.Parameters(1).Value = Global.System.DBNull.Value
             Else
@@ -11336,6 +12930,8 @@ Namespace BDArchivosDataSetTableAdapters
         
         Private _updateOrder As UpdateOrderOption
         
+        Private _tImagenesTableAdapter As TImagenesTableAdapter
+        
         Private _tRegistroTableAdapter As TRegistroTableAdapter
         
         Private _tUsuarioTableAdapter As TUsuarioTableAdapter
@@ -11352,6 +12948,20 @@ Namespace BDArchivosDataSetTableAdapters
             End Get
             Set
                 Me._updateOrder = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
+            "a", "System.Drawing.Design.UITypeEditor")>  _
+        Public Property TImagenesTableAdapter() As TImagenesTableAdapter
+            Get
+                Return Me._tImagenesTableAdapter
+            End Get
+            Set
+                Me._tImagenesTableAdapter = value
             End Set
         End Property
         
@@ -11402,6 +13012,10 @@ Namespace BDArchivosDataSetTableAdapters
                 If (Not (Me._connection) Is Nothing) Then
                     Return Me._connection
                 End If
+                If ((Not (Me._tImagenesTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._tImagenesTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._tImagenesTableAdapter.Connection
+                End If
                 If ((Not (Me._tRegistroTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._tRegistroTableAdapter.Connection) Is Nothing)) Then
                     Return Me._tRegistroTableAdapter.Connection
@@ -11423,6 +13037,9 @@ Namespace BDArchivosDataSetTableAdapters
         Public ReadOnly Property TableAdapterInstanceCount() As Integer
             Get
                 Dim count As Integer = 0
+                If (Not (Me._tImagenesTableAdapter) Is Nothing) Then
+                    count = (count + 1)
+                End If
                 If (Not (Me._tRegistroTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
@@ -11446,6 +13063,15 @@ Namespace BDArchivosDataSetTableAdapters
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._tRegistroTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._tImagenesTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.TImagenes.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._tImagenesTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -11476,6 +13102,14 @@ Namespace BDArchivosDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._tImagenesTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.TImagenes.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._tImagenesTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._tUsuarioTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.TUsuario.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -11499,6 +13133,14 @@ Namespace BDArchivosDataSetTableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._tUsuarioTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._tImagenesTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.TImagenes.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._tImagenesTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -11551,6 +13193,11 @@ Namespace BDArchivosDataSetTableAdapters
             If (dataSet.HasChanges = false) Then
                 Return 0
             End If
+            If ((Not (Me._tImagenesTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._tImagenesTableAdapter.Connection) = false)) Then
+                Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
+                        "sma cadena de conexión.")
+            End If
             If ((Not (Me._tRegistroTableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._tRegistroTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
@@ -11593,6 +13240,15 @@ Namespace BDArchivosDataSetTableAdapters
             Try 
                 '---- Prepare for update -----------
                 '
+                If (Not (Me._tImagenesTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._tImagenesTableAdapter, Me._tImagenesTableAdapter.Connection)
+                    Me._tImagenesTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._tImagenesTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._tImagenesTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._tImagenesTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._tImagenesTableAdapter.Adapter)
+                    End If
+                End If
                 If (Not (Me._tRegistroTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._tRegistroTableAdapter, Me._tRegistroTableAdapter.Connection)
                     Me._tRegistroTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
@@ -11670,6 +13326,10 @@ Namespace BDArchivosDataSetTableAdapters
             Finally
                 If workConnOpened Then
                     workConnection.Close
+                End If
+                If (Not (Me._tImagenesTableAdapter) Is Nothing) Then
+                    Me._tImagenesTableAdapter.Connection = CType(revertConnections(Me._tImagenesTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._tImagenesTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._tRegistroTableAdapter) Is Nothing) Then
                     Me._tRegistroTableAdapter.Connection = CType(revertConnections(Me._tRegistroTableAdapter),Global.System.Data.SqlClient.SqlConnection)

@@ -6,175 +6,7 @@ Archivos
 </name>
 </assembly>
 <members>
-<member name="T:Archivos.BDArchivosDataSet1.mostrar_imagenes_por_CCNroDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_registroDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_registro_por_nombre_beneficiarioDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_registro_por_numero_chequeDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_registro_por_tomo_momentocontableDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_usuarioDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.validar_usuarioDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.validar_usuario_idusuarioDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_imagenes_por_CCNroRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_registroRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_registro_por_nombre_beneficiarioRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_registro_por_numero_chequeRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_registro_por_tomo_momentocontableRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_usuarioRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.validar_usuarioRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.validar_usuario_idusuarioRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_imagenes_por_CCNroRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_registroRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_registro_por_nombre_beneficiarioRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_registro_por_numero_chequeRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_registro_por_tomo_momentocontableRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.mostrar_usuarioRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.validar_usuarioRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1.validar_usuario_idusuarioRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1">
-	<summary>
-Represents a strongly typed in-memory cache of data.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1TableAdapters.mostrar_imagenes_por_CCNroTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1TableAdapters.mostrar_registroTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1TableAdapters.mostrar_registro_por_nombre_beneficiarioTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1TableAdapters.mostrar_registro_por_numero_chequeTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1TableAdapters.mostrar_registro_por_tomo_momentocontableTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1TableAdapters.mostrar_usuarioTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1TableAdapters.validar_usuarioTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1TableAdapters.validar_usuario_idusuarioTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1TableAdapters.QueriesTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="M:Archivos.BDArchivosDataSet1TableAdapters.TableAdapterManager.UpdateUpdatedRows(Archivos.BDArchivosDataSet1,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Update rows in top-down order.
-</summary>
-</member><member name="M:Archivos.BDArchivosDataSet1TableAdapters.TableAdapterManager.UpdateInsertedRows(Archivos.BDArchivosDataSet1,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Insert rows in top-down order.
-</summary>
-</member><member name="M:Archivos.BDArchivosDataSet1TableAdapters.TableAdapterManager.UpdateDeletedRows(Archivos.BDArchivosDataSet1,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Delete rows in bottom-up order.
-</summary>
-</member><member name="M:Archivos.BDArchivosDataSet1TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
-</summary>
-</member><member name="M:Archivos.BDArchivosDataSet1TableAdapters.TableAdapterManager.UpdateAll(Archivos.BDArchivosDataSet1)">
-	<summary>
-Update all changes to the dataset.
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption">
-	<summary>
-Update Order Option
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1TableAdapters.TableAdapterManager.SelfReferenceComparer">
-	<summary>
-Used to sort self-referenced table's rows
-</summary>
-</member><member name="T:Archivos.BDArchivosDataSet1TableAdapters.TableAdapterManager">
-	<summary>
-TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
-</summary>
-</member><member name="P:Archivos.My.Resources.Resources.ResourceManager">
+<member name="P:Archivos.My.Resources.Resources.ResourceManager">
 	<summary>
   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
 </summary>
@@ -211,6 +43,10 @@ TableAdapterManager is used to coordinate TableAdapters in the dataset to enable
 	<summary>
   Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
 </summary>
+</member><member name="T:Archivos.BDArchivosDataSet.TImagenesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:Archivos.BDArchivosDataSet.TRegistroDataTable">
 	<summary>
 Represents the strongly named DataTable class.
@@ -219,7 +55,7 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
-</member><member name="T:Archivos.BDArchivosDataSet.validar_usuario_idusuarioDataTable">
+</member><member name="T:Archivos.BDArchivosDataSet.mostrar_imagenes_por_CCNroDataTable">
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
@@ -235,6 +71,10 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:Archivos.BDArchivosDataSet.mostrar_usuarioDataTable">
 	<summary>
 Represents the strongly named DataTable class.
@@ -243,9 +83,13 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
-</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableDataTable">
+</member><member name="T:Archivos.BDArchivosDataSet.validar_usuario_idusuarioDataTable">
 	<summary>
 Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Archivos.BDArchivosDataSet.TImagenesRow">
+	<summary>
+Represents strongly named DataRow class.
 </summary>
 </member><member name="T:Archivos.BDArchivosDataSet.TRegistroRow">
 	<summary>
@@ -255,7 +99,7 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
-</member><member name="T:Archivos.BDArchivosDataSet.validar_usuario_idusuarioRow">
+</member><member name="T:Archivos.BDArchivosDataSet.mostrar_imagenes_por_CCNroRow">
 	<summary>
 Represents strongly named DataRow class.
 </summary>
@@ -271,6 +115,10 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:Archivos.BDArchivosDataSet.mostrar_usuarioRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -279,9 +127,13 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
-</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableRow">
+</member><member name="T:Archivos.BDArchivosDataSet.validar_usuario_idusuarioRow">
 	<summary>
 Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Archivos.BDArchivosDataSet.TImagenesRowChangeEvent">
+	<summary>
+Row event argument class
 </summary>
 </member><member name="T:Archivos.BDArchivosDataSet.TRegistroRowChangeEvent">
 	<summary>
@@ -291,7 +143,7 @@ Row event argument class
 	<summary>
 Row event argument class
 </summary>
-</member><member name="T:Archivos.BDArchivosDataSet.validar_usuario_idusuarioRowChangeEvent">
+</member><member name="T:Archivos.BDArchivosDataSet.mostrar_imagenes_por_CCNroRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -307,6 +159,10 @@ Row event argument class
 	<summary>
 Row event argument class
 </summary>
+</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
 </member><member name="T:Archivos.BDArchivosDataSet.mostrar_usuarioRowChangeEvent">
 	<summary>
 Row event argument class
@@ -315,13 +171,17 @@ Row event argument class
 	<summary>
 Row event argument class
 </summary>
-</member><member name="T:Archivos.BDArchivosDataSet.mostrar_registro_por_tomo_momentocontableRowChangeEvent">
+</member><member name="T:Archivos.BDArchivosDataSet.validar_usuario_idusuarioRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
 </member><member name="T:Archivos.BDArchivosDataSet">
 	<summary>
 Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:Archivos.BDArchivosDataSetTableAdapters.TImagenesTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:Archivos.BDArchivosDataSetTableAdapters.TRegistroTableAdapter">
 	<summary>
@@ -331,7 +191,7 @@ Represents the connection and commands used to retrieve and save data.
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
-</member><member name="T:Archivos.BDArchivosDataSetTableAdapters.validar_usuario_idusuarioTableAdapter">
+</member><member name="T:Archivos.BDArchivosDataSetTableAdapters.mostrar_imagenes_por_CCNroTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
@@ -347,6 +207,10 @@ Represents the connection and commands used to retrieve and save data.
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
+</member><member name="T:Archivos.BDArchivosDataSetTableAdapters.mostrar_registro_por_tomo_momentocontableTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
 </member><member name="T:Archivos.BDArchivosDataSetTableAdapters.mostrar_usuarioTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
@@ -355,7 +219,7 @@ Represents the connection and commands used to retrieve and save data.
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
-</member><member name="T:Archivos.BDArchivosDataSetTableAdapters.mostrar_registro_por_tomo_momentocontableTableAdapter">
+</member><member name="T:Archivos.BDArchivosDataSetTableAdapters.validar_usuario_idusuarioTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

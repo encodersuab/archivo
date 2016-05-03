@@ -2,6 +2,11 @@
 
 Public Class frmInicioF
 
+
+
+    Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hwnd As Long, ByVal lpOperation As String, ByVal lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
+
+
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs)
         ' Cree una nueva instancia del formulario secundario.
         Dim ChildForm As New System.Windows.Forms.Form
@@ -84,7 +89,8 @@ Public Class frmInicioF
     Private m_ChildFormNumber As Integer
 
     Private Sub frmInicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-     
+        
+
         If lbrol.Text = "INVITADO" Then
             ADMINISTRADOR.Enabled = False
             USUARIO.Enabled = False
@@ -157,6 +163,9 @@ Public Class frmInicioF
                 End If
             End If
         End If
+
+        Label1.Focus()
+
     End Sub
 
    
@@ -207,7 +216,7 @@ Public Class frmInicioF
  
 
     
-    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs)
         End
 
     End Sub
@@ -232,7 +241,9 @@ Public Class frmInicioF
     Private Sub ContentsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContentsToolStripMenuItem.Click
         'Dim rutaEjecutable As String = System.IO.Directory.GetCurrentDirectory().ToString
         'System.Diagnostics.Process.Start(rutaEjecutable & "\Ayuda Sistema De Archivos.chm")
-        Shell("explorer.exe root =\\192.168.1.25\Users\Public\Documents\Ayuda Sistema De Archivos.chm", vbNormalFocus)
+        Shell("explorer.exe root = C:\Program Files\SAOWL\Ayuda Sistema De Archivos.chm", vbNormalFocus)
+ 
+
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click

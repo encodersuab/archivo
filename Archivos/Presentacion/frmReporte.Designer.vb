@@ -70,10 +70,14 @@ Partial Class frmReporte
         Me.datalistado = New System.Windows.Forms.DataGridView()
         Me.erroricono = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.BdArchivosDataSet1 = New Archivos.BDArchivosDataSet()
+        Me.BdArchivosDataSet2 = New Archivos.BDArchivosDataSet()
         Me.GroupBox1.SuspendLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.BdArchivosDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BdArchivosDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btncancelar
@@ -512,6 +516,16 @@ Partial Class frmReporte
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Listado de Beneficiarios"
         '
+        'BdArchivosDataSet1
+        '
+        Me.BdArchivosDataSet1.DataSetName = "BDArchivosDataSet"
+        Me.BdArchivosDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'BdArchivosDataSet2
+        '
+        Me.BdArchivosDataSet2.DataSetName = "BDArchivosDataSet"
+        Me.BdArchivosDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'frmReporte
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -530,6 +544,8 @@ Partial Class frmReporte
         CType(Me.erroricono, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.BdArchivosDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BdArchivosDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -579,4 +595,6 @@ Partial Class frmReporte
     Friend WithEvents txtCHNro As System.Windows.Forms.TextBox
     Friend WithEvents txtImporteCheque As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents BdArchivosDataSet1 As Archivos.BDArchivosDataSet
+    Friend WithEvents BdArchivosDataSet2 As Archivos.BDArchivosDataSet
 End Class

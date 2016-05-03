@@ -95,7 +95,7 @@ Partial Class frmEditarRegistro
         'cbxListadoClientes
         '
         Me.cbxListadoClientes.FormattingEnabled = True
-        Me.cbxListadoClientes.Items.AddRange(New Object() {"NroTomo", "Gestion", "PeriodoAdeudado", "Tipo", "ImporteAdeudado", "DescripcionDeuda", "CCNro", "CCFechaPago", "CHNro", "" & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9)})
+        Me.cbxListadoClientes.Items.AddRange(New Object() {"NroTomo", "Gestion", "PeriodoAdeudado", "CCNro", "CHNro", "" & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9)})
         Me.cbxListadoClientes.Location = New System.Drawing.Point(6, 25)
         Me.cbxListadoClientes.Name = "cbxListadoClientes"
         Me.cbxListadoClientes.Size = New System.Drawing.Size(147, 21)

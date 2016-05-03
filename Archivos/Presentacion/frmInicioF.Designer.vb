@@ -53,7 +53,6 @@ Partial Class frmInicioF
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.btnSalir = New System.Windows.Forms.Button()
         Me.StatusStrip.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -79,7 +78,7 @@ Partial Class frmInicioF
         Me.Label2.Location = New System.Drawing.Point(187, 10)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(26, 13)
-        Me.Label2.TabIndex = 22
+        Me.Label2.TabIndex = 4
         Me.Label2.Text = "Rol:"
         '
         'Label1
@@ -88,7 +87,7 @@ Partial Class frmInicioF
         Me.Label1.Location = New System.Drawing.Point(12, 11)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(46, 13)
-        Me.Label1.TabIndex = 21
+        Me.Label1.TabIndex = 1
         Me.Label1.Text = "Usuario:"
         '
         'lbUsurio
@@ -98,7 +97,7 @@ Partial Class frmInicioF
         Me.lbUsurio.Location = New System.Drawing.Point(64, 5)
         Me.lbUsurio.Name = "lbUsurio"
         Me.lbUsurio.Size = New System.Drawing.Size(84, 20)
-        Me.lbUsurio.TabIndex = 20
+        Me.lbUsurio.TabIndex = 3
         Me.lbUsurio.Text = "USUARIO"
         '
         'lbrol
@@ -108,7 +107,7 @@ Partial Class frmInicioF
         Me.lbrol.Location = New System.Drawing.Point(241, 6)
         Me.lbrol.Name = "lbrol"
         Me.lbrol.Size = New System.Drawing.Size(81, 20)
-        Me.lbrol.TabIndex = 19
+        Me.lbrol.TabIndex = 5
         Me.lbrol.Text = "FUNCION"
         '
         'MenuStrip
@@ -118,8 +117,8 @@ Partial Class frmInicioF
         Me.MenuStrip.Location = New System.Drawing.Point(0, 24)
         Me.MenuStrip.MdiWindowListItem = Me.WindowsMenu
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(1171, 24)
-        Me.MenuStrip.TabIndex = 24
+        Me.MenuStrip.Size = New System.Drawing.Size(1171, 29)
+        Me.MenuStrip.TabIndex = 0
         Me.MenuStrip.Text = "MenuStrip"
         '
         'InicioToolStripMenuItem
@@ -239,8 +238,9 @@ Partial Class frmInicioF
         '
         'SalirToolStripMenuItem
         '
+        Me.SalirToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Underline)
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(63, 25)
         Me.SalirToolStripMenuItem.Text = "SALIR"
         '
         'MenuStrip1
@@ -248,19 +248,8 @@ Partial Class frmInicioF
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1171, 24)
-        Me.MenuStrip1.TabIndex = 25
+        Me.MenuStrip1.TabIndex = 2
         Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'btnSalir
-        '
-        Me.btnSalir.BackgroundImage = Global.Archivos.My.Resources.Resources.cancel
-        Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnSalir.Location = New System.Drawing.Point(893, 6)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(40, 36)
-        Me.btnSalir.TabIndex = 27
-        Me.btnSalir.UseVisualStyleBackColor = True
         '
         'frmInicioF
         '
@@ -271,7 +260,6 @@ Partial Class frmInicioF
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(1171, 608)
         Me.ControlBox = False
-        Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -319,7 +307,6 @@ Partial Class frmInicioF
     Friend WithEvents REPORTES As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReportePorNumeroDeChequeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReportePorNombreBeneficiarioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents btnSalir As System.Windows.Forms.Button
     Friend WithEvents ReportePorTomoYMomentoContableToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 
