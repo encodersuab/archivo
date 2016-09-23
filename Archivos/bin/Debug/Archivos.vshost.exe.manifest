@@ -68,14 +68,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Archivos.exe" size="1788928">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Archivos.exe" size="1790464">
       <assemblyIdentity name="Archivos" version="1.0.0.7" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>eDimQDsrFo8F1//6oO8Ra2FN8Zqb6tIcPo4L0EM8VXg=</dsig:DigestValue>
+        <dsig:DigestValue>dxzx4LQMEXbINFVo325Gy2+X0MWtkJnT32DC6zRDYnk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

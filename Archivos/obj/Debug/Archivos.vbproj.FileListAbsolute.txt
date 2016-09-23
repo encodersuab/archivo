@@ -47,3 +47,32 @@ C:\Users\soft\Desktop\archivo\Archivos\bin\Debug\Archivos.application
 C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.TrustInfo.xml
 C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.exe.manifest
 C:\Users\soft\Desktop\archivo\Archivos\obj\Debug\Archivos.application
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\bin\Debug\Archivos.exe.config
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.exe
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.xml
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.pdb
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\bin\Debug\Archivos.exe.manifest
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\bin\Debug\Archivos.application
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\bin\Debug\Archivos.exe
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\bin\Debug\Archivos.pdb
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\bin\Debug\Archivos.xml
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.vbprojResolveAssemblyReference.cache
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.frmAcercaDe.resources
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.frmCardadoImagen.resources
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.frmEditarRegistro.resources
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.frmInicioF.resources
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.frmLogin.resources
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.frmRegistro.resources
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.frmReporte.resources
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.frmUsuario.resources
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.Resources.resources
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.frmReporteImagenes.resources
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.frmReportePorNombreBeneficiario.resources
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.frmReportePorNroCheque.resources
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.frmReportePorTomoMomento.resources
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.vbproj.GenerateResource.Cache
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\RdlCompile.cache
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\RdlCompile.compiled
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.TrustInfo.xml
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.exe.manifest
+E:\Datos win 10\Escritorio\archivos\archivo\Archivos\obj\Debug\Archivos.application
